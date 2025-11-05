@@ -15,40 +15,59 @@
     <!-- Aquí se incluirá el contenido de header.html -->
     
     <main>
-        <section class="about">
-            <h1>Sobre NuviaDev</h1>
-            <p>NuviaDev es una empresa dedicada a proporcionar soluciones web para pymes y grandes empresas. Nuestra misión es ayudar a nuestros clientes a establecer una presencia digital efectiva y profesional.</p>
-            
-            <h2>Nuestra Historia</h2>
-            <p>Fundada en [Año], NuviaDev ha crecido de un pequeño equipo a una empresa reconocida en el sector del desarrollo web. A lo largo de los años, hemos trabajado con diversas empresas, ayudándolas a alcanzar sus objetivos digitales.</p>
-            
+        <section class="about container" aria-labelledby="about-title">
+            <div class="about-hero" style="text-align:center;margin-bottom:2rem;">
+                <img src="../assets/images/team-hero.jpg" alt="Equipo NuviaDev" style="max-width:320px;border-radius:16px;box-shadow:0 4px 24px rgba(37,99,235,0.10);">
+                <h1 id="about-title">Sobre NuviaDev</h1>
+                <p class="lead">Agencia de desarrollo web profesional, moderna y tecnológica.</p>
+            </div>
+            <h2>Misión y Visión</h2>
+            <p><strong>Misión:</strong> Proveer soluciones digitales que impulsen el crecimiento de nuestros clientes.</p>
+            <p><strong>Visión:</strong> Ser líderes en el desarrollo web, reconocidos por nuestra calidad y compromiso con el cliente.</p>
             <h2>Valores</h2>
-            <ul>
+            <ul class="about-values">
                 <li>Innovación</li>
                 <li>Compromiso</li>
                 <li>Calidad</li>
                 <li>Transparencia</li>
             </ul>
-            
             <h2>Equipo</h2>
-            <div class="team">
-                <article class="team-member">
-                    <h3>Nombre del Miembro 1</h3>
-                    <p>Descripción breve del miembro del equipo.</p>
+            <div class="team-grid">
+                <article class="team-card" data-reveal>
+                    <img src="../assets/images/team1.jpg" alt="Miembro 1" class="team-photo">
+                    <h3>Andrea López</h3>
+                    <p>CEO & Fullstack Developer</p>
                 </article>
-                <article class="team-member">
-                    <h3>Nombre del Miembro 2</h3>
-                    <p>Descripción breve del miembro del equipo.</p>
+                <article class="team-card" data-reveal>
+                    <img src="../assets/images/team2.jpg" alt="Miembro 2" class="team-photo">
+                    <h3>David Ruiz</h3>
+                    <p>Frontend Lead</p>
                 </article>
-                <article class="team-member">
-                    <h3>Nombre del Miembro 3</h3>
-                    <p>Descripción breve del miembro del equipo.</p>
+                <article class="team-card" data-reveal>
+                    <img src="../assets/images/team3.jpg" alt="Miembro 3" class="team-photo">
+                    <h3>Lucía Gómez</h3>
+                    <p>UI/UX Designer</p>
                 </article>
             </div>
-            
-            <h2>Misión y Visión</h2>
-            <p><strong>Misión:</strong> Proveer soluciones digitales que impulsen el crecimiento de nuestros clientes.</p>
-            <p><strong>Visión:</strong> Ser líderes en el desarrollo web, reconocidos por nuestra calidad y compromiso con el cliente.</p>
+            <h2>Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-year">2019</span>
+                    <span class="timeline-desc">Fundación de NuviaDev</span>
+                </div>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-year">2020</span>
+                    <span class="timeline-desc">Primer gran proyecto internacional</span>
+                </div>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-year">2022</span>
+                    <span class="timeline-desc">Expansión de equipo y servicios</span>
+                </div>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-year">2025</span>
+                    <span class="timeline-desc">Reconocimiento como agencia tech líder</span>
+                </div>
+            </div>
         </section>
     </main>
 

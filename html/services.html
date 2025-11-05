@@ -15,39 +15,35 @@
     <!-- Include header.html here -->
 
     <main>
-        <section class="services">
-            <h1>Nuestros Servicios</h1>
-            <p>En NuviaDev, ofrecemos una amplia gama de servicios diseñados para ayudar a tu negocio a crecer en el entorno digital.</p>
-            <ul class="services-list">
-                <li class="service-item">
+        <section class="services container" aria-labelledby="services-title">
+            <h1 id="services-title">Nuestros Servicios</h1>
+            <p class="services__subtitle">Soluciones digitales modernas para empresas y startups.</p>
+            <div class="services__grid">
+                <article class="service-card" data-reveal>
+                    <div class="service-icon">
+                        <img src="../assets/icons/web-design.svg" alt="Web Design" width="48" height="48">
+                    </div>
                     <h2>Diseño Web</h2>
-                    <p>Creación de sitios web atractivos y funcionales que reflejan la identidad de tu marca.</p>
-                </li>
-                <li class="service-item">
-                    <h2>Desarrollo Front-End</h2>
-                    <p>Desarrollo de interfaces de usuario interactivas y responsivas utilizando las últimas tecnologías.</p>
-                </li>
-                <li class="service-item">
-                    <h2>Desarrollo Back-End</h2>
-                    <p>Implementación de soluciones robustas y escalables para el manejo de datos y lógica de negocio.</p>
-                </li>
-                <li class="service-item">
-                    <h2>Mantenimiento</h2>
-                    <p>Servicios de mantenimiento para asegurar que tu sitio web funcione sin problemas y esté siempre actualizado.</p>
-                </li>
-                <li class="service-item">
-                    <h2>SEO</h2>
-                    <p>Optimización de motores de búsqueda para mejorar la visibilidad de tu sitio web y atraer más tráfico.</p>
-                </li>
-                <li class="service-item">
-                    <h2>Alojamiento</h2>
-                    <p>Soluciones de alojamiento seguras y confiables para tu sitio web.</p>
-                </li>
-                <li class="service-item">
-                    <h2>Consultoría</h2>
-                    <p>Asesoramiento experto para ayudarte a tomar decisiones informadas sobre tu presencia digital.</p>
-                </li>
-            </ul>
+                    <p>Interfaces modernas, atractivas y 100% responsive. Ejemplo: <a href="../projects.html#web-design">Landing SaaS</a></p>
+                </article>
+                <article class="service-card" data-reveal>
+                    <div class="service-icon">
+                        <img src="../assets/icons/frontend.svg" alt="Frontend" width="48" height="48">
+                    </div>
+                    <h2>Frontend Development</h2>
+                    <p>Código limpio, animaciones suaves y experiencia fluida. Ejemplo: <a href="../projects.html#frontend">Portfolio UI</a></p>
+                </article>
+                <article class="service-card" data-reveal>
+                    <div class="service-icon">
+                        <img src="../assets/icons/seo.svg" alt="SEO" width="48" height="48">
+                    </div>
+                    <h2>SEO & Performance</h2>
+                    <p>Optimización para buscadores y máxima velocidad. Ejemplo: <a href="../projects.html#seo">Web Corporativa</a></p>
+                </article>
+            </div>
+            <div class="services__cta">
+                <a href="../contact.html" class="btn btn--primary">Get a quote</a>
+            </div>
         </section>
     </main>
 

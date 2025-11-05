@@ -9,61 +9,33 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias a elementos
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const darkModeToggle = document.querySelector('.dark-mode-toggle');
-    
-    // Menú móvil
-    if (mobileMenuToggle && navLinks) {
-        const toggleMenu = () => {
-            const isExpanded = navLinks.classList.toggle('is-active');
-            mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
-            mobileMenuToggle.classList.toggle('is-active');
-        };
-
-        mobileMenuToggle.addEventListener('click', toggleMenu);
-        
-        // Cerrar menú al hacer click fuera
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.main-nav') && navLinks.classList.contains('is-active')) {
-                toggleMenu();
-            }
+    // Toggle menú móvil
+    const navToggle = document.querySelector('.nav__toggle');
+    const navMenu = document.querySelector('.nav__menu');
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('is-open');
         });
     }
 
-    // Modo oscuro
-    if (darkModeToggle) {
-        // Verificar preferencia guardada
-        const prefersDark = localStorage.getItem('darkMode') === 'true' || 
-                           window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        const setDarkMode = (isDark) => {
-            document.documentElement.classList.toggle('dark-mode', isDark);
+    // Toggle modo oscuro
+    const darkToggle = document.querySelector('.dark-toggle');
+    if (darkToggle) {
+        const prefersDark = localStorage.getItem('darkMode') === 'true' || window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.body.classList.toggle('dark-mode', prefersDark);
+        darkToggle.addEventListener('click', () => {
+            const isDark = !document.body.classList.contains('dark-mode');
+            document.body.classList.toggle('dark-mode', isDark);
             localStorage.setItem('darkMode', isDark);
-            darkModeToggle.setAttribute('aria-label', 
-                isDark ? 'Activar modo claro' : 'Activar modo oscuro');
-        };
-
-        // Aplicar preferencia inicial
-        setDarkMode(prefersDark);
-
-        // Manejar cambios
-        darkModeToggle.addEventListener('click', () => {
-            const isDark = !document.documentElement.classList.contains('dark-mode');
-            setDarkMode(isDark);
         });
     }
 
     // Marcar enlace activo
     const markActiveLink = () => {
         const currentPath = window.location.pathname;
-        const navItems = document.querySelectorAll('.nav-links a');
-        
-        navItems.forEach(link => {
+        document.querySelectorAll('.nav__menu a').forEach(link => {
             const linkPath = link.getAttribute('href');
             const isActive = currentPath.endsWith(linkPath);
-            
             link.classList.toggle('active', isActive);
             if (isActive) {
                 link.setAttribute('aria-current', 'page');
@@ -72,12 +44,43 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-
     markActiveLink();
-});
-window.addEventListener('load', () => {
-    const menu = document.querySelector('.navbar__menu');
-    if (menu.classList.contains('is-active')) {
-        menu.classList.remove('is-active');
-    }
+
+    // Animación scroll reveal
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.2 });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    // Parallax backgrounds
+    document.querySelectorAll('.parallax').forEach(bg => {
+        window.addEventListener('scroll', () => {
+            const offset = window.pageYOffset;
+            bg.style.backgroundPositionY = (offset * 0.5) + 'px';
+        });
+    });
+
+    // Carga progresiva de imágenes
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        img.addEventListener('load', () => {
+            img.style.opacity = 1;
+            img.style.transition = 'opacity 0.5s';
+        });
+        img.style.opacity = 0;
+    });
+
+    // Microinteracciones logo
+    document.querySelectorAll('.nav__logo img, .footer__brand img').forEach(logo => {
+        logo.addEventListener('mouseover', () => {
+            logo.style.transform = 'scale(1.15) rotate(-6deg)';
+        });
+        logo.addEventListener('mouseout', () => {
+            logo.style.transform = 'none';
+        });
+    });
 });

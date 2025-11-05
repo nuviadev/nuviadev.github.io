@@ -15,30 +15,81 @@
     <!-- Include header.html here -->
 
     <main>
-        <section class="projects">
-            <h1>Nuestros Proyectos</h1>
-            <p>En NuviaDev, estamos orgullosos de nuestros proyectos. Aquí hay una selección de algunos de nuestros trabajos más destacados:</p>
-            <div class="projects-gallery">
-                <article class="project-card">
-                    <h2>Proyecto 1</h2>
-                    <p>Descripción breve del proyecto 1. Incluye tecnologías utilizadas y resultados obtenidos.</p>
+        <section class="projects container" aria-labelledby="projects-title">
+            <h1 id="projects-title">Nuestros Proyectos</h1>
+            <p class="projects__subtitle">Explora algunos de nuestros trabajos más destacados.</p>
+            <div class="projects-filters">
+                <button class="btn btn--secondary" data-filter="all">Todos</button>
+                <button class="btn btn--secondary" data-filter="web">Web</button>
+                <button class="btn btn--secondary" data-filter="seo">SEO</button>
+                <button class="btn btn--secondary" data-filter="ui">UI</button>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card" data-type="web" data-reveal onclick="openProjectModal(1)">
+                    <img src="../assets/images/project1.jpg" alt="Landing SaaS" loading="lazy">
+                    <h2>Landing SaaS</h2>
+                    <p>Startup tecnológica. <span class="tech">HTML, CSS, JS</span></p>
                 </article>
-                <article class="project-card">
-                    <h2>Proyecto 2</h2>
-                    <p>Descripción breve del proyecto 2. Incluye tecnologías utilizadas y resultados obtenidos.</p>
+                <article class="project-card" data-type="seo" data-reveal onclick="openProjectModal(2)">
+                    <img src="../assets/images/project2.jpg" alt="Web Corporativa" loading="lazy">
+                    <h2>Web Corporativa</h2>
+                    <p>Optimización SEO y performance. <span class="tech">HTML, CSS, JS, SEO</span></p>
                 </article>
-                <article class="project-card">
-                    <h2>Proyecto 3</h2>
-                    <p>Descripción breve del proyecto 3. Incluye tecnologías utilizadas y resultados obtenidos.</p>
+                <article class="project-card" data-type="ui" data-reveal onclick="openProjectModal(3)">
+                    <img src="../assets/images/project3.jpg" alt="Portfolio UI" loading="lazy">
+                    <h2>Portfolio UI</h2>
+                    <p>Interfaz visual y animada. <span class="tech">HTML, CSS, JS, Animaciones</span></p>
                 </article>
-                <article class="project-card">
-                    <h2>Proyecto 4</h2>
-                    <p>Descripción breve del proyecto 4. Incluye tecnologías utilizadas y resultados obtenidos.</p>
-                </article>
-                <!-- Agregar más proyectos según sea necesario -->
+            </div>
+            <!-- Modal de detalles -->
+            <div id="project-modal" class="modal" style="display:none;">
+                <div class="modal-content">
+                    <span class="modal-close" onclick="closeProjectModal()">&times;</span>
+                    <div id="modal-details"></div>
+                </div>
             </div>
         </section>
     </main>
+    <script>
+    // Filtros de proyectos
+    document.querySelectorAll('.projects-filters button').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.style.display = (filter === 'all' || card.getAttribute('data-type') === filter) ? '' : 'none';
+            });
+        });
+    });
+    // Modal de detalles
+    function openProjectModal(id) {
+        const details = [
+            {
+                title: 'Landing SaaS',
+                desc: 'Diseño y desarrollo para startup tecnológica. Tecnologías: HTML, CSS, JS.',
+                link: '#',
+                tech: 'HTML, CSS, JS'
+            },
+            {
+                title: 'Web Corporativa',
+                desc: 'Optimización SEO y performance para empresa B2B. Tecnologías: HTML, CSS, JS, SEO.',
+                link: '#',
+                tech: 'HTML, CSS, JS, SEO'
+            },
+            {
+                title: 'Portfolio UI',
+                desc: 'Interfaz visual y animada para profesional freelance. Tecnologías: HTML, CSS, JS, Animaciones.',
+                link: '#',
+                tech: 'HTML, CSS, JS, Animaciones'
+            }
+        ];
+        const d = details[id-1];
+        document.getElementById('modal-details').innerHTML = `<h2>${d.title}</h2><p>${d.desc}</p><p><strong>Tecnologías:</strong> ${d.tech}</p><a href="${d.link}" class="btn btn--primary">Ver demo</a>`;
+        document.getElementById('project-modal').style.display = 'block';
+    }
+    function closeProjectModal() {
+        document.getElementById('project-modal').style.display = 'none';
+    }
+    </script>
 
     <!-- Footer -->
     <!-- Include footer.html here -->
