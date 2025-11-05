@@ -1,0 +1,16 @@
+{
+  "name": "NuviaDev",
+  "short_name": "NuviaDev",
+  "description": "NuviaDev provides professional web solutions for small and large businesses.",
+  "start_url": "/html/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#007bff",
+  "icons": [
+    {
+      "src": "assets/icons/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

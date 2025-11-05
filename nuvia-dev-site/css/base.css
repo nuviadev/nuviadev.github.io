@@ -1,0 +1,66 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Inter', sans-serif; /* Fallback font */
+    line-height: 1.6;
+    color: var(--text-color, #333);
+    background-color: var(--background-color, #fff);
+}
+
+/* Link Styles */
+a {
+    text-decoration: none;
+    color: var(--primary-color, #007bff);
+}
+
+a:hover {
+    color: var(--primary-color-dark, #0056b3);
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+/* Responsive Typography */
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+/* Custom Properties for Theme */
+:root {
+    --primary-color: #007bff;
+    --primary-color-dark: #0056b3;
+    --text-color: #333;
+    --background-color: #fff;
+}

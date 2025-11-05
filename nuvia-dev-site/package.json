@@ -1,0 +1,21 @@
+{
+  "name": "nuvia-dev-site",
+  "version": "1.0.0",
+  "description": "A professional and modern web project for NuviaDev, aimed at attracting small and large businesses.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve html",
+    "build": "echo 'Build process not defined'",
+    "test": "echo 'No tests defined'"
+  },
+  "keywords": [
+    "NuviaDev",
+    "web development",
+    "business",
+    "services"
+  ],
+  "author": "NuviaDev",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
