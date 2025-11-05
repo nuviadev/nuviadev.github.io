@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/utils.css">
+    <link rel="stylesheet" href="../css/animations.css">
     <link rel="icon" href="../assets/icons/favicon.ico" type="image/x-icon">
     <title>NuviaDev - Inicio</title>
+    <script src="../js/animations.js" defer></script>
 </head>
 <body>
     <header>
@@ -21,21 +23,21 @@
     </header>
     <main>
         <section class="hero">
-            <h1>Diseñamos y desarrollamos tu presencia web.</h1>
-            <p>Profesionales, cercanos y eficaces.</p>
-            <a href="contact.html" class="cta-button">Contactar ahora — Hablemos de tu web</a>
+            <h1 class="animate-slide-left">Diseñamos y desarrollamos tu presencia web.</h1>
+            <p class="animate-fade-in">Profesionales, cercanos y eficaces.</p>
+            <a href="contact.html" class="cta-button btn btn-primary animate-scale hover-lift">Contactar ahora — Hablemos de tu web</a>
         </section>
         <section class="services">
             <h2>Servicios Destacados</h2>
-            <div class="service-card">
+            <div class="service-card reveal hover-lift hover-glow">
                 <h3>Diseño Web</h3>
                 <p>Creación de sitios web atractivos y funcionales.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal hover-lift hover-glow">
                 <h3>Desarrollo Front-end</h3>
                 <p>Implementación de interfaces de usuario interactivas.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal hover-lift hover-glow">
                 <h3>SEO</h3>
                 <p>Optimización para motores de búsqueda para mejorar tu visibilidad.</p>
             </div>
