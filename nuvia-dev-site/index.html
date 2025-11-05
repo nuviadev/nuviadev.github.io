@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NuviaDev - Diseñamos y desarrollamos tu presencia web. Profesionales, cercanos y eficaces.">
+    <meta property="og:title" content="NuviaDev - Desarrollo Web">
+    <meta property="og:description" content="Proveemos páginas web para pymes y grandes empresas.">
+    <meta property="og:url" content="https://www.nuviadev.com">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    
+    <!-- Estilos con rutas corregidas desde la raíz -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/utils.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    
+    <title>NuviaDev - Inicio</title>
+</head>
+<body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Header partial comment -->
+    <!-- Si tu servidor soporta includes, puedes usar: include('partials/header.html') -->
+    <header class="site-header">
+        <nav class="main-nav container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.svg" alt="NuviaDev Logo" width="150" height="40">
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="about.html">Quiénes Somos</a></li>
+                <li><a href="services.html">Servicios</a></li>
+                <li><a href="projects.html">Proyectos</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Diseñamos y desarrollamos tu presencia web</h1>
+                <p class="lead">Profesionales, cercanos y eficaces. Transformamos tu visión en una web excepcional.</p>
+                <div class="cta-group">
+                    <a href="html/contact.html" class="btn btn-primary btn-lg">
+                        Hablemos de tu proyecto
+                    </a>
+                    <a href="html/services.html" class="btn btn-secondary btn-lg">
+                        Conoce nuestros servicios
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Preview -->
+        <section class="services-preview">
+            <div class="container">
+                <h2>Nuestros Servicios</h2>
+                <div class="services-grid">
+                    <!-- Servicio 1 -->
+                    <article class="service-card">
+                        <h3>Diseño Web</h3>
+                        <p>Interfaces modernas y atractivas que conectan con tu audiencia.</p>
+                        <a href="html/services.html#web-design" class="btn btn-outline">Saber más</a>
+                    </article>
+                    <!-- Servicio 2 -->
+                    <article class="service-card">
+                        <h3>Desarrollo Frontend</h3>
+                        <p>Código limpio y optimizado para una experiencia excepcional.</p>
+                        <a href="html/services.html#frontend" class="btn btn-outline">Saber más</a>
+                    </article>
+                    <!-- Servicio 3 -->
+                    <article class="service-card">
+                        <h3>SEO y Rendimiento</h3>
+                        <p>Optimización para buscadores y máxima velocidad.</p>
+                        <a href="html/services.html#seo" class="btn btn-outline">Saber más</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonios -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <div class="testimonials-grid">
+                    <blockquote class="testimonial-card">
+                        <p>"NuviaDev transformó nuestra presencia digital con un diseño profesional y moderno."</p>
+                        <cite>María G., CEO TechStartup</cite>
+                    </blockquote>
+                    <blockquote class="testimonial-card">
+                        <p>"Excelente atención y resultados que superaron nuestras expectativas."</p>
+                        <cite>Carlos R., Director Marketing</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>¿Tienes un proyecto en mente?</h2>
+                <p>Contáctanos para una consulta gratuita</p>
+                <a href="html/contact.html" class="btn btn-primary btn-lg">Contactar ahora</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer partial comment -->
+    <!-- Si tu servidor soporta includes, puedes usar: include('partials/footer.html') -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">NuviaDev</a>
+                </div>
+                <div class="footer-links">
+                    <a href="html/privacy.html">Política de Privacidad</a>
+                    <a href="https://www.linkedin.com/company/109993164/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 NuviaDev. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js" defer></script>
+    <script src="js/animations.js" defer></script>
+</body>
+</html>

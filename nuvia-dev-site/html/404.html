@@ -3,26 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página no encontrada - NuviaDev</title>
+    <meta name="description" content="Página no encontrada - NuviaDev">
+    <meta property="og:title" content="404 - Página no encontrada | NuviaDev">
+    <meta property="og:description" content="Lo sentimos, la página que estás buscando no existe o ha sido movida.">
+    
+    <!-- Estilos con rutas corregidas -->
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/utils.css">
+    <link rel="icon" href="../assets/icons/favicon.ico" type="image/x-icon">
+    <title>404 - Página no encontrada | NuviaDev</title>
 </head>
 <body>
-    <header>
-        <!-- Aquí se incluirá el contenido del header -->
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Si tu servidor soporta includes, puedes usar: include('../partials/header.html') -->
+    <header class="site-header">
+        <nav class="main-nav container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo.svg" alt="NuviaDev Logo" width="150" height="40">
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="about.html">Quiénes Somos</a></li>
+                <li><a href="services.html">Servicios</a></li>
+                <li><a href="projects.html">Proyectos</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
-    <main>
+
+    <main id="main-content">
         <section class="error-404">
-            <h1>404 - Página no encontrada</h1>
-            <p>Lo sentimos, la página que estás buscando no existe o ha sido movida.</p>
-            <a href="index.html" class="btn">Volver a la página de inicio</a>
+            <div class="container text-center">
+                <h1>404 - Página no encontrada</h1>
+                <p class="lead">Lo sentimos, la página que estás buscando no existe o ha sido movida.</p>
+                <div class="error-actions">
+                    <a href="../index.html" class="btn btn-primary">Volver a la página de inicio</a>
+                    <a href="contact.html" class="btn btn-secondary">Contactar con soporte</a>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <!-- Aquí se incluirá el contenido del footer -->
+
+    <!-- Si tu servidor soporta includes, puedes usar: include('../partials/footer.html') -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="../index.html">NuviaDev</a>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy.html">Política de Privacidad</a>
+                    <a href="https://www.linkedin.com/company/109993164/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 NuviaDev. Todos los derechos reservados.</p>
+        </div>
     </footer>
-    <script src="../js/main.js"></script>
+
+    <!-- Scripts -->
+    <script src="../js/main.js" defer></script>
 </body>
 </html>
