@@ -25,23 +25,100 @@
 
     <!-- Header partial comment -->
     <!-- Si tu servidor soporta includes, puedes usar: include('partials/header.html') -->
-    <header class="site-header">
-        <nav class="main-nav container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.png" alt="NuviaDev Logo" width="150" height="40">
-            </a>
-            <button class="mobile-menu-toggle" aria-label="Menu">
-                <span class="hamburger"></span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NuviaDev — Web Creation Services</title>
+    <meta name="description" content="NuviaDev designs and builds modern, high-performance websites. Explore our web design, frontend development, and SEO services.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2563eb">
+    <!-- Favicon links (add your .ico/.png/svg as needed) -->
+    <!-- <link rel="icon" href="assets/icons/favicon.ico"> -->
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="NuviaDev — Web Creation Services">
+    <meta property="og:description" content="Modern, accessible websites by NuviaDev. Web design, frontend development, SEO.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nuviadev.github.io/">
+    <meta property="og:image" content="assets/images/og-image.png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="site-header" id="top">
+        <nav class="nav" aria-label="Main navigation">
+            <div class="nav__brand">
+                <a href="#top" class="nav__logo">NuviaDev</a>
+            </div>
+            <button class="nav__toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
             </button>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="about.html">Quiénes Somos</a></li>
-                <li><a href="services.html">Servicios</a></li>
-                <li><a href="projects.html">Proyectos</a></li>
-                <li><a href="contact.html" class="btn btn-primary">Contacto</a></li>
+            <ul class="nav__menu" id="nav-menu">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
+    <main>
+        <section class="hero container" aria-labelledby="hero-title">
+            <h1 id="hero-title">We design and build websites that work.</h1>
+            <p class="hero__subtitle">Modern, accessible, and high-performance web solutions for your business.</p>
+            <div class="hero__actions">
+                <a href="#contact" class="btn btn--primary">Discuss your project</a>
+                <a href="#services" class="btn btn--secondary">Explore services</a>
+            </div>
+        </section>
+        <section class="services container" id="services" aria-labelledby="services-title">
+            <h2 id="services-title">Our Services</h2>
+            <div class="services__grid">
+                <article class="service-card" tabindex="0">
+                    <h3>Web Design</h3>
+                    <p>Custom, responsive designs that reflect your brand and engage your audience.</p>
+                </article>
+                <article class="service-card" tabindex="0">
+                    <h3>Frontend Development</h3>
+                    <p>Fast, accessible, and maintainable code for seamless user experiences.</p>
+                </article>
+                <article class="service-card" tabindex="0">
+                    <h3>SEO & Performance</h3>
+                    <p>Optimized sites for search engines and speed, driving more visitors and conversions.</p>
+                </article>
+            </div>
+        </section>
+        <section class="testimonials container" id="testimonials" aria-labelledby="testimonials-title">
+            <h2 id="testimonials-title">Testimonials</h2>
+            <div class="testimonials__list">
+                <blockquote>
+                    <p>“NuviaDev delivered a beautiful, fast website that our customers love.”</p>
+                    <footer>— Alex P.</footer>
+                </blockquote>
+                <blockquote>
+                    <p>“Professional, responsive, and truly understands modern web standards.”</p>
+                    <footer>— Jamie L.</footer>
+                </blockquote>
+            </div>
+        </section>
+        <section class="cta container" id="contact" aria-labelledby="cta-title">
+            <h2 id="cta-title">Have a project in mind?</h2>
+            <p>Let’s create something great together. Reach out to discuss your ideas.</p>
+            <a href="#contact" class="btn btn--primary">Contact now</a>
+        </section>
+    </main>
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer__content container">
+            <span class="footer__brand">NuviaDev</span>
+            <nav class="footer__nav" aria-label="Footer">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms</a>
+            </nav>
+            <span class="footer__copy">&copy; <span id="year"></span> NuviaDev. All rights reserved.</span>
+        </div>
+    </footer>
+    <script src="js/main.js" defer></script>
+</body>
+</html>
 
     <main id="main-content">
         <!-- Hero Section -->
