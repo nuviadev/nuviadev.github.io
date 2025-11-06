@@ -1,11 +1,20 @@
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2023 NuviaDev. Todos los derechos reservados.</p>
-        <ul class="social-links">
-            <li><a href="https://www.linkedin.com/company/109993164/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        </ul>
+<footer class="site-footer">
+    <div class="container footer__content">
+        <div class="footer__brand">
+            <img src="../assets/icons/logo.svg" alt="NuviaDev Logo" style="height:28px;vertical-align:middle;transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.15) rotate(-6deg)'" onmouseout="this.style.transform='none'">
+            <span style="margin-left:8px;">NuviaDev</span>
+        </div>
+        <nav class="footer__nav" aria-label="Redes sociales">
+            <a href="https://www.linkedin.com/company/109993164/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="../assets/icons/linkedin.svg" alt="LinkedIn" style="height:22px;vertical-align:middle;"></a>
+            <a href="https://twitter.com/nuviadev" target="_blank" rel="noopener" aria-label="Twitter"><img src="../assets/icons/twitter.svg" alt="Twitter" style="height:22px;vertical-align:middle;"></a>
+            <a href="https://github.com/nuviadev" target="_blank" rel="noopener" aria-label="GitHub"><img src="../assets/icons/github.svg" alt="GitHub" style="height:22px;vertical-align:middle;"></a>
+        </nav>
+        <div class="footer__copy">
+            &copy; <span id="year"></span> NuviaDev. Todos los derechos reservados.
+        </div>
     </div>
-    <div class="footer-bottom">
-        <p>Desarrollado por NuviaDev. <a href="privacy.html">Política de privacidad</a> | <a href="404.html">404 - Página no encontrada</a></p>
+    <div class="container" style="margin-top:1rem;text-align:center;">
+        Desarrollado por NuviaDev. <a href="privacy.html">Política de privacidad</a> | <a href="terms.html">Términos</a> | <a href="404.html">404</a>
     </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </footer>

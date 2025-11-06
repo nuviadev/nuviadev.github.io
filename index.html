@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <meta name="description" content="NuviaDev - Diseñamos y desarrollamos tu presencia web. Profesionales, cercanos y eficaces.">
     <meta property="og:title" content="NuviaDev - Desarrollo Web">
     <meta property="og:description" content="Proveemos páginas web para pymes y grandes empresas.">
@@ -98,82 +100,135 @@
                         Conoce nuestros servicios
                     </a>
                 </div>
+=======
+    <meta name="description" content="NuviaDev - Agencia de desarrollo web profesional, moderna y tecnológica.">
+    <meta property="og:title" content="NuviaDev - Desarrollo Web Profesional">
+    <meta property="og:description" content="Webs modernas, rápidas y visualmente impactantes para empresas y startups.">
+    <meta property="og:url" content="https://nuviadev.github.io/">
+    <meta property="og:image" content="assets/images/og-image.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <title>NuviaDev - Inicio</title>
+</head>
+<body>
+    <!-- Header -->
+    <!--#include file="partials/header.html" -->
+
+    <main id="main-content">
+        <!-- Hero Section con animación typing -->
+        <section class="hero container" aria-labelledby="hero-title">
+            <h1 id="hero-title"><span id="typed-text"></span><span class="typed-cursor">|</span></h1>
+            <p class="hero__subtitle">Agencia de desarrollo web moderna, profesional y tecnológica.</p>
+            <div class="hero__actions">
+                <a href="html/contact.html" class="btn btn--primary">Start your project</a>
+                <a href="html/services.html" class="btn btn--secondary">Explore services</a>
+>>>>>>> f30e268635fd6aac238f4159037b3cf9bc224030
             </div>
         </section>
 
-        <!-- Services Preview -->
-        <section class="services-preview">
-            <div class="container">
-                <h2>Nuestros Servicios</h2>
-                <div class="services-grid">
-                    <!-- Servicio 1 -->
-                    <article class="service-card">
-                        <h3>Diseño Web</h3>
-                        <p>Interfaces modernas y atractivas que conectan con tu audiencia.</p>
-                        <a href="html/services.html#web-design" class="btn btn-outline">Saber más</a>
-                    </article>
-                    <!-- Servicio 2 -->
-                    <article class="service-card">
-                        <h3>Desarrollo Frontend</h3>
-                        <p>Código limpio y optimizado para una experiencia excepcional.</p>
-                        <a href="html/services.html#frontend" class="btn btn-outline">Saber más</a>
-                    </article>
-                    <!-- Servicio 3 -->
-                    <article class="service-card">
-                        <h3>SEO y Rendimiento</h3>
-                        <p>Optimización para buscadores y máxima velocidad.</p>
-                        <a href="html/services.html#seo" class="btn btn-outline">Saber más</a>
-                    </article>
+        <!-- Proyectos recientes -->
+        <section class="projects-preview container" id="projects">
+            <h2>Proyectos recientes</h2>
+            <div class="projects-grid">
+                <article class="project-card" data-reveal>
+                    <img src="assets/images/project1.jpg" alt="Proyecto 1" loading="lazy">
+                    <h3>Landing SaaS</h3>
+                    <p>Diseño y desarrollo para startup tecnológica.</p>
+                </article>
+                <article class="project-card" data-reveal>
+                    <img src="assets/images/project2.jpg" alt="Proyecto 2" loading="lazy">
+                    <h3>Web Corporativa</h3>
+                    <p>Optimización SEO y performance para empresa B2B.</p>
+                </article>
+                <article class="project-card" data-reveal>
+                    <img src="assets/images/project3.jpg" alt="Proyecto 3" loading="lazy">
+                    <h3>Portfolio UI</h3>
+                    <p>Interfaz visual y animada para profesional freelance.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Partners/Clientes -->
+        <section class="partners container" id="partners">
+            <h2>Confían en nosotros</h2>
+            <div class="partners-logos">
+                <img src="assets/images/partner1.png" alt="Partner 1" loading="lazy">
+                <img src="assets/images/partner2.png" alt="Partner 2" loading="lazy">
+                <img src="assets/images/partner3.png" alt="Partner 3" loading="lazy">
+            </div>
+        </section>
+
+        <!-- Testimonios slider -->
+        <section class="testimonials container" id="testimonials">
+            <h2>Testimonios</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <img src="assets/images/client1.jpg" alt="Cliente 1" class="testimonial-photo">
+                    <p>“NuviaDev superó nuestras expectativas con una web rápida y moderna.”</p>
+                    <div class="stars">★★★★★</div>
+                    <cite>María G., CEO TechStartup</cite>
                 </div>
-            </div>
-        </section>
-
-        <!-- Testimonios -->
-        <section class="testimonials">
-            <div class="container">
-                <h2>Lo que dicen nuestros clientes</h2>
-                <div class="testimonials-grid">
-                    <blockquote class="testimonial-card">
-                        <p>"NuviaDev transformó nuestra presencia digital con un diseño profesional y moderno."</p>
-                        <cite>María G., CEO TechStartup</cite>
-                    </blockquote>
-                    <blockquote class="testimonial-card">
-                        <p>"Excelente atención y resultados que superaron nuestras expectativas."</p>
-                        <cite>Carlos R., Director Marketing</cite>
-                    </blockquote>
+                <div class="testimonial-card">
+                    <img src="assets/images/client2.jpg" alt="Cliente 2" class="testimonial-photo">
+                    <p>“Atención excelente y resultados profesionales.”</p>
+                    <div class="stars">★★★★★</div>
+                    <cite>Carlos R., Director Marketing</cite>
                 </div>
+                <div class="testimonial-card">
+                    <img src="assets/images/client3.jpg" alt="Cliente 3" class="testimonial-photo">
+                    <p>“Recomiendo NuviaDev para cualquier proyecto tech.”</p>
+                    <div class="stars">★★★★★</div>
+                    <cite>Laura S., CTO Fintech</cite>
+                </div>
+                <button class="testimonial-prev" aria-label="Anterior">&#8592;</button>
+                <button class="testimonial-next" aria-label="Siguiente">&#8594;</button>
             </div>
         </section>
 
-        <!-- CTA Final -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>¿Tienes un proyecto en mente?</h2>
-                <p>Contáctanos para una consulta gratuita</p>
-                <a href="html/contact.html" class="btn btn-primary btn-lg">Contactar ahora</a>
-            </div>
+        <!-- CTA final -->
+        <section class="cta container" id="cta">
+            <h2>¿Listo para tu próximo proyecto?</h2>
+            <p>Contáctanos y construyamos algo increíble juntos.</p>
+            <a href="html/contact.html" class="btn btn--primary">Let’s build something amazing!</a>
         </section>
     </main>
 
-    <!-- Footer partial comment -->
-    <!-- Si tu servidor soporta includes, puedes usar: include('partials/footer.html') -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="index.html">NuviaDev</a>
-                </div>
-                <div class="footer-links">
-                    <a href="html/privacy.html">Política de Privacidad</a>
-                    <a href="https://www.linkedin.com/company/109993164/" target="_blank" rel="noopener">LinkedIn</a>
-                </div>
-            </div>
-            <p class="copyright">&copy; 2025 NuviaDev. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    <!-- Footer -->
+    <!--#include file="partials/footer.html" -->
 
-    <!-- Scripts -->
     <script src="js/main.js" defer></script>
     <script src="js/animations.js" defer></script>
+    <script>
+    // Animación typing effect
+    const typedText = document.getElementById('typed-text');
+    const cursor = document.querySelector('.typed-cursor');
+    const phrases = [
+        'Webs modernas y rápidas.',
+        'Soluciones tecnológicas a medida.',
+        'Tu agencia de desarrollo profesional.'
+    ];
+    let phraseIndex = 0, charIndex = 0, typing = true;
+    function typeLoop() {
+        if (typing) {
+            if (charIndex < phrases[phraseIndex].length) {
+                typedText.textContent += phrases[phraseIndex][charIndex++];
+                setTimeout(typeLoop, 70);
+            } else {
+                typing = false;
+                setTimeout(typeLoop, 1200);
+            }
+        } else {
+            if (charIndex > 0) {
+                typedText.textContent = phrases[phraseIndex].slice(0, --charIndex);
+                setTimeout(typeLoop, 40);
+            } else {
+                typing = true;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(typeLoop, 400);
+            }
+        }
+    }
+    if (typedText) typeLoop();
+    </script>
 </body>
 </html>
