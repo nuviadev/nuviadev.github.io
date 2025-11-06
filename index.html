@@ -9,45 +9,86 @@
     <meta property="og:url" content="https://www.nuviadev.com">
     <meta property="og:image" content="assets/images/og-image.jpg">
     
-    <!-- Estilos con rutas corregidas desde la raíz -->
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="assets/fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/inter-semibold.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/utils.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
     
-    <title>NuviaDev - Inicio</title>
+    <title>NuviaDev - Desarrollo Web Profesional</title>
 </head>
 <body>
     <!-- Skip to main content -->
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-    <!-- Header partial comment -->
-    <!-- Si tu servidor soporta includes, puedes usar: include('partials/header.html') -->
-    <header class="site-header">
-        <nav class="main-nav container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.png" alt="NuviaDev Logo" width="150" height="40">
-            </a>
-            <button class="mobile-menu-toggle" aria-label="Menu">
-                <span class="hamburger"></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="about.html">Quiénes Somos</a></li>
-                <li><a href="services.html">Servicios</a></li>
-                <li><a href="projects.html">Proyectos</a></li>
-                <li><a href="contact.html" class="btn btn-primary">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Header se insertará vía JS -->
+    <header></header>
 
-    <main id="main-content">
+    <main id="main-content" class="main-content">
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
-                <h1>Diseñamos y desarrollamos tu presencia web</h1>
+                <h1>Soluciones digitales para tu negocio</h1>
+                <p class="hero__subtitle">Desarrollo web profesional y diseño de interfaces centrado en el usuario</p>
+                <div class="hero__cta">
+                    <a href="html/contact.html" class="btn btn--primary">Solicitar presupuesto</a>
+                    <a href="html/services.html" class="btn btn--outline">Ver servicios</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="section">
+            <div class="container">
+                <div class="grid grid--3-cols">
+                    <article class="card">
+                        <div class="card__content">
+                            <h2>Desarrollo Web</h2>
+                            <p>Sitios web profesionales y optimizados para todos los dispositivos.</p>
+                            <a href="/html/services.html#web" class="btn btn--outline">Más información</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card__content">
+                            <h2>Diseño UX/UI</h2>
+                            <p>Interfaces atractivas y fáciles de usar que convierten visitantes en clientes.</p>
+                            <a href="/html/services.html#design" class="btn btn--outline">Más información</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card__content">
+                            <h2>Consultoría</h2>
+                            <p>Asesoramiento experto para optimizar tu presencia digital.</p>
+                            <a href="/html/services.html#consulting" class="btn btn--outline">Más información</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="section cta-section">
+            <div class="container text-center">
+                <h2>¿Listo para dar el siguiente paso?</h2>
+                <p class="mb-4">Contáctanos para discutir tu proyecto y obtener un presupuesto personalizado.</p>
+                <a href="/html/contact.html" class="btn btn--primary">Contactar ahora</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer se insertará vía JS -->
+    <footer></footer>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
                 <p class="lead">Profesionales, cercanos y eficaces. Transformamos tu visión en una web excepcional.</p>
                 <div class="cta-group">
                     <a href="html/contact.html" class="btn btn-primary btn-lg">

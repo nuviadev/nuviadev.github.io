@@ -1,59 +1,140 @@
 /**
- * main.js - Funcionalidad principal del sitio
- * Ubicación: /js/main.js
+ * main.js
+ * Punto de entrada principal de la aplicación
  * 
- * Gestiona:
- * - Navegación responsive
- * - Modo oscuro
- * - Estados activos
+ * Este archivo orquesta la inicialización de todos los módulos
+ * y proporciona la API pública de la aplicación.
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Referencias a elementos
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const darkModeToggle = document.querySelector('.dark-mode-toggle');
-    
-    // Menú móvil
-    if (mobileMenuToggle && navLinks) {
-        const toggleMenu = () => {
-            const isExpanded = navLinks.classList.toggle('is-active');
-            mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
-            mobileMenuToggle.classList.toggle('is-active');
-        };
+(function() {
+    'use strict';
 
-        mobileMenuToggle.addEventListener('click', toggleMenu);
-        
-        // Cerrar menú al hacer click fuera
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.main-nav') && navLinks.classList.contains('is-active')) {
-                toggleMenu();
-            }
+    // Namespace global de la aplicación
+    window.NuviaDev = window.NuviaDev || {};
+
+    /**
+     * Determina si estamos en una página específica
+     * @param {string} pageName - Nombre de la página a verificar
+     * @returns {boolean}
+     */
+    function isPage(pageName) {
+        return window.location.pathname.includes(pageName);
+    }
+
+    /**
+     * Carga scripts adicionales según la página
+     */
+    function loadPageSpecificScripts() {
+        // Cargar form.js solo en la página de contacto
+        if (isPage('contact')) {
+            const formScript = document.createElement('script');
+            formScript.src = '/js/form.js';
+            document.body.appendChild(formScript);
+        }
+    }
+
+    /**
+     * Inicializa los módulos principales
+     */
+    function initializeModules() {
+        // Los módulos se auto-inicializan al cargarse
+        const scripts = [
+            '/js/header-footer.js',
+            '/js/nav.js',
+            '/js/ui.js'
+        ];
+
+        scripts.forEach(src => {
+            const script = document.createElement('script');
+            script.src = src;
+            document.body.appendChild(script);
         });
     }
 
-    // Modo oscuro
-    if (darkModeToggle) {
-        // Verificar preferencia guardada
-        const prefersDark = localStorage.getItem('darkMode') === 'true' || 
-                           window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        const setDarkMode = (isDark) => {
-            document.documentElement.classList.toggle('dark-mode', isDark);
-            localStorage.setItem('darkMode', isDark);
-            darkModeToggle.setAttribute('aria-label', 
-                isDark ? 'Activar modo claro' : 'Activar modo oscuro');
-        };
+    /**
+     * Inicialización cuando el DOM está listo
+     */
+    function init() {
+        initializeModules();
+        loadPageSpecificScripts();
+    }
 
-        // Aplicar preferencia inicial
-        setDarkMode(prefersDark);
+    // Ejecutar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
 
-        // Manejar cambios
-        darkModeToggle.addEventListener('click', () => {
-            const isDark = !document.documentElement.classList.contains('dark-mode');
-            setDarkMode(isDark);
+        /**
+ * main.js
+ * Punto de entrada principal de la aplicación
+ * 
+ * Este archivo orquesta la inicialización de todos los módulos
+ * y proporciona la API pública de la aplicación.
+ */
+
+(function() {
+    'use strict';
+
+    // Namespace global de la aplicación
+    window.NuviaDev = window.NuviaDev || {};
+
+    /**
+     * Determina si estamos en una página específica
+     * @param {string} pageName - Nombre de la página a verificar
+     * @returns {boolean}
+     */
+    function isPage(pageName) {
+        return window.location.pathname.includes(pageName);
+    }
+
+    /**
+     * Carga scripts adicionales según la página
+     */
+    function loadPageSpecificScripts() {
+        // Cargar form.js solo en la página de contacto
+        if (isPage('contact')) {
+            const formScript = document.createElement('script');
+            formScript.src = '/js/form.js';
+            document.body.appendChild(formScript);
+        }
+    }
+
+    /**
+     * Inicializa los módulos principales
+     */
+    function initializeModules() {
+        // Los módulos se auto-inicializan al cargarse
+        const scripts = [
+            '/js/header-footer.js',
+            '/js/nav.js',
+            '/js/ui.js'
+        ];
+
+        scripts.forEach(src => {
+            const script = document.createElement('script');
+            script.src = src;
+            document.body.appendChild(script);
         });
     }
+
+    /**
+     * Inicialización cuando el DOM está listo
+     */
+    function init() {
+        initializeModules();
+        loadPageSpecificScripts();
+    }
+
+    // Ejecutar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
 
     // Marcar enlace activo
     const markActiveLink = () => {
