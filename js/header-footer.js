@@ -1,33 +1,152 @@
-/* header-footer.js
- * Load header/footer fragments and wire menu behaviors.
- * The script will try a few relative paths when fetching partials so it works
- * from pages in the root or in `/html/` subfolder.
+/* header-footer.js - Main navigation and layout functionality
+ * Handles:
+ * 1. Header/footer injection
+ * 2. Mobile menu with accessibility
+ * 3. Active state detection
+ * 4. Smooth scrolling
  */
 (function () {
     'use strict';
 
-    // Candidate paths (tries in order)
-    const headerCandidates = [
-        '/partials/header-fragment.html',
-        'partials/header-fragment.html',
-        '../partials/header-fragment.html'
-    ];
+    // Utility: Calculate relative path to root based on current location
+    function getRelativeRoot() {
+        const path = window.location.pathname;
+        return path.includes('/html/') ? '../' : './';
+    }
 
-    const footerCandidates = [
-        '/partials/footer.html',
-        'partials/footer.html',
-        '../partials/footer.html'
-    ];
+    // Build paths relative to document location
+    const relativeRoot = getRelativeRoot();
+    const headerPath = relativeRoot + 'partials/header-fragment.html';
+    const footerPath = relativeRoot + 'partials/footer.html';
 
-    async function tryFetch(candidates) {
-        for (const p of candidates) {
-            try {
-                const res = await fetch(p, { cache: 'no-store' });
-                if (res.ok) return await res.text();
-            } catch (e) {
-                // ignore and continue to next
+    // Load fragment content with fallbacks
+    async function loadFragment(path) {
+        try {
+            const res = await fetch(path, { cache: 'no-store' });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return await res.text();
+        } catch (err) {
+            console.error(`Failed to load ${path}:`, err);
+            return null;
+        }
+    }
+
+    // Insert fragments into the page
+    async function insertFragments() {
+        // Load header
+        const headerContent = await loadFragment(headerPath);
+        if (headerContent) {
+            const headerTarget = document.querySelector('header') || document.createElement('header');
+            headerTarget.innerHTML = headerContent;
+            if (!headerTarget.parentNode) {
+                document.body.insertBefore(headerTarget, document.body.firstChild);
             }
         }
+
+        // Load footer
+        const footerContent = await loadFragment(footerPath);
+        if (footerContent) {
+            const footerTarget = document.querySelector('footer') || document.createElement('footer');
+            footerTarget.innerHTML = footerContent;
+            if (!footerTarget.parentNode) {
+                document.body.appendChild(footerTarget);
+            }
+        }
+
+        // Initialize behaviors once fragments are loaded
+        setupMobileMenu();
+        setActiveNavItem();
+        setupSmoothScroll();
+        updateCopyrightYear();
+    }
+
+    // Mobile menu functionality with accessibility
+    function setupMobileMenu() {
+        const toggle = document.querySelector('.nav__mobile-toggle');
+        const menu = document.querySelector('.nav__menu');
+        if (!toggle || !menu) return;
+
+        toggle.addEventListener('click', () => {
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', !isExpanded);
+            menu.classList.toggle('is-open');
+
+            // Trap focus in menu when open
+            if (!isExpanded) {
+                const firstFocusable = menu.querySelector('a, button');
+                if (firstFocusable) firstFocusable.focus();
+            }
+        });
+
+        // Close menu on escape key
+        menu.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                toggle.setAttribute('aria-expanded', 'false');
+                menu.classList.remove('is-open');
+                toggle.focus();
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+                toggle.setAttribute('aria-expanded', 'false');
+                menu.classList.remove('is-open');
+            }
+        });
+    }
+
+    // Highlight current page in navigation
+    function setActiveNavItem() {
+        const currentPath = window.location.pathname.replace(/index\.html$/, '');
+        document.querySelectorAll('.nav__link').forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href) return;
+            
+            const linkPath = href.replace(/index\.html$/, '');
+            const isActive = currentPath.endsWith(linkPath);
+            link.classList.toggle('active', isActive);
+            if (isActive) link.setAttribute('aria-current', 'page');
+            else link.removeAttribute('aria-current');
+        });
+    }
+
+    // Add smooth scrolling to anchor links
+    function setupSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                const href = anchor.getAttribute('href');
+                if (!href || href === '#') return;
+
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Update URL without scroll
+                    history.pushState(null, '', href);
+                }
+            });
+        });
+    }
+
+    // Update copyright year
+    function updateCopyrightYear() {
+        const yearSpan = document.querySelector('.js-year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    }
+
+    // Initialize on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', insertFragments);
+    } else {
+        insertFragments();
+    }
+})();
         return null;
     }
 

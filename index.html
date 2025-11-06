@@ -37,19 +37,16 @@
             .hero{padding:80px 0}
             .hero{position:relative}
                 /* Spline 3D canvas positioned top-right (visible, non-interfering with header) */
+                /* place canvas fixed at top-right of viewport so the 3D model is fully visible */
                 #canvas3d{
-                    position:absolute;
-                    right:32px;
-                    top:24px;
-                    width:min(28vw,320px);
+                    position:fixed;
+                    right:28px;
+                    top:96px;
+                    width:min(30vw,380px);
+                    max-width:420px;
                     aspect-ratio:16/10;
                     pointer-events:auto;
-                    z-index:70;
-                    animation: rotate3d 12s linear infinite;
-                }
-                @keyframes rotate3d {
-                    0% { transform: rotateY(0deg) scale(1); }
-                    100% { transform: rotateY(360deg) scale(1); }
+                    z-index:50;
                 }
             @media (max-width:880px){#canvas3d{display:none}}
             @media (prefers-reduced-motion: reduce){#canvas3d{display:none}}
@@ -113,7 +110,7 @@
                     </div>
                 </div>
                 <!-- Spline 3D canvas (moved inside hero) -->
-                <canvas id="canvas3d" aria-hidden="true"></canvas>
+                <canvas id="canvas3d" aria-hidden="false" role="img" aria-label="Decorative 3D mockup"></canvas>
             </section>
 
             <!-- Spline 3D canvas (decorative) - removed here (now inside .hero) -->
