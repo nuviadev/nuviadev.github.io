@@ -111,6 +111,70 @@
             }
         });
 
+        // Close mobile menu when a nav link is clicked, and handle same-page anchors
+        header.addEventListener('click', (e) => {
+            const link = e.target.closest('a');
+            if (!link) return;
+
+            // If menu is open on mobile, close it on link click
+            if (menu?.classList.contains('nav__menu--active')) {
+                menu.classList.remove('nav__menu--active');
+                toggle?.setAttribute('aria-expanded', 'false');
+                if (typeof removeTrap === 'function') removeTrap();
+            }
+
+            const href = link.getAttribute('href');
+            if (!href) return;
+
+            // Handle hash links (same-page scrolling) without reloading
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const id = href.slice(1);
+                const target = document.getElementById(id);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+
+            try {
+                const url = new URL(href, window.location.href);
+                const samePath = url.pathname === window.location.pathname || (url.pathname === '/' && window.location.pathname === '/index.html');
+                if (samePath && url.hash) {
+                    // link points to a hash on the same page
+                    e.preventDefault();
+                    const id = url.hash.slice(1);
+                    const target = document.getElementById(id);
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                }
+            } catch (err) {
+                // ignore malformed URLs
+            }
+        });
+
+        // Highlight the active link based on current path
+        const setActiveLink = () => {
+            const links = header.querySelectorAll('.nav__link');
+            const current = window.location.pathname.replace(/\/index.html$/, '/');
+            links.forEach(a => {
+                try {
+                    const u = new URL(a.getAttribute('href'), window.location.origin);
+                    const linkPath = u.pathname.replace(/\/index.html$/, '/');
+                    if (linkPath === current) {
+                        a.classList.add('is-active');
+                        a.setAttribute('aria-current', 'page');
+                    } else {
+                        a.classList.remove('is-active');
+                        a.removeAttribute('aria-current');
+                    }
+                } catch (e) {
+                    // skip
+                }
+            });
+        };
+
+        setActiveLink();
+        // also update on history navigation
+        window.addEventListener('popstate', setActiveLink);
+
         // Scroll hide/show behavior
         let lastScroll = 0;
         window.addEventListener('scroll', () => {

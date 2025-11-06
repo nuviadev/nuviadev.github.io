@@ -47,6 +47,13 @@
     color: var(--text);
 }
 
+/* Active nav link */
+.nav__link.is-active {
+    color: var(--text);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
 /* Buttons */
 .btn {
     display: inline-flex;

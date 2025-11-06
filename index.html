@@ -37,8 +37,8 @@
             .hero{padding:80px 0}
             .hero{position:relative}
             /* Spline 3D canvas (top-right of the hero) - overlay, interactive */
-            /* changed to absolute, smaller size and more right positioning */
-            #canvas3d{position:absolute;right:0;top:24px;width:min(35vw,360px);aspect-ratio:16/10;border-radius:12px;overflow:hidden;box-shadow:0 20px 50px rgba(10,10,10,0.08);pointer-events:auto;z-index:40;transform:translateZ(0) translateX(24px);background:transparent}
+            /* Removed box-shadow and adjusted position to be more to the right */
+            #canvas3d{position:absolute;right:-5%;top:0;width:min(35vw,360px);aspect-ratio:16/10;border-radius:12px;overflow:hidden;pointer-events:auto;z-index:40;transform:translateZ(0);background:transparent}
             @media (max-width:880px){#canvas3d{display:none}}
             @media (prefers-reduced-motion: reduce){#canvas3d{display:none}}
             .hero__title{font-size:clamp(2rem,6vw,4.5rem);line-height:1.02;margin:0 0 12px;max-width:62ch}
