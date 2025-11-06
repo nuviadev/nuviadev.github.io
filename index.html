@@ -72,13 +72,13 @@
                 </a>
 
                 <nav class="nav__menu" role="navigation" aria-label="Menú principal">
-                    <a href="#services">Servicios</a>
-                    <a href="#solutions">Soluciones</a>
-                    <a href="#cases">Casos</a>
-                    <a href="#resources">Recursos</a>
-                    <a href="#plans">Planes</a>
-                    <a href="#partnership">Partnership</a>
-                    <a href="#company">Empresa</a>
+                    <a href="html/servicios.html">Servicios</a>
+                    <a href="html/soluciones.html">Soluciones</a>
+                    <a href="html/casos.html">Casos</a>
+                    <a href="html/recursos.html">Recursos</a>
+                    <a href="html/planes.html">Planes</a>
+                    <a href="html/partnership.html">Partnership</a>
+                    <a href="html/empresa.html">Empresa</a>
                 </nav>
 
                 <div style="display:flex;align-items:center;gap:12px">
@@ -202,32 +202,26 @@
                 <!-- Spline runtime (ESM CDN) - decorative 3D scene loaded into #canvas3d -->
                 <script type="module">
                 // Load Spline runtime from CDN and mount scene into canvas3d
-                import { Application } from 'https://unpkg.com/@splinetool/runtime@1.0.93/build/runtime.js';
+                import { Application } from '@splinetool/runtime';
                 (function(){
                     try{
                         const canvas = document.getElementById('canvas3d');
                         if (!canvas) return;
                         // instantiate Spline Application on the canvas
                         const app = new Application(canvas);
-                        // load the provided scene URL (request transparent background if supported)
-                        const sceneUrl = 'https://prod.spline.design/K4xs8Sq-Ib3BC-Xg/scene.splinecode?background=transparent';
+                        // load the provided scene URL with transparent background
+                        const sceneUrl = 'https://prod.spline.design/aO-zCKmyLUpNcECJ/scene.splinecode?background=transparent';
                         
                         // Cargar la escena y configurar animaciones
                         app.load(sceneUrl).then(() => {
-                            // Configurar zoom y velocidad de cámara
+                            // Configurar zoom y transparencia
                             app.setZoom(0.8);
                             
-                            // Buscar el iPhone y ajustar su velocidad de rotación si existe
-                            const iphone = app.findObjectByName('iPhone');
-                            if (iphone) {
-                                iphone.rotationSpeed = 0.3;
-                            }
-
-                            // make canvas background transparent (and allow pointer events)
+                            // make canvas background transparent and interactive
                             canvas.style.background = 'transparent';
                             canvas.style.pointerEvents = 'auto';
                             
-                            // optional: hint that the element is interactive for assistive tech
+                            // hint that the element is interactive for assistive tech
                             canvas.setAttribute('role','img');
                             canvas.setAttribute('aria-label','Decorative 3D scene');
                         });
