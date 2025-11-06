@@ -36,9 +36,8 @@
             .btn--primary{background:var(--primary);color:white;box-shadow:0 6px 18px rgba(106,90,224,0.12);}
             .hero{padding:80px 0}
             .hero{position:relative}
-            /* Spline 3D canvas (top-right of the hero) - overlay, interactive */
-            /* Removed box-shadow and adjusted position to be more to the right */
-            #canvas3d{position:absolute;right:-5%;top:0;width:min(35vw,360px);aspect-ratio:16/10;border-radius:12px;overflow:hidden;pointer-events:auto;z-index:40;transform:translateZ(0);background:transparent}
+                /* Spline 3D canvas positioned top-right */
+                #canvas3d{position:absolute;right:0;top:0;width:min(40vw,420px);aspect-ratio:16/10;pointer-events:auto;z-index:40}
             @media (max-width:880px){#canvas3d{display:none}}
             @media (prefers-reduced-motion: reduce){#canvas3d{display:none}}
             .hero__title{font-size:clamp(2rem,6vw,4.5rem);line-height:1.02;margin:0 0 12px;max-width:62ch}
@@ -62,31 +61,7 @@
 
         <a class="skip-link" href="#main-content">Saltar al contenido</a>
 
-        <!-- Header (inline for performance) -->
-        <header class="site-header" role="banner">
-            <div class="container nav">
-                <a class="nav__brand nav__logo" href="/" aria-label="Nuvia — Inicio">
-                    <!-- decorative SVG logo -->
-                    <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="6" fill="var(--primary)"></rect></svg>
-                    <span style="margin-left:8px;">Nuvia</span>
-                </a>
-
-                <nav class="nav__menu" role="navigation" aria-label="Menú principal">
-                    <a href="html/servicios.html">Servicios</a>
-                    <a href="html/soluciones.html">Soluciones</a>
-                    <a href="html/casos.html">Casos</a>
-                    <a href="html/recursos.html">Recursos</a>
-                    <a href="html/planes.html">Planes</a>
-                    <a href="html/partnership.html">Partnership</a>
-                    <a href="html/empresa.html">Empresa</a>
-                </nav>
-
-                <div style="display:flex;align-items:center;gap:12px">
-                    <a class="btn btn--primary" href="/html/contact.html">Agenda una demo</a>
-                    <button class="nav__mobile-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
-                </div>
-            </div>
-        </header>
+        <!-- Header will be injected by /js/header-footer.js -->
 
         <main id="main-content" role="main">
             <!-- Hero -->
@@ -171,65 +146,21 @@
 
         </main>
 
-        <footer role="contentinfo" style="padding:48px 0">
-            <div class="container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px">
-                <div>
-                    <strong>Nuvia</strong>
-                    <p style="color:var(--muted)">Copiloto web para tu empresa.</p>
-                </div>
-                <div>
-                    <h4>Producto</h4>
-                    <ul><li><a href="#">Plataforma</a></li><li><a href="#">Integraciones</a></li></ul>
-                </div>
-                <div>
-                    <h4>Empresa</h4>
-                    <ul><li><a href="#">Sobre nosotros</a></li><li><a href="#">Carreras</a></li></ul>
-                </div>
-                <div>
-                    <h4>Legal</h4>
-                    <ul><li><a href="/html/privacy.html">Privacidad</a></li><li><a href="/html/terms.html">Términos</a></li></ul>
-                </div>
-            </div>
-            <div class="container" style="margin-top:24px;border-top:1px solid rgba(10,10,10,0.04);padding-top:16px;display:flex;justify-content:space-between;align-items:center">
-                <small style="color:var(--muted)">© <span class="js-year">2025</span> Nuvia. Todos los derechos reservados.</small>
-                <div style="display:flex;gap:12px"><a href="#">Twitter</a><a href="#">LinkedIn</a></div>
-            </div>
-        </footer>
+        <!-- Footer will be injected by /js/header-footer.js -->
 
                 <!-- Module scripts -->
                 <script type="module" src="/js/main.js" defer></script>
 
                 <!-- Spline runtime (ESM CDN) - decorative 3D scene loaded into #canvas3d -->
                 <script type="module">
-                // Load Spline runtime from CDN and mount scene into canvas3d
-                import { Application } from '@splinetool/runtime';
-                (function(){
-                    try{
+                        // Load Spline runtime and mount scene into canvas3d
+                        import { Application } from '@splinetool/runtime';
+                    
                         const canvas = document.getElementById('canvas3d');
-                        if (!canvas) return;
-                        // instantiate Spline Application on the canvas
-                        const app = new Application(canvas);
-                        // load the provided scene URL with transparent background
-                        const sceneUrl = 'https://prod.spline.design/aO-zCKmyLUpNcECJ/scene.splinecode?background=transparent';
-                        
-                        // Cargar la escena y configurar animaciones
-                        app.load(sceneUrl).then(() => {
-                            // Configurar zoom y transparencia
-                            app.setZoom(0.8);
-                            
-                            // make canvas background transparent and interactive
-                            canvas.style.background = 'transparent';
-                            canvas.style.pointerEvents = 'auto';
-                            
-                            // hint that the element is interactive for assistive tech
-                            canvas.setAttribute('role','img');
-                            canvas.setAttribute('aria-label','Decorative 3D scene');
-                        });
-                    }catch(e){
-                        // silent fail — decorative enhancement
-                        console.warn('Spline runtime failed to load', e);
-                    }
-                })();
+                        if (canvas) {
+                            const app = new Application(canvas);
+                            app.load('https://prod.spline.design/aO-zCKmyLUpNcECJ/scene.splinecode');
+                        }
                 </script>
     </body>
     </html>
