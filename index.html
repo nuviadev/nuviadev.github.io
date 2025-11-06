@@ -37,16 +37,18 @@
             .hero{padding:80px 0}
             .hero{position:relative}
                 /* Spline 3D canvas positioned top-right (visible, non-interfering with header) */
-                /* place canvas fixed at top-right of viewport so the 3D model is fully visible */
+                /* place canvas absolutely inside the hero container (under CTA) */
                 #canvas3d{
-                    position:fixed;
-                    right:28px;
-                    top:96px;
-                    width:min(30vw,380px);
-                    max-width:420px;
+                    position:absolute;     /* relative to .hero (container) */
+                    right:24px;            /* distance from container's right edge */
+                    top:120px;            /* push it down so it sits below the CTA buttons */
+                    width:min(20vw,260px); /* smaller */
+                    max-width:300px;
                     aspect-ratio:16/10;
                     pointer-events:auto;
-                    z-index:50;
+                    z-index:30;
+                    background:transparent; /* ensure no visible square */
+                    overflow:visible;
                 }
             @media (max-width:880px){#canvas3d{display:none}}
             @media (prefers-reduced-motion: reduce){#canvas3d{display:none}}
@@ -72,31 +74,8 @@
     <body>
 
         <a class="skip-link" href="#main-content">Saltar al contenido</a>
-
-        <!-- Inline header (kept here for performance and parity with other pages) -->
-        <header class="site-header glass" role="banner">
-            <div class="container nav__container">
-                <a class="nav__brand nav__logo" href="/" aria-label="Nuvia — Inicio">
-                    <img src="assets/icons/logo.svg" alt="NuviaDev" style="height:32px;vertical-align:middle;">
-                    <span style="margin-left:8px;font-weight:700">NuviaDev</span>
-                </a>
-
-                <nav class="nav__menu" role="navigation" aria-label="Menú principal">
-                    <a href="/html/servicios.html">Servicios</a>
-                    <a href="/html/soluciones.html">Soluciones</a>
-                    <a href="/html/casos.html">Casos</a>
-                    <a href="/html/recursos.html">Recursos</a>
-                    <a href="/html/planes.html">Planes</a>
-                    <a href="/html/partnership.html">Partnership</a>
-                    <a href="/html/empresa.html">Empresa</a>
-                </nav>
-
-                <div style="display:flex;align-items:center;gap:12px">
-                    <a class="btn btn--primary" href="/html/contacto.html">Agenda una demo</a>
-                    <button class="nav__mobile-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
-                </div>
-            </div>
-        </header>
+        
+        <!-- Header will be injected by js/header-footer.js -->
 
         <main id="main-content" role="main">
             <!-- Hero -->
@@ -108,9 +87,10 @@
                         <a class="btn btn--primary" href="/html/contacto.html">Agenda una demo</a>
                         <a class="btn" href="/html/servicios.html" style="background:transparent;border:1px solid rgba(10,10,10,0.06);">Ver servicios</a>
                     </div>
+
+                    <!-- Spline 3D canvas placed inside the container so it positions under the buttons -->
+                    <canvas id="canvas3d" aria-hidden="false" role="img" aria-label="Decorative 3D mockup"></canvas>
                 </div>
-                <!-- Spline 3D canvas (moved inside hero) -->
-                <canvas id="canvas3d" aria-hidden="false" role="img" aria-label="Decorative 3D mockup"></canvas>
             </section>
 
             <!-- Spline 3D canvas (decorative) - removed here (now inside .hero) -->
@@ -214,9 +194,11 @@
                         const canvas = document.getElementById('canvas3d');
                         if (!canvas) return;
                         const app = new Application(canvas);
-                        // load scene (no background=transparent per request)
+                        // load scene
                         app.load('https://prod.spline.design/aO-zCKmyLUpNcECJ/scene.splinecode').then(() => {
                             try { app.setZoom?.(0.8); } catch(e){}
+                            // ensure canvas background is transparent so the model doesn't sit on a blocking square
+                            try{ canvas.style.background = 'transparent'; canvas.style.backgroundColor = 'transparent'; }catch(e){}
                         }).catch(() => {});
                     })();
                 </script>

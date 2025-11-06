@@ -14,6 +14,23 @@
         return path.includes('/html/') ? '../' : './';
     }
 
+    // Ensure all asset paths are correct
+    function fixAssetPaths() {
+        const root = getRelativeRoot();
+        document.querySelectorAll('img[src^="/"]:not([src^="//"])').forEach(img => {
+            img.src = root + img.getAttribute('src').substring(1);
+        });
+        document.querySelectorAll('link[href^="/"]:not([href^="//"])').forEach(link => {
+            link.href = root + link.getAttribute('href').substring(1);
+        });
+        document.querySelectorAll('script[src^="/"]:not([src^="//"])').forEach(script => {
+            script.src = root + script.getAttribute('src').substring(1);
+        });
+        document.querySelectorAll('a[href^="/"]:not([href^="//"])').forEach(link => {
+            link.href = root + link.getAttribute('href').substring(1);
+        });
+    }
+
     // Build paths relative to document location
     const relativeRoot = getRelativeRoot();
     const headerPath = relativeRoot + 'partials/header-fragment.html';
@@ -32,6 +49,37 @@
     }
 
     // Insert fragments into the page
+    function setupKeyboardNavigation(menu) {
+        const focusableElements = menu.querySelectorAll('a[href], button');
+        const firstFocusable = focusableElements[0];
+        const lastFocusable = focusableElements[focusableElements.length - 1];
+
+        // Trap focus in menu when open
+        menu.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const toggle = document.querySelector('.nav__mobile-toggle');
+                toggle.setAttribute('aria-expanded', 'false');
+                menu.classList.remove('is-open');
+                toggle.focus();
+                return;
+            }
+
+            if (e.key === 'Tab') {
+                if (e.shiftKey) {
+                    if (document.activeElement === firstFocusable) {
+                        e.preventDefault();
+                        lastFocusable.focus();
+                    }
+                } else {
+                    if (document.activeElement === lastFocusable) {
+                        e.preventDefault();
+                        firstFocusable.focus();
+                    }
+                }
+            }
+        });
+    }
+
     async function insertFragments() {
         // Load header
         const headerContent = await loadFragment(headerPath);
@@ -53,10 +101,14 @@
             }
         }
 
+        // Fix paths for GitHub Pages compatibility
+        fixAssetPaths();
+
         // Initialize behaviors once fragments are loaded
         setupMobileMenu();
         setActiveNavItem();
         setupSmoothScroll();
+        setupKeyboardNavigation(document.querySelector('.nav__menu'));
         updateCopyrightYear();
     }
 
