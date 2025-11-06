@@ -37,8 +37,8 @@
             .hero{padding:80px 0}
             .hero{position:relative}
             /* Spline 3D canvas (top-right of the hero) - overlay, interactive */
-            /* changed to absolute so the canvas sits inside the .hero section */
-            #canvas3d{position:absolute;right:24px;top:24px;width:min(42vw,420px);aspect-ratio:16/10;border-radius:12px;overflow:hidden;box-shadow:0 20px 50px rgba(10,10,10,0.08);pointer-events:auto;z-index:40;transform:translateZ(0);background:transparent}
+            /* changed to absolute, smaller size and more right positioning */
+            #canvas3d{position:absolute;right:0;top:24px;width:min(35vw,360px);aspect-ratio:16/10;border-radius:12px;overflow:hidden;box-shadow:0 20px 50px rgba(10,10,10,0.08);pointer-events:auto;z-index:40;transform:translateZ(0) translateX(24px);background:transparent}
             @media (max-width:880px){#canvas3d{display:none}}
             @media (prefers-reduced-motion: reduce){#canvas3d{display:none}}
             .hero__title{font-size:clamp(2rem,6vw,4.5rem);line-height:1.02;margin:0 0 12px;max-width:62ch}
@@ -211,13 +211,26 @@
                         const app = new Application(canvas);
                         // load the provided scene URL (request transparent background if supported)
                         const sceneUrl = 'https://prod.spline.design/K4xs8Sq-Ib3BC-Xg/scene.splinecode?background=transparent';
-                        app.load(sceneUrl);
-                        // make canvas background transparent (and allow pointer events)
-                        canvas.style.background = 'transparent';
-                        canvas.style.pointerEvents = 'auto';
-                        // optional: hint that the element is interactive for assistive tech
-                        canvas.setAttribute('role','img');
-                        canvas.setAttribute('aria-label','Decorative 3D scene');
+                        
+                        // Cargar la escena y configurar animaciones
+                        app.load(sceneUrl).then(() => {
+                            // Configurar zoom y velocidad de cámara
+                            app.setZoom(0.8);
+                            
+                            // Buscar el iPhone y ajustar su velocidad de rotación si existe
+                            const iphone = app.findObjectByName('iPhone');
+                            if (iphone) {
+                                iphone.rotationSpeed = 0.3;
+                            }
+
+                            // make canvas background transparent (and allow pointer events)
+                            canvas.style.background = 'transparent';
+                            canvas.style.pointerEvents = 'auto';
+                            
+                            // optional: hint that the element is interactive for assistive tech
+                            canvas.setAttribute('role','img');
+                            canvas.setAttribute('aria-label','Decorative 3D scene');
+                        });
                     }catch(e){
                         // silent fail — decorative enhancement
                         console.warn('Spline runtime failed to load', e);

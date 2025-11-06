@@ -1,139 +1,150 @@
-/**
- * header-footer.js
- * Gestiona la inserción y comportamiento del header y footer en todas las páginas
+/* header-footer.js
+ * Load header/footer fragments and wire menu behaviors.
+ * The script will try a few relative paths when fetching partials so it works
+ * from pages in the root or in `/html/` subfolder.
  */
-
-// IIFE para evitar contaminación del scope global
-(function() {
+(function () {
     'use strict';
 
-    const HEADER_TEMPLATE = `<!-- Header parcial - Incluir en todas las páginas -->
-<header class="site-header">
-    <!-- ... (contenido de header.html) ... -->
-</header>`;
+    // Candidate paths (tries in order)
+    const headerCandidates = [
+        '/partials/header-fragment.html',
+        'partials/header-fragment.html',
+        '../partials/header-fragment.html'
+    ];
 
-    const FOOTER_TEMPLATE = `<!-- Footer parcial - Incluir en todas las páginas -->
-<footer class="site-footer">
-    <!-- ... (contenido de footer.html) ... -->
-</footer>`;
+    const footerCandidates = [
+        '/partials/footer.html',
+        'partials/footer.html',
+        '../partials/footer.html'
+    ];
 
-    /**
-     * Inserta el header y footer en la página si no existen
-     */
-    function initializeHeaderFooter() {
-        const header = document.querySelector('header');
-        const footer = document.querySelector('footer');
+    async function tryFetch(candidates) {
+        for (const p of candidates) {
+            try {
+                const res = await fetch(p, { cache: 'no-store' });
+                if (res.ok) return await res.text();
+            } catch (e) {
+                // ignore and continue to next
+            }
+        }
+        return null;
+    }
 
-        // Si no hay header o está vacío, insertarlo
-        if (!header || !header.innerHTML.trim()) {
-            document.body.insertAdjacentHTML('afterbegin', HEADER_TEMPLATE);
+    async function insertFragments() {
+        // If page already has header/footer, don't overwrite
+        const existingHeader = document.querySelector('header');
+        const existingFooter = document.querySelector('footer');
+
+        if (!existingHeader) {
+            const headerHtml = await tryFetch(headerCandidates);
+            if (headerHtml) document.body.insertAdjacentHTML('afterbegin', headerHtml);
         }
 
-        // Si no hay footer o está vacío, insertarlo
-        if (!footer || !footer.innerHTML.trim()) {
-            document.body.insertAdjacentHTML('beforeend', FOOTER_TEMPLATE);
+        if (!existingFooter) {
+            const footerHtml = await tryFetch(footerCandidates);
+            if (footerHtml) document.body.insertAdjacentHTML('beforeend', footerHtml);
         }
     }
 
-    /**
-     * Configura el trap focus para el menú móvil
-     * @param {HTMLElement} menuContainer - El contenedor del menú
-     */
-    function setupFocusTrap(menuContainer) {
-        const focusableElements = menuContainer.querySelectorAll(
-            'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+    /* Small focus-trap for mobile menu */
+    function setupFocusTrap(container) {
+        const focusables = container.querySelectorAll(
+            'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])'
         );
-        
-        const firstFocusableElement = focusableElements[0];
-        const lastFocusableElement = focusableElements[focusableElements.length - 1];
+        if (!focusables.length) return () => {};
 
-        menuContainer.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-                if (e.shiftKey) {
-                    if (document.activeElement === firstFocusableElement) {
-                        lastFocusableElement.focus();
-                        e.preventDefault();
-                    }
-                } else {
-                    if (document.activeElement === lastFocusableElement) {
-                        firstFocusableElement.focus();
-                        e.preventDefault();
-                    }
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+
+        function handleKey(e) {
+            if (e.key !== 'Tab') return;
+            if (e.shiftKey) {
+                if (document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                }
+            } else {
+                if (document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
                 }
             }
-        });
+        }
+
+        container.addEventListener('keydown', handleKey);
+        return () => container.removeEventListener('keydown', handleKey);
     }
 
-    /**
-     * Configura comportamientos comunes del header
-     */
-    function setupHeaderBehavior() {
+    function wireHeaderInteractions() {
         const header = document.querySelector('.site-header');
-        const mobileToggle = header.querySelector('.nav__mobile-toggle');
-        const navMenu = header.querySelector('.nav__menu');
+        if (!header) return;
 
-        // Toggle menú móvil
-        mobileToggle?.addEventListener('click', () => {
-            const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
-            mobileToggle.setAttribute('aria-expanded', !isExpanded);
-            navMenu.classList.toggle('nav__menu--active');
-            
-            if (!isExpanded) {
-                setupFocusTrap(navMenu);
+        const toggle = header.querySelector('.nav__mobile-toggle');
+        const menu = header.querySelector('.nav__menu');
+
+        let removeTrap = null;
+
+        if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+                const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', String(!expanded));
+                menu.classList.toggle('nav__menu--active');
+
+                if (!expanded) {
+                    removeTrap = setupFocusTrap(menu);
+                    // focus first link
+                    const firstLink = menu.querySelector('a, button');
+                    firstLink?.focus();
+                } else {
+                    if (typeof removeTrap === 'function') removeTrap();
+                }
+            });
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!header.contains(e.target) && menu?.classList.contains('nav__menu--active')) {
+                menu.classList.remove('nav__menu--active');
+                toggle?.setAttribute('aria-expanded', 'false');
+                if (typeof removeTrap === 'function') removeTrap();
             }
         });
 
-        // Cerrar menú al presionar ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && navMenu.classList.contains('nav__menu--active')) {
-                mobileToggle.click();
-            }
-        });
-
-        // Scroll behavior
+        // Scroll hide/show behavior
         let lastScroll = 0;
         window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll <= 0) {
+            const curr = window.pageYOffset;
+            if (curr <= 0) {
                 header.classList.remove('site-header--hidden');
+                lastScroll = curr;
                 return;
             }
-            
-            if (currentScroll > lastScroll && !header.classList.contains('site-header--hidden')) {
+            if (curr > lastScroll && curr > 120) {
                 header.classList.add('site-header--hidden');
-            } else if (currentScroll < lastScroll && header.classList.contains('site-header--hidden')) {
+            } else {
                 header.classList.remove('site-header--hidden');
             }
-            
-            lastScroll = currentScroll;
+            lastScroll = curr;
         });
     }
 
-    /**
-     * Configura comportamientos del footer
-     */
-    function setupFooterBehavior() {
-        // Actualizar año en el copyright
-        const yearSpan = document.querySelector('.js-year');
-        if (yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
-        }
+    function wireFooter() {
+        // update any .js-year or #year nodes
+        const yearNodes = document.querySelectorAll('.js-year, #year');
+        yearNodes.forEach(n => { n.textContent = String(new Date().getFullYear()); });
     }
 
-    /**
-     * Inicialización cuando el DOM está listo
-     */
-    function init() {
-        initializeHeaderFooter();
-        setupHeaderBehavior();
-        setupFooterBehavior();
+    async function init() {
+        await insertFragments();
+        wireHeaderInteractions();
+        wireFooter();
     }
 
-    // Ejecutar cuando el DOM esté listo
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
     }
+
 })();
