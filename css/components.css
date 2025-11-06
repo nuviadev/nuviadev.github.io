@@ -148,6 +148,125 @@
     font-weight: 600;
 }
 
+/* Forms */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form__group label {
+    font-weight: 500;
+    color: var(--text);
+}
+
+.form__group input,
+.form__group select,
+.form__group textarea {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    color: var(--text);
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form__group input:focus,
+.form__group select:focus,
+.form__group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
+
+/* Pricing Cards */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card--featured {
+    position: relative;
+    transform: translateY(-20px);
+    border: 1px solid var(--primary);
+}
+
+.pricing-card--featured::before {
+    content: "Más popular";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.pricing-card__header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.pricing-card__price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 1rem 0;
+}
+
+.pricing-card__price .currency {
+    font-size: 1.5rem;
+    vertical-align: super;
+}
+
+.pricing-card__price .period {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.pricing-card__features {
+    margin: 2rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pricing-card__features li {
+    padding: 0.75rem 0;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pricing-card__features li::before {
+    content: "✓";
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.pricing-card .btn {
+    margin-top: auto;
+}
+
 @media (max-width: 768px) {
     .case-card {
         grid-template-columns: 1fr;
@@ -155,6 +274,10 @@
     
     .case-card__stats {
         grid-template-columns: 1fr;
+    }
+
+    .pricing-card--featured {
+        transform: translateY(0);
     }
 }
 

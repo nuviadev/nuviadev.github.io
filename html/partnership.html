@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Programa de Partnership de NuviaDev - Colabora con nosotros">
+    <title>Partnership - NuviaDev</title>
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav__container">
+            <a href="/" class="nav__logo">NuviaDev</a>
+            <div class="nav__menu">
+                <a href="/html/servicios.html" class="nav__link">Servicios</a>
+                <a href="/html/soluciones.html" class="nav__link">Soluciones</a>
+                <a href="/html/casos.html" class="nav__link">Casos</a>
+                <a href="/html/recursos.html" class="nav__link">Recursos</a>
+                <a href="/html/planes.html" class="nav__link">Planes</a>
+                <a href="/html/partnership.html" class="nav__link">Partnership</a>
+                <a href="/html/empresa.html" class="nav__link">Empresa</a>
+                <a href="/html/contacto.html" class="btn btn--primary">Agenda una demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero__content">
+                <h1 class="hero__title">Programa de Partnership</h1>
+                <p class="hero__subtitle">Crece tu negocio colaborando con NuviaDev</p>
+                <div class="hero__cta">
+                    <a href="#apply" class="btn btn--primary">Aplicar ahora</a>
+                    <a href="#benefits" class="btn btn--outline">Ver beneficios</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="benefits" class="section">
+            <div class="container">
+                <h2 class="section__title">Beneficios del Programa</h2>
+                <div class="benefits-grid">
+                    <div class="glass-card">
+                        <h3>Comisiones Atractivas</h3>
+                        <p>Obtén hasta un 25% de comisión por cada cliente referido</p>
+                        <ul class="benefit-list">
+                            <li>20% en proyectos web</li>
+                            <li>25% en consultoría</li>
+                            <li>Bonos por volumen</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card">
+                        <h3>Soporte Dedicado</h3>
+                        <p>Acceso a nuestro equipo de expertos</p>
+                        <ul class="benefit-list">
+                            <li>Gestor de cuenta personal</li>
+                            <li>Formación continua</li>
+                            <li>Recursos exclusivos</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card">
+                        <h3>Co-marketing</h3>
+                        <p>Materiales y campañas conjuntas</p>
+                        <ul class="benefit-list">
+                            <li>Material promocional</li>
+                            <li>Eventos conjuntos</li>
+                            <li>Webinars exclusivos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="apply" class="section section--dark">
+            <div class="container">
+                <h2 class="section__title">¿Listo para ser partner?</h2>
+                <div class="apply-form glass-card">
+                    <form class="form" action="/submit-partnership" method="POST">
+                        <div class="form__group">
+                            <label for="company">Nombre de la empresa</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form__group">
+                            <label for="email">Email de contacto</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form__group">
+                            <label for="website">Sitio web</label>
+                            <input type="url" id="website" name="website">
+                        </div>
+                        <div class="form__group">
+                            <label for="message">¿Por qué quieres ser partner?</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Enviar solicitud</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <a href="/" class="footer__logo">NuviaDev</a>
+                    <p>Construimos experiencias digitales que transforman negocios</p>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h4>Servicios</h4>
+                        <a href="/html/servicios.html#web">Desarrollo Web</a>
+                        <a href="/html/servicios.html#apps">Aplicaciones</a>
+                        <a href="/html/servicios.html#consultoria">Consultoría</a>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Recursos</h4>
+                        <a href="/html/recursos.html#blog">Blog</a>
+                        <a href="/html/recursos.html#guias">Guías</a>
+                        <a href="/html/recursos.html#webinars">Webinars</a>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Empresa</h4>
+                        <a href="/html/empresa.html">Sobre Nosotros</a>
+                        <a href="/html/contacto.html">Contacto</a>
+                        <a href="/html/privacy.html">Privacidad</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2025 NuviaDev. Todos los derechos reservados.</p>
+                <div class="footer__social">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" type="module"></script>
+    <script src="../js/animations.js" type="module"></script>
+    <script src="../js/form.js" type="module"></script>
+</body>
+</html>

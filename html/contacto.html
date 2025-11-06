@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta con NuviaDev - Agenda una demo de nuestros servicios">
+    <title>Contacto - NuviaDev</title>
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav__container">
+            <a href="/" class="nav__logo">NuviaDev</a>
+            <div class="nav__menu">
+                <a href="/html/servicios.html" class="nav__link">Servicios</a>
+                <a href="/html/soluciones.html" class="nav__link">Soluciones</a>
+                <a href="/html/casos.html" class="nav__link">Casos</a>
+                <a href="/html/recursos.html" class="nav__link">Recursos</a>
+                <a href="/html/planes.html" class="nav__link">Planes</a>
+                <a href="/html/partnership.html" class="nav__link">Partnership</a>
+                <a href="/html/empresa.html" class="nav__link">Empresa</a>
+                <a href="/html/contacto.html" class="btn btn--primary">Agenda una demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero__content">
+                <h1 class="hero__title">Agenda una Demo</h1>
+                <p class="hero__subtitle">Descubre cómo podemos ayudarte a alcanzar tus objetivos digitales</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-form glass-card">
+                        <h2>Solicitar Demo</h2>
+                        <form class="form" action="/submit-demo" method="POST" id="demo-form">
+                            <div class="form__group">
+                                <label for="name">Nombre completo</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form__group">
+                                <label for="company">Empresa</label>
+                                <input type="text" id="company" name="company" required>
+                            </div>
+                            <div class="form__group">
+                                <label for="email">Email profesional</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form__group">
+                                <label for="phone">Teléfono</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form__group">
+                                <label for="service">Servicio de interés</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Selecciona un servicio</option>
+                                    <option value="web">Desarrollo Web</option>
+                                    <option value="app">Aplicaciones</option>
+                                    <option value="consulting">Consultoría</option>
+                                </select>
+                            </div>
+                            <div class="form__group">
+                                <label for="message">Mensaje</label>
+                                <textarea id="message" name="message" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary">Solicitar Demo</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <div class="glass-card">
+                            <h3>Información de Contacto</h3>
+                            <ul class="contact-list">
+                                <li>
+                                    <strong>Email:</strong>
+                                    <a href="mailto:info@nuviadev.com">info@nuviadev.com</a>
+                                </li>
+                                <li>
+                                    <strong>Teléfono:</strong>
+                                    <a href="tel:+34900000000">+34 900 000 000</a>
+                                </li>
+                                <li>
+                                    <strong>Horario:</strong>
+                                    <p>Lunes a Viernes: 9:00 - 18:00</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="glass-card">
+                            <h3>Oficina Principal</h3>
+                            <p>Calle Tecnología, 123<br>
+                               28100 Madrid<br>
+                               España</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <a href="/" class="footer__logo">NuviaDev</a>
+                    <p>Construimos experiencias digitales que transforman negocios</p>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h4>Servicios</h4>
+                        <a href="/html/servicios.html#web">Desarrollo Web</a>
+                        <a href="/html/servicios.html#apps">Aplicaciones</a>
+                        <a href="/html/servicios.html#consultoria">Consultoría</a>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Recursos</h4>
+                        <a href="/html/recursos.html#blog">Blog</a>
+                        <a href="/html/recursos.html#guias">Guías</a>
+                        <a href="/html/recursos.html#webinars">Webinars</a>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Empresa</h4>
+                        <a href="/html/empresa.html">Sobre Nosotros</a>
+                        <a href="/html/contacto.html">Contacto</a>
+                        <a href="/html/privacy.html">Privacidad</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2025 NuviaDev. Todos los derechos reservados.</p>
+                <div class="footer__social">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" type="module"></script>
+    <script src="../js/animations.js" type="module"></script>
+    <script src="../js/form.js" type="module"></script>
+</body>
+</html>
