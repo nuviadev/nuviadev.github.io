@@ -36,12 +36,14 @@
             .btn--primary{background:var(--primary);color:white;box-shadow:0 6px 18px rgba(106,90,224,0.12);}
             .hero{padding:80px 0}
             .hero{position:relative}
-                /* Spline 3D canvas positioned top-right */
-                #canvas3d{position:absolute;right:0;top:0;width:min(40vw,420px);aspect-ratio:16/10;pointer-events:auto;z-index:40}
+                /* Spline 3D canvas positioned top-right (visible, non-interfering with header) */
+                #canvas3d{position:absolute;right:-40px;top:8px;width:min(34vw,380px);aspect-ratio:16/10;pointer-events:none;z-index:70}
             @media (max-width:880px){#canvas3d{display:none}}
             @media (prefers-reduced-motion: reduce){#canvas3d{display:none}}
             .hero__title{font-size:clamp(2rem,6vw,4.5rem);line-height:1.02;margin:0 0 12px;max-width:62ch}
             .hero__sub{color:var(--muted);max-width:62ch;margin-bottom:20px}
+            /* small visual improvement: subtle backdrop to improve text contrast when 3D scene overlaps */
+            .hero::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0.0) 0%, rgba(0,0,0,0.04) 100%);mix-blend-mode:normal;z-index:10}
         </style>
 
         <!-- Full CSS (deferred) -->
@@ -61,7 +63,30 @@
 
         <a class="skip-link" href="#main-content">Saltar al contenido</a>
 
-        <!-- Header will be injected by /js/header-footer.js -->
+        <!-- Inline header (kept here for performance and parity with other pages) -->
+        <header class="site-header glass" role="banner">
+            <div class="container nav__container">
+                <a class="nav__brand nav__logo" href="/" aria-label="Nuvia — Inicio">
+                    <img src="assets/icons/logo.svg" alt="NuviaDev" style="height:32px;vertical-align:middle;">
+                    <span style="margin-left:8px;font-weight:700">NuviaDev</span>
+                </a>
+
+                <nav class="nav__menu" role="navigation" aria-label="Menú principal">
+                    <a href="/html/servicios.html">Servicios</a>
+                    <a href="/html/soluciones.html">Soluciones</a>
+                    <a href="/html/casos.html">Casos</a>
+                    <a href="/html/recursos.html">Recursos</a>
+                    <a href="/html/planes.html">Planes</a>
+                    <a href="/html/partnership.html">Partnership</a>
+                    <a href="/html/empresa.html">Empresa</a>
+                </nav>
+
+                <div style="display:flex;align-items:center;gap:12px">
+                    <a class="btn btn--primary" href="/html/contacto.html">Agenda una demo</a>
+                    <button class="nav__mobile-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+                </div>
+            </div>
+        </header>
 
         <main id="main-content" role="main">
             <!-- Hero -->
@@ -70,8 +95,8 @@
                     <h1 class="hero__title">Copiloto web para tu empresa</h1>
                     <p class="hero__sub">Desarrollo, integración y soporte que aceleran tus productos digitales.</p>
                     <div style="display:flex;gap:12px;align-items:center">
-                        <a class="btn btn--primary" href="/html/contact.html">Agenda una demo</a>
-                        <a class="btn" href="/html/services.html" style="background:transparent;border:1px solid rgba(10,10,10,0.06);">Ver servicios</a>
+                        <a class="btn btn--primary" href="/html/contacto.html">Agenda una demo</a>
+                        <a class="btn" href="/html/servicios.html" style="background:transparent;border:1px solid rgba(10,10,10,0.06);">Ver servicios</a>
                     </div>
                 </div>
                 <!-- Spline 3D canvas (moved inside hero) -->
@@ -146,21 +171,44 @@
 
         </main>
 
-        <!-- Footer will be injected by /js/header-footer.js -->
+        <!-- Inline footer (kept here for parity with partials) -->
+        <footer class="site-footer" role="contentinfo">
+            <div class="container footer__content">
+                <div class="footer__brand">
+                    <img src="assets/icons/logo.svg" alt="NuviaDev Logo" style="height:28px;vertical-align:middle;">
+                    <span style="margin-left:8px">NuviaDev</span>
+                </div>
+                <nav class="footer__nav" aria-label="Redes sociales">
+                    <a href="https://www.linkedin.com/company/109993164/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="assets/icons/linkedin.svg" alt="LinkedIn" style="height:22px;vertical-align:middle;"></a>
+                    <a href="https://twitter.com/nuviadev" target="_blank" rel="noopener" aria-label="Twitter"><img src="assets/icons/twitter.svg" alt="Twitter" style="height:22px;vertical-align:middle;"></a>
+                    <a href="https://github.com/nuviadev" target="_blank" rel="noopener" aria-label="GitHub"><img src="assets/icons/github.svg" alt="GitHub" style="height:22px;vertical-align:middle;"></a>
+                </nav>
+                <div class="footer__copy">
+                    &copy; <span class="js-year"></span> NuviaDev. Todos los derechos reservados.
+                </div>
+            </div>
+            <div class="container" style="margin-top:1rem;text-align:center;">
+                Desarrollado por NuviaDev. <a href="/html/privacy.html">Política de privacidad</a> | <a href="/html/terms.html">Términos</a> | <a href="/html/404.html">404</a>
+            </div>
+        </footer>
 
                 <!-- Module scripts -->
                 <script type="module" src="/js/main.js" defer></script>
 
                 <!-- Spline runtime (ESM CDN) - decorative 3D scene loaded into #canvas3d -->
                 <script type="module">
-                        // Load Spline runtime and mount scene into canvas3d
-                        import { Application } from '@splinetool/runtime';
-                    
+                    // Load Spline runtime and mount scene into canvas3d
+                    import { Application } from 'https://unpkg.com/@splinetool/runtime@1.0.93/build/runtime.js';
+
+                    (function(){
                         const canvas = document.getElementById('canvas3d');
-                        if (canvas) {
-                            const app = new Application(canvas);
-                            app.load('https://prod.spline.design/aO-zCKmyLUpNcECJ/scene.splinecode');
-                        }
+                        if (!canvas) return;
+                        const app = new Application(canvas);
+                        // load scene (no background=transparent per request)
+                        app.load('https://prod.spline.design/aO-zCKmyLUpNcECJ/scene.splinecode').then(() => {
+                            try { app.setZoom?.(0.8); } catch(e){}
+                        }).catch(() => {});
+                    })();
                 </script>
     </body>
     </html>
