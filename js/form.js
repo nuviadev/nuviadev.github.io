@@ -3,15 +3,17 @@
  * Gestiona la validación y envío de formularios
  */
 
-(function() {
+// form.js (ES module)
+// Exporta initForm() que configura validación accesible y envío simulado
+
+export function initForm(options = {}) {
     'use strict';
 
-    // Configuración
-    const CONFIG = {
+    const CONFIG = Object.assign({
         formSelector: '#contact-form',
-        submitDelay: 500, // ms para prevenir múltiples envíos
-        endpoint: '/api/contact' // endpoint simulado
-    };
+        submitDelay: 500,
+        endpoint: '/api/contact'
+    }, options);
 
     // Estado del formulario
     let isSubmitting = false;
@@ -218,10 +220,10 @@
         setupContactForm();
     }
 
-    // Ejecutar cuando el DOM esté listo
+    // auto-init when function called after DOM ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
     }
-})();
+}

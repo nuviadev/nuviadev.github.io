@@ -1,25 +1,22 @@
-/* Modern Animations for NuviaDev website */
+/* animations.css - Modern animations and transitions */
 
-/* Keyframes definitions */
-@keyframes fadeIn {
+:root {
+    --motion-duration: 800ms;
+    --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --motion-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    --reveal-distance: 40px;
+    --reveal-duration: 1000ms;
+}
+
+/* Keyframes */
+@keyframes fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-@keyframes slideInFromLeft {
+@keyframes slide-up {
     from {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInFromBottom {
-    from {
-        transform: translateY(50px);
+        transform: translateY(var(--reveal-distance));
         opacity: 0;
     }
     to {
@@ -28,9 +25,9 @@
     }
 }
 
-@keyframes scaleUp {
+@keyframes scale-in {
     from {
-        transform: scale(0.8);
+        transform: scale(0.95);
         opacity: 0;
     }
     to {
@@ -40,73 +37,78 @@
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
+    0% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+    100% { transform: translateY(0); }
 }
 
-/* Animation classes */
-.animate-fade-in {
-    animation: fadeIn 1s ease-out;
+/* Animation Classes */
+.fade-in {
+    animation: fade-in var(--motion-duration) var(--motion-ease) forwards;
 }
 
-.animate-slide-left {
-    animation: slideInFromLeft 0.8s ease-out;
+.slide-up {
+    animation: slide-up var(--motion-duration) var(--motion-ease) forwards;
 }
 
-.animate-slide-up {
-    animation: slideInFromBottom 0.8s ease-out;
+.scale-in {
+    animation: scale-in var(--motion-duration) var(--motion-bounce) forwards;
 }
 
-.animate-scale {
-    animation: scaleUp 0.6s ease-out;
+.float {
+    animation: float 3s var(--motion-ease) infinite;
 }
 
-.animate-float {
-    animation: float 3s ease-in-out infinite;
-}
-
-/* Intersection Observer animations */
-.reveal {
+/* Stagger Delays */
+.stagger > * {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
 }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+.stagger > *:nth-child(1) { animation-delay: 100ms; }
+.stagger > *:nth-child(2) { animation-delay: 200ms; }
+.stagger > *:nth-child(3) { animation-delay: 300ms; }
+.stagger > *:nth-child(4) { animation-delay: 400ms; }
+.stagger > *:nth-child(5) { animation-delay: 500ms; }
+
+/* Intersection Observer Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-translate));
+  transition: opacity var(--motion-duration) var(--motion-ease), transform var(--motion-duration) var(--motion-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.in{ opacity:1; transform:none }
+
+/* Motion helpers */
+.motion-fade { animation: nuvia-fade var(--motion-duration) var(--motion-ease) both }
+.motion-up { animation: nuvia-slide-up var(--motion-duration) var(--motion-ease) both }
+.motion-scale { animation: nuvia-scale calc(var(--motion-duration) * .8) var(--motion-ease) both }
+.float-slow { animation: nuvia-float 6s ease-in-out infinite }
+
+/* Microinteractions */
+.btn{ transition: transform var(--motion-fast) ease, box-shadow var(--motion-fast) ease, opacity var(--motion-fast) ease }
+.btn:hover{ transform: translateY(-4px); box-shadow: 0 12px 30px rgba(10,10,10,0.08) }
+.btn:active{ transform: translateY(-2px) scale(.998) }
+.btn:focus-visible{ outline: none; box-shadow: var(--focus-ring); border-radius: 12px }
+
+.card{ transition: transform 260ms var(--motion-ease), box-shadow 260ms var(--motion-ease); }
+.card:hover{ transform: translateY(-10px); box-shadow: 0 30px 50px rgba(10,10,10,0.08) }
+
+/* Hover glow/modal elevation */
+.hover-glow{ transition: box-shadow 240ms var(--motion-ease) }
+.hover-glow:hover{ box-shadow: 0 18px 40px rgba(106,90,224,0.12) }
+
+/* Decorative float */
+.float-slow{ animation: nuvia-float 6s ease-in-out infinite }
+
+/* Loading */
+.loading-pulse{ animation: pulse 1.6s ease-in-out infinite }
+@keyframes pulse{ 0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)} }
+
+/* Accessible: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .reveal, .motion-fade, .motion-up, .motion-scale, .btn, .card, .float-slow, .loading-pulse { transition: none !important; animation: none !important; transform: none !important; opacity: 1 !important }
 }
 
-/* Hover effects */
-.hover-lift {
-    transition: transform 0.3s ease;
-}
-
-.hover-lift:hover {
-    transform: translateY(-5px);
-}
-
-.hover-glow {
-    transition: box-shadow 0.3s ease;
-}
-
-.hover-glow:hover {
-    box-shadow: 0 0 20px rgba(0, 123, 255, 0.2);
-}
-
-/* Loading animations */
-.loading-pulse {
-    animation: pulse 1.5s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* Smooth scroll behavior */
-html {
-    scroll-behavior: smooth;
-}
+/* Ensure smooth scroll is opt-in (kept in base) */

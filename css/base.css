@@ -1,23 +1,37 @@
 /*
  * base.css
- * Reset moderno y estilos base
+ * Modern reset and base styles with dark mode and glassmorphism
  */
 
-/* Reset moderno */
+/* Modern Reset */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Remove list styles */
-ul, ol {
-    list-style: none;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-/* Improved media defaults */
-img, picture, video, canvas, svg {
-    display: block;
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--glass-bg);
+    border-radius: 5px;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: var(--line-height-body);
+    overflow-x: hidden;
+}
     max-width: 100%;
     height: auto;
 }
@@ -33,10 +47,22 @@ p, h1, h2, h3, h4, h5, h6 {
     hyphens: auto;
 }
 
-/* Document root */
+/* Document root and variable aliases for compatibility */
 :root {
     font-size: 16px;
     scroll-behavior: smooth;
+    /* aliases to keep older CSS compatible with theme tokens */
+    --font-family-sans: var(--font-sans, Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial);
+    --font-family-heading: var(--font-heading, var(--font-family-sans));
+    --font-size-base: 1rem;
+    --line-height-normal: 1.5;
+    --line-height-tight: 1.2;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --radius-md: 8px;
+    --container-padding: 24px;
+    --focus-ring: var(--focus-ring, 3px solid rgba(106,90,224,0.12));
 }
 
 /* Body base styles */
@@ -44,8 +70,8 @@ body {
     font-family: var(--font-family-sans);
     font-size: var(--font-size-base);
     line-height: var(--line-height-normal);
-    color: var(--color-text);
-    background-color: var(--color-background);
+    color: var(--color-text, var(--text));
+    background-color: var(--color-background, var(--bg));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -94,11 +120,8 @@ a:hover {
     color: var(--color-primary-dark);
 }
 
-/* Focus styles */
-:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-}
+/* Focus styles (visible) */
+:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: 8px }
 
 /* Form elements */
 input, textarea, select {
@@ -197,10 +220,10 @@ p {
     font-size: 1rem;
 }
 
-/* Custom Properties for Theme */
-:root {
-    --primary-color: #007bff;
-    --primary-color-dark: #0056b3;
-    --text-color: #333;
-    --background-color: #fff;
+/* Backwards-compatible palette aliases (do not rely on these directly) */
+:root{
+    --primary-color: var(--primary, #6A5AE0);
+    --primary-color-dark: color-mix(in srgb, var(--primary, #6A5AE0) 70%, black 10%);
+    --text-color: var(--text, #0A0A0A);
+    --background-color: var(--bg, #EFEFEF);
 }

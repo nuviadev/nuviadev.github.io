@@ -4,231 +4,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <meta name="description" content="NuviaDev - Diseñamos y desarrollamos tu presencia web. Profesionales, cercanos y eficaces.">
-    <meta property="og:title" content="NuviaDev - Desarrollo Web">
-    <meta property="og:description" content="Proveemos páginas web para pymes y grandes empresas.">
-    <meta property="og:url" content="https://www.nuviadev.com">
-    <meta property="og:image" content="assets/images/og-image.jpg">
+    <meta name="theme-color" content="#0a0b1e">
+    <meta name="description" content="We build digital experiences - Innovative Web Design & Digital Solutions">
     
-    <!-- Preload de recursos críticos -->
-    <link rel="preload" href="assets/fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/fonts/inter-semibold.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="NuviaDev">
+    <meta property="og:title" content="NuviaDev - Innovative Web Design & Digital Solutions">
+    <meta property="og:description" content="We build digital experiences that transform businesses">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/og-image.webp">
     
-    <!-- Estilos -->
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <!-- Preload Fonts -->
+    <link rel="preload" href="assets/fonts/ClashDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
     
-    <title>NuviaDev - Desarrollo Web Profesional</title>
-</head>
-<body>
-    <!-- Skip to main content -->
-    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <title>NuviaDev - Innovative Web Design & Digital Solutions</title>
 
-    <!-- Header se insertará vía JS -->
-    <header></header>
+        <!-- Styles: critical small inline for above-the-fold -->
+        <style>
+            :root{--bg:#EFEFEF;--text:#0A0A0A;--muted:#6F6F6F;--primary:#6A5AE0;--accent:#F5A623;--surface:#FFFFFF;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;}
+            html,body{height:100%}body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--bg);color:var(--text);margin:0;-webkit-font-smoothing:antialiased}
+            .container{max-width:1200px;margin:0 auto;padding-inline:24px}
+            .skip-link{position:absolute;left:0;top:-40px;background:var(--primary);color:#fff;padding:8px 12px;border-radius:4px;z-index:1000}
+            .skip-link:focus{top:8px}
+            header.site-header{backdrop-filter:blur(6px);background:transparent;position:sticky;top:0;z-index:60}
+            .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:12px 0}
+            .nav__brand{display:flex;align-items:center;gap:12px}
+            .nav__logo{display:inline-flex;align-items:center;font-weight:700;color:var(--text);text-decoration:none}
+            .nav__menu{display:flex;gap:18px;align-items:center}
+            .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:600}
+            .btn--primary{background:var(--primary);color:white;box-shadow:0 6px 18px rgba(106,90,224,0.12);}
+            .hero{padding:80px 0}
+            .hero{position:relative}
+            /* Spline 3D canvas (top-right) */
+            #canvas3d{position:absolute;right:24px;top:24px;width:min(42vw,420px);aspect-ratio:16/10;border-radius:12px;overflow:hidden;box-shadow:0 20px 50px rgba(10,10,10,0.08);pointer-events:none;z-index:2}
+            @media (max-width:880px){#canvas3d{display:none}}
+            @media (prefers-reduced-motion: reduce){#canvas3d{display:none}}
+            .hero__title{font-size:clamp(2rem,6vw,4.5rem);line-height:1.02;margin:0 0 12px;max-width:62ch}
+            .hero__sub{color:var(--muted);max-width:62ch;margin-bottom:20px}
+        </style>
 
-    <main id="main-content" class="main-content">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h1>Soluciones digitales para tu negocio</h1>
-                <p class="hero__subtitle">Desarrollo web profesional y diseño de interfaces centrado en el usuario</p>
-                <div class="hero__cta">
-                    <a href="html/contact.html" class="btn btn--primary">Solicitar presupuesto</a>
-                    <a href="html/services.html" class="btn btn--outline">Ver servicios</a>
+        <!-- Full CSS (deferred) -->
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/theme.css">
+        <link rel="stylesheet" href="css/utils.css">
+        <link rel="stylesheet" href="css/components.css">
+
+        <!-- Favicons -->
+        <link rel="icon" href="assets/icons/favicon.ico">
+
+        <!-- JSON-LD Organization -->
+        <script type="application/ld+json">{ "@context":"https://schema.org","@type":"Organization","name":"Nuvia","url":"https://example.com","logo":"https://example.com/assets/icons/logo.svg","sameAs":[] }</script>
+
+    </head>
+    <body>
+
+        <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+        <!-- Header (inline for performance) -->
+        <header class="site-header" role="banner">
+            <div class="container nav">
+                <a class="nav__brand nav__logo" href="/" aria-label="Nuvia — Inicio">
+                    <!-- decorative SVG logo -->
+                    <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="6" fill="var(--primary)"></rect></svg>
+                    <span style="margin-left:8px;">Nuvia</span>
+                </a>
+
+                <nav class="nav__menu" role="navigation" aria-label="Menú principal">
+                    <a href="#services">Servicios</a>
+                    <a href="#solutions">Soluciones</a>
+                    <a href="#cases">Casos</a>
+                    <a href="#resources">Recursos</a>
+                    <a href="#plans">Planes</a>
+                    <a href="#partnership">Partnership</a>
+                    <a href="#company">Empresa</a>
+                </nav>
+
+                <div style="display:flex;align-items:center;gap:12px">
+                    <a class="btn btn--primary" href="/html/contact.html">Agenda una demo</a>
+                    <button class="nav__mobile-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <!-- Features Grid -->
-        <section class="section">
-            <div class="container">
-                <div class="grid grid--3-cols">
-                    <article class="card">
-                        <div class="card__content">
-                            <h2>Desarrollo Web</h2>
-                            <p>Sitios web profesionales y optimizados para todos los dispositivos.</p>
-                            <a href="/html/services.html#web" class="btn btn--outline">Más información</a>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <div class="card__content">
-                            <h2>Diseño UX/UI</h2>
-                            <p>Interfaces atractivas y fáciles de usar que convierten visitantes en clientes.</p>
-                            <a href="/html/services.html#design" class="btn btn--outline">Más información</a>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <div class="card__content">
-                            <h2>Consultoría</h2>
-                            <p>Asesoramiento experto para optimizar tu presencia digital.</p>
-                            <a href="/html/services.html#consulting" class="btn btn--outline">Más información</a>
-                        </div>
-                    </article>
+        <main id="main-content" role="main">
+            <!-- Hero -->
+            <section class="hero">
+                <div class="container">
+                    <h1 class="hero__title">Copiloto web para tu empresa</h1>
+                    <p class="hero__sub">Desarrollo, integración y soporte que aceleran tus productos digitales.</p>
+                    <div style="display:flex;gap:12px;align-items:center">
+                        <a class="btn btn--primary" href="/html/contact.html">Agenda una demo</a>
+                        <a class="btn" href="/html/services.html" style="background:transparent;border:1px solid rgba(10,10,10,0.06);">Ver servicios</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Spline 3D canvas (decorative) -->
+            <canvas id="canvas3d" aria-hidden="true"></canvas>
+
+
+            <!-- Logo marquee -->
+            <section class="logo-marquee" aria-label="Clientes y partners" style="padding:24px 0">
+                <div class="container" style="overflow:hidden">
+                    <div class="marquee" style="display:flex;gap:32px;will-change:transform">
+                        <img src="assets/images/client-1.webp" alt="Cliente 1" loading="lazy" width="140">
+                        <img src="assets/images/client-2.webp" alt="Cliente 2" loading="lazy" width="140">
+                        <img src="assets/images/client-3.webp" alt="Cliente 3" loading="lazy" width="140">
+                        <img src="assets/images/client-4.webp" alt="Cliente 4" loading="lazy" width="140">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feature grid -->
+            <section id="services" class="feature-grid" style="padding:56px 0">
+                <div class="container">
+                    <div class="grid grid--3-cols" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px">
+                        <article class="card" data-reveal>
+                            <svg width="48" height="48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--primary)"></rect></svg>
+                            <h3>Implementación ágil</h3>
+                            <p>Entregas rápidas con calidad y documentación clara.</p>
+                        </article>
+                        <article class="card" data-reveal>
+                            <svg width="48" height="48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--primary)"></rect></svg>
+                            <h3>Soporte 24/7</h3>
+                            <p>Atención y mantenimiento continuo para tus servicios.</p>
+                        </article>
+                        <article class="card" data-reveal>
+                            <svg width="48" height="48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--primary)"></rect></svg>
+                            <h3>Seguridad y cumplimiento</h3>
+                            <p>Prácticas de seguridad y procesos certificados.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Split sections, stats, testimonials, pricing, faq, cta-banner would follow similarly (omitted for brevity) -->
+
+            <section id="cta-final" style="padding:48px 0;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.02))">
+                <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+                    <div>
+                        <h2 style="margin:0">¿Listo para el siguiente paso?</h2>
+                        <p style="margin:8px 0;color:var(--muted)">Hablemos y aceleremos tu producto digital.</p>
+                    </div>
+                    <div>
+                        <a class="btn btn--primary" href="/html/contact.html">Agenda una demo</a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer role="contentinfo" style="padding:48px 0">
+            <div class="container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px">
+                <div>
+                    <strong>Nuvia</strong>
+                    <p style="color:var(--muted)">Copiloto web para tu empresa.</p>
+                </div>
+                <div>
+                    <h4>Producto</h4>
+                    <ul><li><a href="#">Plataforma</a></li><li><a href="#">Integraciones</a></li></ul>
+                </div>
+                <div>
+                    <h4>Empresa</h4>
+                    <ul><li><a href="#">Sobre nosotros</a></li><li><a href="#">Carreras</a></li></ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul><li><a href="/html/privacy.html">Privacidad</a></li><li><a href="/html/terms.html">Términos</a></li></ul>
                 </div>
             </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="section cta-section">
-            <div class="container text-center">
-                <h2>¿Listo para dar el siguiente paso?</h2>
-                <p class="mb-4">Contáctanos para discutir tu proyecto y obtener un presupuesto personalizado.</p>
-                <a href="/html/contact.html" class="btn btn--primary">Contactar ahora</a>
+            <div class="container" style="margin-top:24px;border-top:1px solid rgba(10,10,10,0.04);padding-top:16px;display:flex;justify-content:space-between;align-items:center">
+                <small style="color:var(--muted)">© <span class="js-year">2025</span> Nuvia. Todos los derechos reservados.</small>
+                <div style="display:flex;gap:12px"><a href="#">Twitter</a><a href="#">LinkedIn</a></div>
             </div>
-        </section>
-    </main>
+        </footer>
 
-    <!-- Footer se insertará vía JS -->
-    <footer></footer>
+        <!-- Module scripts -->
+         <!--
+                <script type="module" src="/js/main.js" defer></script>
 
-    <!-- Scripts -->
-    <script src="/js/main.js"></script>
-</body>
-</html>
-                <p class="lead">Profesionales, cercanos y eficaces. Transformamos tu visión en una web excepcional.</p>
-                <div class="cta-group">
-                    <a href="html/contact.html" class="btn btn-primary btn-lg">
-                        Hablemos de tu proyecto
-                    </a>
-                    <a href="html/services.html" class="btn btn-secondary btn-lg">
-                        Conoce nuestros servicios
-                    </a>
-                </div>
-=======
-    <meta name="description" content="NuviaDev - Agencia de desarrollo web profesional, moderna y tecnológica.">
-    <meta property="og:title" content="NuviaDev - Desarrollo Web Profesional">
-    <meta property="og:description" content="Webs modernas, rápidas y visualmente impactantes para empresas y startups.">
-    <meta property="og:url" content="https://nuviadev.github.io/">
-    <meta property="og:image" content="assets/images/og-image.png">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
-    <title>NuviaDev - Inicio</title>
-</head>
-<body>
-    <!-- Header -->
-    <!--#include file="partials/header.html" -->
-
-    <main id="main-content">
-        <!-- Hero Section con animación typing -->
-        <section class="hero container" aria-labelledby="hero-title">
-            <h1 id="hero-title"><span id="typed-text"></span><span class="typed-cursor">|</span></h1>
-            <p class="hero__subtitle">Agencia de desarrollo web moderna, profesional y tecnológica.</p>
-            <div class="hero__actions">
-                <a href="html/contact.html" class="btn btn--primary">Start your project</a>
-                <a href="html/services.html" class="btn btn--secondary">Explore services</a>
->>>>>>> f30e268635fd6aac238f4159037b3cf9bc224030
-            </div>
-        </section>
-
-        <!-- Proyectos recientes -->
-        <section class="projects-preview container" id="projects">
-            <h2>Proyectos recientes</h2>
-            <div class="projects-grid">
-                <article class="project-card" data-reveal>
-                    <img src="assets/images/project1.jpg" alt="Proyecto 1" loading="lazy">
-                    <h3>Landing SaaS</h3>
-                    <p>Diseño y desarrollo para startup tecnológica.</p>
-                </article>
-                <article class="project-card" data-reveal>
-                    <img src="assets/images/project2.jpg" alt="Proyecto 2" loading="lazy">
-                    <h3>Web Corporativa</h3>
-                    <p>Optimización SEO y performance para empresa B2B.</p>
-                </article>
-                <article class="project-card" data-reveal>
-                    <img src="assets/images/project3.jpg" alt="Proyecto 3" loading="lazy">
-                    <h3>Portfolio UI</h3>
-                    <p>Interfaz visual y animada para profesional freelance.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- Partners/Clientes -->
-        <section class="partners container" id="partners">
-            <h2>Confían en nosotros</h2>
-            <div class="partners-logos">
-                <img src="assets/images/partner1.png" alt="Partner 1" loading="lazy">
-                <img src="assets/images/partner2.png" alt="Partner 2" loading="lazy">
-                <img src="assets/images/partner3.png" alt="Partner 3" loading="lazy">
-            </div>
-        </section>
-
-        <!-- Testimonios slider -->
-        <section class="testimonials container" id="testimonials">
-            <h2>Testimonios</h2>
-            <div class="testimonials-slider">
-                <div class="testimonial-card">
-                    <img src="assets/images/client1.jpg" alt="Cliente 1" class="testimonial-photo">
-                    <p>“NuviaDev superó nuestras expectativas con una web rápida y moderna.”</p>
-                    <div class="stars">★★★★★</div>
-                    <cite>María G., CEO TechStartup</cite>
-                </div>
-                <div class="testimonial-card">
-                    <img src="assets/images/client2.jpg" alt="Cliente 2" class="testimonial-photo">
-                    <p>“Atención excelente y resultados profesionales.”</p>
-                    <div class="stars">★★★★★</div>
-                    <cite>Carlos R., Director Marketing</cite>
-                </div>
-                <div class="testimonial-card">
-                    <img src="assets/images/client3.jpg" alt="Cliente 3" class="testimonial-photo">
-                    <p>“Recomiendo NuviaDev para cualquier proyecto tech.”</p>
-                    <div class="stars">★★★★★</div>
-                    <cite>Laura S., CTO Fintech</cite>
-                </div>
-                <button class="testimonial-prev" aria-label="Anterior">&#8592;</button>
-                <button class="testimonial-next" aria-label="Siguiente">&#8594;</button>
-            </div>
-        </section>
-
-        <!-- CTA final -->
-        <section class="cta container" id="cta">
-            <h2>¿Listo para tu próximo proyecto?</h2>
-            <p>Contáctanos y construyamos algo increíble juntos.</p>
-            <a href="html/contact.html" class="btn btn--primary">Let’s build something amazing!</a>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <!--#include file="partials/footer.html" -->
-
-    <script src="js/main.js" defer></script>
-    <script src="js/animations.js" defer></script>
-    <script>
-    // Animación typing effect
-    const typedText = document.getElementById('typed-text');
-    const cursor = document.querySelector('.typed-cursor');
-    const phrases = [
-        'Webs modernas y rápidas.',
-        'Soluciones tecnológicas a medida.',
-        'Tu agencia de desarrollo profesional.'
-    ];
-    let phraseIndex = 0, charIndex = 0, typing = true;
-    function typeLoop() {
-        if (typing) {
-            if (charIndex < phrases[phraseIndex].length) {
-                typedText.textContent += phrases[phraseIndex][charIndex++];
-                setTimeout(typeLoop, 70);
-            } else {
-                typing = false;
-                setTimeout(typeLoop, 1200);
-            }
-        } else {
-            if (charIndex > 0) {
-                typedText.textContent = phrases[phraseIndex].slice(0, --charIndex);
-                setTimeout(typeLoop, 40);
-            } else {
-                typing = true;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                setTimeout(typeLoop, 400);
-            }
-        }
-    }
-    if (typedText) typeLoop();
-    </script>
-</body>
-</html>
+                <!-- Spline runtime (ESM CDN) - decorative 3D scene loaded into #canvas3d -->
+                <script type="module">
+                // Load Spline runtime from CDN and mount scene into canvas3d
+                import { Application } from 'https://unpkg.com/@splinetool/runtime@1.0.93/build/runtime.js';
+                (function(){
+                    try{
+                        const canvas = document.getElementById('canvas3d');
+                        if (!canvas) return;
+                        // make it a proper canvas element for Spline
+                        const app = new Application(canvas);
+                        // load the provided scene URL
+                        app.load('https://prod.spline.design/K4xs8Sq-Ib3BC-Xg/scene.splinecode');
+                        // ensure canvas doesn't steal pointer events
+                        canvas.style.pointerEvents = 'none';
+                    }catch(e){
+                        // silent fail — decorative enhancement
+                        console.warn('Spline runtime failed to load', e);
+                    }
+                })();
+                </script>
+                
+    <!-- End Module scripts -->
+    </body>
+    </html>

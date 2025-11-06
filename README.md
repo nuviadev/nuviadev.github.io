@@ -1,64 +1,48 @@
-# NuviaDev Web Project
+# Nuvia — Sitio estático
 
-## Descripción del Proyecto
-Este proyecto es un sitio web corporativo para NuviaDev, diseñado para atraer a pequeñas y grandes empresas a contactar y desarrollar su presencia en línea. La web incluye secciones informativas sobre la empresa, sus servicios, un portafolio de proyectos y un formulario de contacto funcional.
+Este repositorio contiene una plantilla minimalista, tipográfica y accesible para Nuvia, una empresa que ofrece servicios web. Está implementado en HTML5 + CSS3 + JS vanilla, sin frameworks.
 
-## Estructura del Proyecto
-```
-nuvia-dev-site
-├── html
-│   ├── index.html
-│   ├── about.html
-│   ├── services.html
-│   ├── projects.html
-│   ├── contact.html
-│   ├── privacy.html
-│   └── 404.html
-├── css
-│   ├── base.css
-│   ├── layout.css
-│   ├── components.css
-│   └── utils.css
-├── js
-│   ├── main.js
-│   ├── form-validate.js
-│   └── analytics.js
-├── assets
-│   ├── icons
-│   │   └── favicon.ico
-│   └── fonts
-├── partials
-│   ├── header.html
-│   └── footer.html
-├── .gitignore
-├── LICENSE
-├── manifest.json
-├── package.json
-├── robots.txt
-├── sitemap.xml
-└── README.md
+Principales características:
+- Mobile-first, responsive (360px → 1600px)
+- Tipografía: Inter/Poppins para titulares; system UI para cuerpo
+- Palette basada en variables CSS (ver `css/theme.css`)
+- Animaciones on-scroll con `IntersectionObserver` (`js/scroll-reveal.js`)
+- Navbar accesible con menú móvil (`js/nav.js`)
+- Slider testimonios sin dependencias (`js/slider.js`)
+- Formulario con validación y envío simulado (`js/form.js`)
+- Componentes BEM-friendly y utilidades CSS
+
+Estructura relevante:
+- `index.html` — Home (ejemplo de secciones)
+- `css/` — `base.css`, `theme.css`, `components.css`, `utils.css`
+- `js/` — `main.js`, `nav.js`, `scroll-reveal.js`, `slider.js`, `form.js`, `header-footer.js`
+- `partials/` — header/footer (plantillas)
+
+Cómo probar localmente (servidor estático):
+
+En PowerShell (Windows):
+
+```powershell
+# Si tienes Python 3
+python -m http.server 8000
+# o con Node.js + serve (instálalo si es necesario)
+# npx serve -s .
 ```
 
-## Instrucciones para Ejecutar Localmente
-1. Clona el repositorio en tu máquina local.
-2. Navega a la carpeta del proyecto.
-3. Abre el archivo `index.html` en tu navegador para ver la página de inicio.
-4. Para un desarrollo más avanzado, puedes usar un servidor local como `live-server` o `npx serve`.
+Abrir http://localhost:8000 en el navegador.
 
-## Cómo Hacer Build
-Si utilizas herramientas de construcción, asegúrate de tener configurado tu entorno de desarrollo. Ejecuta el comando correspondiente para compilar los archivos según sea necesario.
+Convenciones y cómo extender:
+- CSS: usa variables en `css/theme.css` y sigue la escala `--space-1..--space-8`.
+- BEM: bloques como `.hero`, elementos `.hero__title`, modificadores `.btn--primary`.
+- JS: cada módulo exporta una función initXXX(), y `js/main.js` orquesta la inicialización.
 
-## Convenciones de Carpetas
-- `html/`: Contiene todos los archivos HTML del proyecto.
-- `css/`: Contiene los archivos CSS para el estilo del sitio.
-- `js/`: Contiene los archivos JavaScript para la funcionalidad del sitio.
-- `assets/`: Contiene los recursos como iconos y fuentes.
-- `partials/`: Contiene secciones reutilizables como el encabezado y pie de página.
+Accesibilidad y SEO:
+- Skip-link, focus-visible, roles y `aria-*` en toggles.
+- Meta tags OG/Twitter y JSON-LD básico en `index.html`.
 
-## Personalización
-- Cambia los textos y enlaces en los archivos HTML según sea necesario.
-- Modifica los estilos en los archivos CSS para adaptarlos a la identidad de marca de NuviaDev.
-- Actualiza el archivo `package.json` para incluir dependencias adicionales si es necesario.
+Siguientes pasos recomendados:
+- Reemplazar imágenes por AVIF/WebP optimizados.
+- Añadir contenidos específicos y textos locales.
+- Ejecutar Lighthouse y ajustar critical CSS según resultados.
 
-## Licencia
-Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
+¡Listo! Si quieres, continúo generando las páginas secundarias (`about`, `services`, `contact`) con el mismo sistema de componentes.
