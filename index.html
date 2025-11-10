@@ -18,31 +18,92 @@
   <link rel="icon" href="/favicon.ico">
 </head>
 <body>
+
+  <!-- Fondo Spline y overlay -->
   <div id="bg-spline" aria-hidden="true">
     <spline-viewer id="spline-viewer"
       url="https://prod.spline.design/Sk1NiXu8zrOZSUdy/scene.splinecode" logo="false">
     </spline-viewer>
-  <div class="bg-overlay"></div>
-  <div class="watermark-cover" aria-hidden="true"></div>
+    <!-- Sin overlay ni blur para máxima nitidez -->
     <noscript><div class="spline-fallback">Activa JavaScript para ver el fondo 3D.</div></noscript>
   </div>
 
-  <div class="page">
-    <header class="nav" role="banner">
-      <div class="nav-logo">
-        <a href="#" aria-label="Nuviadev home">
-          <span class="nav-logo-text">Nuviadev</span>
-        </a>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar liquid-glass nav-rounded">
+      <div class="logo logo-rounded">NuviaDev</div>
+      <ul class="nav-links nav-rounded">
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="trabajos.html">Trabajos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <button class="theme-toggle btn-rounded" aria-label="Cambiar modo"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
+      <button class="menu-toggle btn-rounded" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="mobile-menu nav-rounded">
+      <ul>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="trabajos.html">Trabajos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+
+  <!-- Hero principal -->
+  <section class="hero">
+  <h1 class="hero-title">Nuvia Dev</h1>
+  <p class="hero-subtitle">Soluciones digitales profesionales para empresas modernas.</p>
+  <div class="hero-space"></div>
+  </section>
+  <!-- Info que aparece al hacer scroll -->
+  <section class="index-info" data-reveal>
+    <h2>Soluciones digitales para empresas</h2>
+    <p style="font-size:1.2rem; color:#e2e8f0; margin-bottom:2em;">En NuviaDev creamos webs corporativas, landing pages y sistemas a medida para empresas que buscan destacar y crecer. Nuestro enfoque es profesional, minimalista y orientado a resultados.</p>
+    <div class="index-info-cards">
+      <div class="info-card card-rounded">
+        <h3>Webs Corporativas</h3>
+        <p>Presencia profesional, optimización SEO y máxima seguridad.</p>
       </div>
-      <nav class="nav-menu" role="navigation" aria-label="Menú principal">
-        <ul>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#trabajos">Trabajos</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
+      <div class="info-card card-rounded">
+        <h3>Landing Pages</h3>
+        <p>Captación de clientes y validación de productos con diseño minimalista.</p>
+      </div>
+      <div class="info-card card-rounded">
+        <h3>Soluciones a medida</h3>
+        <p>Automatización, integración y consultoría digital para empresas.</p>
+      </div>
+    </div>
+    <div class="index-cta" style="margin:2em 0;">
+      <a href="servicios.html" class="btn btn-accent">Ver servicios</a>
+      <a href="trabajos.html" class="btn btn-accent" style="margin-left:1em;">Proyectos</a>
+      <a href="contacto.html" class="btn btn-accent" style="margin-left:1em;">Contacto</a>
+    </div>
+    <div class="index-extra" style="margin-top:3em;">
+      <h3 style="color:#fff; margin-bottom:0.5em;">¿Por qué elegirnos?</h3>
+      <ul style="list-style:none; padding:0; color:#e2e8f0; font-size:1.1rem;">
+        <li class="card-rounded" style="background:rgba(30,41,59,0.18); margin-bottom:0.7em; padding:0.8em 1em;">✔️ Experiencia en proyectos empresariales</li>
+        <li class="card-rounded" style="background:rgba(30,41,59,0.18); margin-bottom:0.7em; padding:0.8em 1em;">✔️ Diseño minimalista y moderno</li>
+        <li class="card-rounded" style="background:rgba(30,41,59,0.18); margin-bottom:0.7em; padding:0.8em 1em;">✔️ Resultados medibles y soporte continuo</li>
+      </ul>
+    </div>
+    <div style="height: 200px;"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2025 NuviaDev — Webs modernas, rápidas y accesibles.</p>
+      <nav class="footer-nav">
+        <a href="index.html">Inicio</a> |
+        <a href="servicios.html">Servicios</a> |
+        <a href="trabajos.html">Trabajos</a> |
+        <a href="contacto.html">Contacto</a>
       </nav>
-    </header>
-  </div>
+    </div>
+  </footer>
+
   <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
   <script src="main.js" defer></script>
 </body>
