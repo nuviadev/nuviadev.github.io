@@ -1,206 +1,49 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0a0b1e">
-    <meta name="description" content="We build digital experiences - Innovative Web Design & Digital Solutions">
-    
-    <!-- Open Graph -->
-    <meta property="og:site_name" content="NuviaDev">
-    <meta property="og:title" content="NuviaDev - Innovative Web Design & Digital Solutions">
-    <meta property="og:description" content="We build digital experiences that transform businesses">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/images/og-image.webp">
-    
-    <!-- Preload Fonts -->
-    <link rel="preload" href="assets/fonts/ClashDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
-    
-    <title>NuviaDev - Innovative Web Design & Digital Solutions</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nuviadev — Webs modernas, rápidas y accesibles para pymes</title>
+  <meta name="description" content="Nuviadev es una micro-agencia fundada por dos estudiantes de DAM que diseña y desarrolla webs modernas, rápidas y accesibles para pymes y proyectos que empiezan. Resultados medibles, plazos realistas y comunicación clara.">
+  <meta property="og:title" content="Nuviadev — Webs modernas, rápidas y accesibles para pymes">
+  <meta property="og:description" content="Diseño y desarrollo web para pymes y proyectos que empiezan. Resultados medibles, plazos realistas y comunicación clara.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nuviadev.com">
+  <meta property="og:image" content="/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nuviadev — Webs modernas, rápidas y accesibles para pymes">
+  <meta name="twitter:description" content="Diseño y desarrollo web para pymes y proyectos que empiezan. Resultados medibles, plazos realistas y comunicación clara.">
+  <meta name="twitter:image" content="/og-image.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <div id="bg-spline" aria-hidden="true">
+    <spline-viewer id="spline-viewer"
+      url="https://prod.spline.design/Sk1NiXu8zrOZSUdy/scene.splinecode" logo="false">
+    </spline-viewer>
+  <div class="bg-overlay"></div>
+  <div class="watermark-cover" aria-hidden="true"></div>
+    <noscript><div class="spline-fallback">Activa JavaScript para ver el fondo 3D.</div></noscript>
+  </div>
 
-        <!-- Styles: critical small inline for above-the-fold -->
-        <style>
-            :root{--bg:#EFEFEF;--text:#0A0A0A;--muted:#6F6F6F;--primary:#6A5AE0;--accent:#F5A623;--surface:#FFFFFF;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;}
-            html,body{height:100%}body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--bg);color:var(--text);margin:0;-webkit-font-smoothing:antialiased}
-            .container{max-width:1200px;margin:0 auto;padding-inline:24px}
-            .skip-link{position:absolute;left:0;top:-40px;background:var(--primary);color:#fff;padding:8px 12px;border-radius:4px;z-index:1000}
-            .skip-link:focus{top:8px}
-            header.site-header{backdrop-filter:blur(6px);background:transparent;position:sticky;top:0;z-index:60}
-            .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:12px 0}
-            .nav__brand{display:flex;align-items:center;gap:12px}
-            .nav__logo{display:inline-flex;align-items:center;font-weight:700;color:var(--text);text-decoration:none}
-            .nav__menu{display:flex;gap:18px;align-items:center}
-            .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:600}
-            .btn--primary{background:var(--primary);color:white;box-shadow:0 6px 18px rgba(106,90,224,0.12);}
-            .hero{padding:80px 0}
-            .hero{position:relative}
-                /* Spline 3D canvas positioned top-right (visible, non-interfering with header) */
-                /* place canvas absolutely inside the hero container (under CTA) */
-                #canvas3d{
-                    position:absolute;     /* relative to .hero (container) */
-                    right:24px;            /* distance from container's right edge */
-                    top:120px;            /* push it down so it sits below the CTA buttons */
-                    width:min(20vw,260px); /* smaller */
-                    max-width:300px;
-                    aspect-ratio:16/10;
-                    pointer-events:auto;
-                    z-index:30;
-                    background:transparent; /* ensure no visible square */
-                    overflow:visible;
-                }
-            @media (max-width:880px){#canvas3d{display:none}}
-            @media (prefers-reduced-motion: reduce){#canvas3d{display:none}}
-            .hero__title{font-size:clamp(2rem,6vw,4.5rem);line-height:1.02;margin:0 0 12px;max-width:62ch}
-            .hero__sub{color:var(--muted);max-width:62ch;margin-bottom:20px}
-            /* small visual improvement: subtle backdrop to improve text contrast when 3D scene overlaps */
-            .hero::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,0.0) 0%, rgba(0,0,0,0.04) 100%);mix-blend-mode:normal;z-index:10}
-        </style>
-
-        <!-- Full CSS (deferred) -->
-        <link rel="stylesheet" href="css/base.css">
-        <link rel="stylesheet" href="css/theme.css">
-        <link rel="stylesheet" href="css/utils.css">
-        <link rel="stylesheet" href="css/components.css">
-
-        <!-- Favicons -->
-        <link rel="icon" href="assets/icons/favicon.ico">
-
-        <!-- JSON-LD Organization -->
-        <script type="application/ld+json">{ "@context":"https://schema.org","@type":"Organization","name":"Nuvia","url":"https://example.com","logo":"https://example.com/assets/icons/logo.svg","sameAs":[] }</script>
-
-    </head>
-    <body>
-
-        <a class="skip-link" href="#main-content">Saltar al contenido</a>
-        
-        <!-- Header will be injected by js/header-footer.js -->
-
-        <main id="main-content" role="main">
-            <!-- Hero -->
-            <section class="hero">
-                <div class="container">
-                    <h1 class="hero__title">Copiloto web para tu empresa</h1>
-                    <p class="hero__sub">Desarrollo, integración y soporte que aceleran tus productos digitales.</p>
-                    <div style="display:flex;gap:12px;align-items:center">
-                        <a class="btn btn--primary" href="/html/contacto.html">Agenda una demo</a>
-                        <a class="btn" href="/html/servicios.html" style="background:transparent;border:1px solid rgba(10,10,10,0.06);">Ver servicios</a>
-                    </div>
-
-                    <!-- Spline 3D canvas placed inside the container so it positions under the buttons -->
-                    <canvas id="canvas3d" aria-hidden="false" role="img" aria-label="Decorative 3D mockup"></canvas>
-                </div>
-            </section>
-
-            <!-- Spline 3D canvas (decorative) - removed here (now inside .hero) -->
-
-
-            <!-- Logo marquee -->
-            <section class="logo-marquee" aria-label="Clientes y partners" style="padding:24px 0">
-                <div class="container" style="overflow:hidden">
-                    <div class="marquee" style="display:flex;gap:32px;will-change:transform">
-                        <img src="assets/images/client-1.webp" alt="Cliente 1" loading="lazy" width="140">
-                        <img src="assets/images/client-2.webp" alt="Cliente 2" loading="lazy" width="140">
-                        <img src="assets/images/client-3.webp" alt="Cliente 3" loading="lazy" width="140">
-                        <img src="assets/images/client-4.webp" alt="Cliente 4" loading="lazy" width="140">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Feature grid -->
-            <section id="services" class="feature-grid" style="padding:56px 0">
-                <div class="container">
-                    <div class="grid grid--3-cols" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px">
-                        <article class="card" data-reveal>
-                            <svg width="48" height="48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--primary)"></rect></svg>
-                            <h3>Implementación ágil</h3>
-                            <p>Entregas rápidas con calidad y documentación clara.</p>
-                        </article>
-                        <article class="card" data-reveal>
-                            <svg width="48" height="48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--primary)"></rect></svg>
-                            <h3>Soporte 24/7</h3>
-                            <p>Atención y mantenimiento continuo para tus servicios.</p>
-                        </article>
-                        <article class="card" data-reveal>
-                            <svg width="48" height="48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--primary)"></rect></svg>
-                            <h3>Seguridad y cumplimiento</h3>
-                            <p>Prácticas de seguridad y procesos certificados.</p>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Split sections, stats, testimonials, pricing, faq, cta-banner would follow similarly (omitted for brevity) -->
-
-            <section id="cta-final" style="padding:48px 0;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.02))">
-                <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
-                    <div>
-                        <h2 style="margin:0">¿Listo para el siguiente paso?</h2>
-                        <p style="margin:8px 0;color:var(--muted)">Hablemos y aceleremos tu producto digital.</p>
-                    </div>
-                    <button class="contactButton">
-                    Contact
-                    <div class="iconButton">
-                        <svg
-                        height="24"
-                        width="24"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        >
-                        <path d="M0 0h24v24H0z" fill="none"></path>
-                        <path
-                            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                            fill="currentColor"
-                        ></path>
-                        </svg>
-                    </div>
-                    </button>
-                </div>
-            </section>
-
-        </main>
-
-        <!-- Inline footer (kept here for parity with partials) -->
-        <footer class="site-footer" role="contentinfo">
-            <div class="container footer__content">
-                <div class="footer__brand">
-                    <img src="assets/icons/logo.svg" alt="NuviaDev Logo" style="height:28px;vertical-align:middle;">
-                    <span style="margin-left:8px">NuviaDev</span>
-                </div>
-                <nav class="footer__nav" aria-label="Redes sociales">
-                    <a href="https://www.linkedin.com/company/109993164/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="assets/icons/linkedin.svg" alt="LinkedIn" style="height:22px;vertical-align:middle;"></a>
-                    <a href="https://twitter.com/nuviadev" target="_blank" rel="noopener" aria-label="Twitter"><img src="assets/icons/twitter.svg" alt="Twitter" style="height:22px;vertical-align:middle;"></a>
-                    <a href="https://github.com/nuviadev" target="_blank" rel="noopener" aria-label="GitHub"><img src="assets/icons/github.svg" alt="GitHub" style="height:22px;vertical-align:middle;"></a>
-                </nav>
-                <div class="footer__copy">
-                    &copy; <span class="js-year"></span> NuviaDev. Todos los derechos reservados.
-                </div>
-            </div>
-            <div class="container" style="margin-top:1rem;text-align:center;">
-                Desarrollado por NuviaDev. <a href="/html/privacy.html">Política de privacidad</a> | <a href="/html/terms.html">Términos</a> | <a href="/html/404.html">404</a>
-            </div>
-        </footer>
-
-                <!-- Module scripts -->
-                <script type="module" src="/js/main.js" defer></script>
-
-                <!-- Spline runtime (ESM CDN) - decorative 3D scene loaded into #canvas3d -->
-                <script type="module">
-                    // Load Spline runtime and mount scene into canvas3d
-                    import { Application } from 'https://unpkg.com/@splinetool/runtime@1.0.93/build/runtime.js';
-
-                    (function(){
-                        const canvas = document.getElementById('canvas3d');
-                        if (!canvas) return;
-                        const app = new Application(canvas);
-                        // load scene
-                        app.load('https://prod.spline.design/aO-zCKmyLUpNcECJ/scene.splinecode').then(() => {
-                            try { app.setZoom?.(0.8); } catch(e){}
-                            // ensure canvas background is transparent so the model doesn't sit on a blocking square
-                            try{ canvas.style.background = 'transparent'; canvas.style.backgroundColor = 'transparent'; }catch(e){}
-                        }).catch(() => {});
-                    })();
-                </script>
-    </body>
-    </html>
+  <div class="page">
+    <header class="nav" role="banner">
+      <div class="nav-logo">
+        <a href="#" aria-label="Nuviadev home">
+          <span class="nav-logo-text">Nuviadev</span>
+        </a>
+      </div>
+      <nav class="nav-menu" role="navigation" aria-label="Menú principal">
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#trabajos">Trabajos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+  <script src="main.js" defer></script>
+</body>
+</html>
