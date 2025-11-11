@@ -1,15 +1,3 @@
-// Animación de aparición al hacer scroll para elementos con [data-animate]
-const revealElements = document.querySelectorAll('[data-animate]');
-const revealOnScroll = new window.IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-inview');
-      revealOnScroll.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-revealElements.forEach(el => revealOnScroll.observe(el));
-// (Eliminado IntersectionObserver duplicado; la animación scroll está en scroll.js)
 // nav capsule and responsive menu for header
 const navList = document.getElementById('headerNavList');
 const burger = document.querySelector('.header-burger');

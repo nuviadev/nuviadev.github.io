@@ -847,6 +847,40 @@ html, body {
 [data-reveal] { opacity: 0; transform: translateY(40px); transition: opacity var(--transition), transform var(--transition); }
  [data-reveal].is-visible { opacity: 1; transform: none; }
 /* ...existing code... */
+/* === Scroll Reveal Animations === */
+[data-animate] {
+  opacity: 0;
+  transition:
+    opacity 0.8s cubic-bezier(.4,0,.2,1),
+    transform 0.8s cubic-bezier(.4,0,.2,1);
+  will-change: opacity, transform;
+}
+[data-animate].visible {
+  opacity: 1;
+  transform: none;
+}
+[data-animate="fade-up"] {
+  transform: translateY(40px);
+}
+[data-animate="fade-down"] {
+  transform: translateY(-40px);
+}
+[data-animate="slide-left"] {
+  transform: translateX(40px);
+}
+[data-animate="slide-right"] {
+  transform: translateX(-40px);
+}
+[data-animate="scale-in"] {
+  transform: scale(0.9);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-animate], [data-animate].visible {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 /* ...existing code... */
 /* Fondo Spline y overlay */
 /* Fondo Spline y overlay actualizado */

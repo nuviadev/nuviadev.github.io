@@ -4,19 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto | Nuviadev</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/pages/contacto.css">
 </head>
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="logo">NuviaDev</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="trabajos.html">Trabajos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
+  <header class="header" role="banner" style="background:#e6e6e6;padding:0;box-shadow:none;border:none;">
+    <div style="display:flex;align-items:center;min-height:100px;width:100vw;">
+      <div class="header-logo" style="display:flex;align-items:center;min-width:220px;justify-content:flex-start;padding-left:2vw;">
+        <span style="font-family:'Space Grotesk',Outfit,sans-serif;font-weight:900;font-size:2.3rem;letter-spacing:-0.01em;line-height:1;color:#181b22;">nuviadev</span>
+      </div>
+      <div class="container header-main" style="flex:1;display:flex;justify-content:center;align-items:center;padding-right:0;">
+        <nav class="header-nav" aria-label="Principal" style="flex:1;display:flex;justify-content:center;">
+          <ul class="header-nav-list" id="headerNavList" style="display:flex;align-items:center;gap:3em;background:rgba(255,255,255,0.85);padding:1.1em 3.5em;border-radius:2.7em;box-shadow:0 8px 32px 0 rgba(31,38,135,0.10),0 2px 12px rgba(31,38,135,0.06);margin:0 auto;list-style:none;backdrop-filter:blur(12px) saturate(180%);">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="trabajos.html">Trabajos</a></li>
+            <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+          </ul>
+          <button class="header-burger" aria-label="Abrir menú" style="display:none;margin-left:1.5em;background:none;border:none;cursor:pointer;">
+            <span style="display:block;width:28px;height:4px;background:#181b22;border-radius:2px;margin-bottom:5px;"></span>
+            <span style="display:block;width:28px;height:4px;background:#181b22;border-radius:2px;margin-bottom:5px;"></span>
+            <span style="display:block;width:28px;height:4px;background:#181b22;border-radius:2px;"></span>
+          </button>
+        </nav>
+      </div>
+    </div>
   </header>
   <main class="main-root">
     <section class="contacto" id="contacto">
@@ -45,15 +59,52 @@
       </div>
     </section>
   </main>
-  <footer class="footer">
-    <div class="footer-content">
-      <p>© 2025 NuviaDev — Webs modernas, rápidas y accesibles.</p>
-      <nav class="footer-nav">
-        <a href="index.html">Inicio</a> |
-        <a href="servicios.html">Servicios</a> |
-        <a href="trabajos.html">Trabajos</a> |
-        <a href="contacto.html">Contacto</a>
-      </nav>
+  <footer class="footer" role="contentinfo" style="margin-top:4rem;padding:0;background:var(--surface-2);color:var(--ink);border-radius:32px 32px 0 0;box-shadow:0 -4px 32px rgba(0,0,0,0.10);">
+    <div class="footer-main" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2.5rem;padding:3rem 2rem 2rem 2rem;max-width:1280px;margin:0 auto;">
+      <div style="flex:1 1 260px;min-width:220px;">
+        <div style="font-family:'Space Grotesk',Outfit,sans-serif;font-weight:900;font-size:2.1rem;letter-spacing:-0.01em;line-height:1.1;margin-bottom:1.2rem;">NuviaDev</div>
+        <p style="font-size:1.1rem;margin-bottom:1.2rem;max-width:320px;">¿Tienes dudas o quieres hablar? <br> Escríbenos a <a href="mailto:hola@nuviadev.com" style="color:#facc15;font-weight:700;">hola@nuviadev.com</a></p>
+        <div style="font-size:0.98rem;color:#b6bac7;">© 2025 NuviaDev. Todos los derechos reservados.</div>
+      </div>
+      <div style="flex:2 1 400px;display:flex;flex-wrap:wrap;gap:2.5rem;justify-content:space-between;">
+        <div>
+          <div style="font-weight:700;margin-bottom:0.7em;">Servicios</div>
+          <ul style="list-style:none;padding:0;margin:0;line-height:2;">
+            <li><a href="servicios.html" style="color:inherit;">Desarrollo Web</a></li>
+            <li><a href="servicios.html" style="color:inherit;">Landing Pages</a></li>
+            <li><a href="servicios.html" style="color:inherit;">Mantenimiento</a></li>
+            <li><a href="servicios.html" style="color:inherit;">Consultoría</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight:700;margin-bottom:0.7em;">Recursos</div>
+          <ul style="list-style:none;padding:0;margin:0;line-height:2;">
+            <li><a href="trabajos.html" style="color:inherit;">Proyectos</a></li>
+            <li><a href="sobre.html" style="color:inherit;">Sobre nosotros</a></li>
+            <li><a href="planes.html" style="color:inherit;">Planes y precios</a></li>
+            <li><a href="contacto.html" style="color:inherit;">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight:700;margin-bottom:0.7em;">Empresa</div>
+          <ul style="list-style:none;padding:0;margin:0;line-height:2;">
+            <li><a href="sobre.html" style="color:inherit;">Equipo</a></li>
+            <li><a href="sobre.html" style="color:inherit;">Filosofía</a></li>
+            <li><a href="contacto.html" style="color:inherit;">Soporte</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="flex:1 1 220px;min-width:180px;display:flex;flex-direction:column;align-items:flex-end;gap:1.2em;">
+        <div style="font-size:1.1rem;font-weight:700;">Síguenos</div>
+        <div style="display:flex;gap:1.2em;">
+          <a href="https://www.linkedin.com/company/nuviadev" target="_blank" rel="noopener" aria-label="LinkedIn" style="color:#facc15;font-size:1.6rem;"><!-- SVG --></a>
+          <a href="https://github.com/nuviadev" target="_blank" rel="noopener" aria-label="GitHub" style="color:#facc15;font-size:1.6rem;"><!-- SVG --></a>
+        </div>
+        <div style="font-size:0.95rem;color:#b6bac7;text-align:right;">Domicilio social:<br>Av. Digital 123, 28001 Madrid, España</div>
+      </div>
+    </div>
+    <div class="footer-bottom" style="text-align:center;padding:1.2rem 2rem 2.2rem 2rem;font-size:0.98rem;color:#b6bac7;">
+      <span>Política de privacidad</span> &nbsp;|&nbsp; <span>Términos de uso</span>
     </div>
   </footer>
   <script src="main.js"></script>
