@@ -1,1 +1,114 @@
 /* Estilos específicos para la página de planes */
+.main.container {
+	background: #f7f7f7;
+	color: #23272f;
+	border-radius: 32px;
+	box-shadow: 0 2px 24px rgba(31,38,135,0.08);
+}
+	.hero-content {
+		background: #fff !important;
+		color: #23272f !important;
+		border-radius: 24px;
+		box-shadow: 0 2px 12px rgba(31,38,135,0.06);
+		margin-bottom: 2rem;
+		padding: 2rem;
+	}
+	.grid {
+		background: #fff !important;
+		border-radius: 24px;
+		box-shadow: 0 2px 12px rgba(31,38,135,0.06);
+		padding: 2rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+	.card-xl {
+		background: #fff !important;
+		color: #23272f !important;
+		border-radius: 24px !important;
+		box-shadow: 0 2px 12px rgba(31,38,135,0.06) !important;
+		margin-bottom: 2rem;
+		padding: 2rem !important;
+	}
+.hero-title, .hero-desc {
+	color: #181b22;
+}
+	.hero-title, .hero-desc {
+		color: #181b22 !important;
+	}
+
+/* Media Queries para Responsive */
+@media (max-width: 768px) {
+	.main.container {
+		border-radius: 20px;
+		box-shadow: 0 1px 16px rgba(31,38,135,0.06);
+	}
+	.hero-content {
+		border-radius: 16px;
+		box-shadow: 0 1px 8px rgba(31,38,135,0.04);
+		margin-bottom: 1.5rem;
+		padding: 1.5rem;
+	}
+	.grid {
+		border-radius: 16px;
+		box-shadow: 0 1px 8px rgba(31,38,135,0.04);
+		padding: 1.5rem;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1.5rem;
+	}
+	.card-xl {
+		border-radius: 16px !important;
+		box-shadow: 0 1px 8px rgba(31,38,135,0.04) !important;
+		margin-bottom: 1.5rem;
+		padding: 1.5rem !important;
+	}
+}
+
+@media (max-width: 640px) {
+	.main.container {
+		border-radius: 16px;
+		box-shadow: 0 1px 12px rgba(31,38,135,0.04);
+	}
+	.hero-content {
+		border-radius: 12px;
+		box-shadow: 0 1px 6px rgba(31,38,135,0.02);
+		margin-bottom: 1rem;
+		padding: 1rem;
+	}
+	.grid {
+		border-radius: 12px;
+		box-shadow: 0 1px 6px rgba(31,38,135,0.02);
+		padding: 1rem;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+	.card-xl {
+		border-radius: 12px !important;
+		box-shadow: 0 1px 6px rgba(31,38,135,0.02) !important;
+		margin-bottom: 1rem;
+		padding: 1rem !important;
+	}
+}
+
+@media (max-width: 480px) {
+	.main.container {
+		border-radius: 12px;
+		box-shadow: 0 1px 8px rgba(31,38,135,0.02);
+		padding: 0.75rem;
+	}
+	.hero-content {
+		border-radius: 8px;
+		margin-bottom: 0.75rem;
+		padding: 0.75rem;
+	}
+	.grid {
+		border-radius: 8px;
+		padding: 0.75rem;
+		gap: 0.75rem;
+	}
+	.card-xl {
+		border-radius: 8px !important;
+		margin-bottom: 0.75rem;
+		padding: 0.75rem !important;
+	}
+}

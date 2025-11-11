@@ -1,1 +1,61 @@
 /* Estilos específicos para la página sobre nosotros */
+
+.main.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  min-height: 100%;
+}
+
+section.hero {
+  width: 100%;
+  min-height: auto;
+  padding: 3rem 0 2rem 0;
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .main.container {
+    padding: 0 1.5rem;
+  }
+  section.hero {
+    padding: 2rem 0 1.5rem 0;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .main.container {
+    padding: 0 1rem;
+  }
+  section.hero {
+    padding: 1.5rem 0 1rem 0;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main.container {
+    padding: 0 0.75rem;
+  }
+  section.hero {
+    padding: 1rem 0 0.75rem 0;
+  }
+  .grid {
+    gap: 0.75rem;
+  }
+}

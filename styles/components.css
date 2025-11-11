@@ -106,3 +106,75 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* Media Queries para Responsive */
+@media (max-width: 768px) {
+  .btn {
+    font-size: 1rem;
+    padding: 0.7em 1.8em;
+  }
+  .card-xl {
+    padding: 1.5rem 1.2rem 1rem 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .carousel-item {
+    flex: 0 0 280px;
+    padding: 1.2rem;
+  }
+  .carousel-btn {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .btn {
+    font-size: 0.95rem;
+    padding: 0.6em 1.6em;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .btn-secondary {
+    border-width: 1.5px;
+  }
+  .card-xl {
+    padding: 1.2rem 1rem 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+  }
+  .carousel-item {
+    flex: 0 0 240px;
+    padding: 1rem;
+    margin-right: 0.5rem;
+  }
+  .carousel-btn {
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.5em 1.4em;
+  }
+  .chip {
+    font-size: 0.9rem;
+    padding: 0.3em 1em;
+  }
+  .card-xl {
+    padding: 1rem 0.8rem 0.7rem 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+  .carousel-item {
+    flex: 0 0 200px;
+    padding: 0.8rem;
+  }
+  .carousel-btn {
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 0.9rem;
+  }
+}
