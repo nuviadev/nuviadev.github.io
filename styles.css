@@ -1,3 +1,97 @@
+/* Modern Header Customization */
+.modern-header {
+  background: #e6e6e6;
+  box-shadow: 0 4px 24px 0 rgba(31,38,135,0.08), 0 1.5px 8px rgba(31,38,135,0.04);
+  border: none;
+  padding: 0;
+  transition: box-shadow 0.4s cubic-bezier(.4,0,.2,1), background 0.4s cubic-bezier(.4,0,.2,1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.modern-header:hover {
+  background: #f8fafc;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.16), 0 2px 12px rgba(31,38,135,0.10);
+}
+.header-main {
+  display: flex;
+  align-items: center;
+  min-height: 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2vw;
+}
+.header-logo {
+  flex: 1 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.logo {
+  font-family: 'Space Grotesk', Outfit, sans-serif;
+  font-weight: 900;
+  font-size: 2.3rem;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: #181b22;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  transition: color 0.3s;
+}
+.logo:hover {
+  color: #0ea5e9;
+}
+.header-nav {
+  flex: 2 1 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.header-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+  background: rgba(255,255,255,0.85);
+  padding: 1.1em 3.5em;
+  border-radius: 2.7em;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.10),0 2px 12px rgba(31,38,135,0.06);
+  margin: 0 auto;
+  list-style: none;
+  backdrop-filter: blur(12px) saturate(180%);
+  transition: box-shadow 0.3s, background 0.3s;
+}
+.header-nav-list li a {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #23272f;
+  padding: 0.3em 1.1em;
+  border-radius: 2em;
+  transition: background 0.25s, color 0.25s;
+  text-decoration: none;
+}
+.header-nav-list li a:hover {
+  background: #e0e7ef;
+  color: #0ea5e9;
+}
+.header-burger {
+  display: none;
+  margin-left: 1.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.header-burger span {
+  display: block;
+  width: 28px;
+  height: 4px;
+  background: #181b22;
+  border-radius: 2px;
+  margin-bottom: 5px;
+}
+.header-burger span:last-child {
+  margin-bottom: 0;
+}
 /* Liquid Glass Header Modern Effect Mejorado */
 .liquid-glass {
   background: rgba(30, 41, 59, 0.85);
@@ -342,6 +436,15 @@ html, body {
   color: var(--color-text);
   scroll-behavior: smooth;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', 'Poppins', 'Inter', 'Space Grotesk', sans-serif;
+  background: #f7f7fa;
+  color: #23272f;
+  scroll-behavior: smooth;
+}
 .spline-bg {
   position: fixed;
   inset: 0;
@@ -560,10 +663,9 @@ html, body {
 }
 .servicios-cards {
   display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+  background: transparent;
+  box-shadow: none;
+  border: none;
 .card {
   background: var(--color-glass);
   border-radius: var(--radius);
@@ -838,6 +940,33 @@ body.dark .dark-toggle::before {
   background: linear-gradient(120deg, var(--color-glass) 60%, var(--color-accent) 100%);
   position: relative;
   overflow: hidden;
+}
+/* Hero minimalista */
+.minimal-hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+  padding: 0;
+}
+.hero-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8vw;
+  font-weight: 900;
+  color: #e5e7eb;
+  opacity: 0.18;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+  letter-spacing: 0.05em;
 }
 .hero-content {
   flex: 1;

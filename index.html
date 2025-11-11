@@ -1,110 +1,258 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nuviadev — Webs modernas, rápidas y accesibles para pymes</title>
-  <meta name="description" content="Nuviadev es una micro-agencia fundada por dos estudiantes de DAM que diseña y desarrolla webs modernas, rápidas y accesibles para pymes y proyectos que empiezan. Resultados medibles, plazos realistas y comunicación clara.">
-  <meta property="og:title" content="Nuviadev — Webs modernas, rápidas y accesibles para pymes">
+  <title>NuviaDev — Webs modernas, rápidas y accesibles para pymes</title>
+  <meta name="description" content="NuviaDev: micro-agencia de webs modernas, rápidas y accesibles para pymes y proyectos que empiezan.">
+  <meta property="og:title" content="NuviaDev — Webs modernas, rápidas y accesibles para pymes">
   <meta property="og:description" content="Diseño y desarrollo web para pymes y proyectos que empiezan. Resultados medibles, plazos realistas y comunicación clara.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nuviadev.com">
   <meta property="og:image" content="/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Nuviadev — Webs modernas, rápidas y accesibles para pymes">
+  <meta name="twitter:title" content="NuviaDev — Webs modernas, rápidas y accesibles para pymes">
   <meta name="twitter:description" content="Diseño y desarrollo web para pymes y proyectos que empiezan. Resultados medibles, plazos realistas y comunicación clara.">
   <meta name="twitter:image" content="/og-image.png">
-  <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/pages.css">
 </head>
 <body>
-
-  <!-- Fondo Spline y overlay -->
-  <div id="bg-spline" aria-hidden="true">
-    <spline-viewer id="spline-viewer"
-      url="https://prod.spline.design/Sk1NiXu8zrOZSUdy/scene.splinecode" logo="false">
-    </spline-viewer>
-    <!-- Sin overlay ni blur para máxima nitidez -->
-    <noscript><div class="spline-fallback">Activa JavaScript para ver el fondo 3D.</div></noscript>
-  </div>
-
-  <!-- Header -->
-  <header class="header">
-    <nav class="navbar liquid-glass nav-rounded">
-      <div class="logo logo-rounded">NuviaDev</div>
-      <ul class="nav-links nav-rounded">
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="trabajos.html">Trabajos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-      <button class="theme-toggle btn-rounded" aria-label="Cambiar modo"><span class="icon-moon">🌙</span><span class="icon-sun">☀️</span></button>
-      <button class="menu-toggle btn-rounded" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-    </nav>
-    <div class="mobile-menu nav-rounded">
-      <ul>
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="trabajos.html">Trabajos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
+  
+  <header class="header" role="banner" style="background:#e6e6e6;padding:0;box-shadow:none;border:none;">
+    <div style="display:flex;align-items:center;min-height:100px;width:100vw;">
+      <div class="header-logo" style="display:flex;align-items:center;min-width:220px;justify-content:flex-start;padding-left:2vw;">
+        <span style="font-family:'Space Grotesk',Outfit,sans-serif;font-weight:900;font-size:2.3rem;letter-spacing:-0.01em;line-height:1;color:#181b22;">nuviadev</span>
+      </div>
+      <div class="container header-main" style="flex:1;display:flex;justify-content:center;align-items:center;padding-right:0;">
+        <nav class="header-nav" aria-label="Principal" style="flex:1;display:flex;justify-content:center;">
+          <ul class="header-nav-list" id="headerNavList" style="display:flex;align-items:center;gap:3em;background:rgba(255,255,255,0.85);padding:1.1em 3.5em;border-radius:2.7em;box-shadow:0 8px 32px 0 rgba(31,38,135,0.10),0 2px 12px rgba(31,38,135,0.06);margin:0 auto;list-style:none;backdrop-filter:blur(12px) saturate(180%);">
+            <li><a href="index.html" aria-current="page" style="font-weight:700;font-size:1.3rem;color:#23272f;padding:0.3em 1.1em;">Inicio</a></li>
+            <li><a href="servicios.html" style="font-weight:700;font-size:1.3rem;color:#23272f;padding:0.3em 1.1em;">Servicios</a></li>
+            <li><a href="#proyectos" style="font-weight:700;font-size:1.3rem;color:#23272f;padding:0.3em 1.1em;">Proyectos</a></li>
+            <li><a href="#precios" style="font-weight:700;font-size:1.3rem;color:#23272f;padding:0.3em 1.1em;">Precios</a></li>
+            <li><a href="trabajos.html" style="font-weight:700;font-size:1.3rem;color:#23272f;padding:0.3em 1.1em;">Trabajos</a></li>
+            <li><a href="contacto.html" style="font-weight:700;font-size:1.3rem;color:#23272f;padding:0.3em 1.1em;">Contacto</a></li>
+          </ul>
+          <button class="header-burger" aria-label="Abrir menú" style="display:none;margin-left:1.5em;background:none;border:none;cursor:pointer;">
+            <span style="display:block;width:28px;height:4px;background:#181b22;border-radius:2px;margin-bottom:5px;"></span>
+            <span style="display:block;width:28px;height:4px;background:#181b22;border-radius:2px;margin-bottom:5px;"></span>
+            <span style="display:block;width:28px;height:4px;background:#181b22;border-radius:2px;"></span>
+          </button>
+        </nav>
+      </div>
     </div>
   </header>
-
-
-
-  <!-- Hero principal -->
-  <section class="hero">
-  <h1 class="hero-title">Nuvia Dev</h1>
-  <p class="hero-subtitle">Soluciones digitales profesionales para empresas modernas.</p>
-  <div class="hero-space"></div>
-  </section>
-  <!-- Info que aparece al hacer scroll -->
-  <section class="index-info" data-reveal>
-    <h2>Soluciones digitales para empresas</h2>
-    <p style="font-size:1.2rem; color:#e2e8f0; margin-bottom:2em;">En NuviaDev creamos webs corporativas, landing pages y sistemas a medida para empresas que buscan destacar y crecer. Nuestro enfoque es profesional, minimalista y orientado a resultados.</p>
-    <div class="index-info-cards">
-      <div class="info-card card-rounded">
-        <h3>Webs Corporativas</h3>
-        <p>Presencia profesional, optimización SEO y máxima seguridad.</p>
+  <main id="main" tabindex="-1">
+    <section class="hero" style="background:#ededed;min-height:80vh;display:flex;align-items:flex-end;justify-content:space-between;padding:0 0 4vw 0;">
+      <div class="hero-content" style="max-width:700px;margin-left:5vw;margin-bottom:4vw;">
+        <h1 class="hero-title" style="font-size:clamp(2.8rem,7vw,5.2rem);font-weight:900;letter-spacing:-0.01em;line-height:1.08;color:#181b22;margin-bottom:2.2rem;text-shadow:none;">Webs modernas,<br>rápidas y accesibles<br>para pymes y proyectos que empiezan.</h1>
+        <p class="hero-desc" style="font-size:1.5rem;color:#23272f;margin-bottom:2.5rem;font-weight:500;">Soluciones digitales profesionales, diseño a medida y resultados medibles. Comunicación clara, plazos realistas y soporte cercano.</p>
+        <div class="hero-ctas">
+          <a href="servicios.html" class="btn">Ver servicios</a>
+          <a href="contacto.html" class="btn btn-secondary">Contactar</a>
+        </div>
       </div>
-      <div class="info-card card-rounded">
-        <h3>Landing Pages</h3>
-        <p>Captación de clientes y validación de productos con diseño minimalista.</p>
+  <div class="hero-robot" style="flex:1.5;min-width:420px;max-width:900px;display:flex;align-items:end;justify-content:center;position:relative;top:-180px;z-index:2;">
+        <spline-viewer id="spline-viewer" url="https://prod.spline.design/Sk1NiXu8zrOZSUdy/scene.splinecode" logo="false" style="width:100%;height:680px;min-width:420px;max-width:900px;background:none;"></spline-viewer>
       </div>
-      <div class="info-card card-rounded">
-        <h3>Soluciones a medida</h3>
-        <p>Automatización, integración y consultoría digital para empresas.</p>
+    </section>
+    <section class="container grid" style="margin-top:2.5rem;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));">
+      <div class="card-xl" style="background:var(--surface-2);padding:2.5rem 2rem;">
+        <h2 class="hero-title" style="font-size:2.2rem;margin-bottom:0.5rem;">AI.</h2>
+        <p style="font-size:1.2rem;">The technology no one can afford to ignore – but most struggle to implement securely, understand fully, or use effectively.</p>
       </div>
-    </div>
-    <div class="index-cta" style="margin:2em 0;">
-      <a href="servicios.html" class="btn btn-accent">Ver servicios</a>
-      <a href="trabajos.html" class="btn btn-accent" style="margin-left:1em;">Proyectos</a>
-      <a href="contacto.html" class="btn btn-accent" style="margin-left:1em;">Contacto</a>
-    </div>
-    <div class="index-extra" style="margin-top:3em;">
-      <h3 style="color:#fff; margin-bottom:0.5em;">¿Por qué elegirnos?</h3>
-      <ul style="list-style:none; padding:0; color:#e2e8f0; font-size:1.1rem;">
-        <li class="card-rounded" style="background:rgba(30,41,59,0.18); margin-bottom:0.7em; padding:0.8em 1em;">✔️ Experiencia en proyectos empresariales</li>
-        <li class="card-rounded" style="background:rgba(30,41,59,0.18); margin-bottom:0.7em; padding:0.8em 1em;">✔️ Diseño minimalista y moderno</li>
-        <li class="card-rounded" style="background:rgba(30,41,59,0.18); margin-bottom:0.7em; padding:0.8em 1em;">✔️ Resultados medibles y soporte continuo</li>
-      </ul>
-    </div>
-    <div style="height: 200px;"></div>
-  </section>
+      <div class="card-xl" style="background:var(--surface-2);padding:2.5rem 2rem;">
+        <h2 class="hero-title" style="font-size:2.2rem;margin-bottom:0.5rem;">GAP.</h2>
+        <p style="font-size:1.2rem;">The Gap between technology, skills and people resources.</p>
+      </div>
+      <div class="card-xl" style="background:var(--surface-2);padding:2.5rem 2rem;">
+        <h2 class="hero-title" style="font-size:2.2rem;margin-bottom:0.5rem;">CLOSED.</h2>
+        <p style="font-size:1.2rem;">Real solutions. Real people. Real outcomes.</p>
+      </div>
+    </section>
+    <section class="container" style="margin-top:3.5rem;">
+      <h2 class="hero-title" style="font-size:2.5rem;text-align:center;margin-bottom:2.5rem;">WE'RE REVOLUTIONIZING THE WAY GOOD WORK GETS DONE.</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
+        <div class="card-xl" style="flex:1 1 320px;min-width:320px;max-width:400px;background:var(--surface-2);padding:2rem 1.5rem;">
+          <h3 style="font-size:1.5rem;font-weight:700;margin-bottom:0.5rem;">Landing Express</h3>
+          <p style="margin-bottom:1.2rem;">Valida tu idea o producto con una landing page profesional, rápida y optimizada para captar clientes.</p>
+          <a href="servicios.html#landing" class="btn btn-secondary">Más detalles</a>
+        </div>
+        <div class="card-xl" style="flex:1 1 320px;min-width:320px;max-width:400px;background:var(--surface-2);padding:2rem 1.5rem;">
+          <h3 style="font-size:1.5rem;font-weight:700;margin-bottom:0.5rem;">Web Corporativa</h3>
+          <p style="margin-bottom:1.2rem;">Presencia sólida y profesional para tu empresa. Optimización SEO, seguridad y autogestión.</p>
+          <a href="servicios.html#corporativa" class="btn btn-secondary">Más detalles</a>
+        </div>
+        <div class="card-xl" style="flex:1 1 320px;min-width:320px;max-width:400px;background:var(--surface-2);padding:2rem 1.5rem;">
+          <h3 style="font-size:1.5rem;font-weight:700;margin-bottom:0.5rem;">Mantenimiento</h3>
+          <p style="margin-bottom:1.2rem;">Actualizaciones, copias de seguridad, monitorización y soporte técnico para tu web.</p>
+          <a href="servicios.html#mantenimiento" class="btn btn-secondary">Más detalles</a>
+        </div>
+      </div>
+    </section>
+    <section class="container" style="margin-top:3.5rem;">
+      <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
+        <div class="card-xl" style="flex:1 1 320px;min-width:320px;max-width:400px;background:linear-gradient(90deg,var(--brand-2) 0%,var(--brand-1) 100%);color:#fff;padding:2.5rem 2rem;">
+          <h3 style="font-size:2rem;">¿Listo para impulsar tu web?</h3>
+          <p>Solicita presupuesto o agenda una reunión sin compromiso.</p>
+          <a href="contacto.html" class="btn">Pide presupuesto</a>
+        </div>
+        <div class="card-xl" style="flex:1 1 320px;min-width:320px;max-width:400px;background:var(--surface-2);color:var(--ink);padding:2.5rem 2rem;">
+          <h3 style="font-size:2rem;">Sobre nosotros</h3>
+          <p>Conoce al equipo, nuestra filosofía y cómo trabajamos.</p>
+          <a href="sobre.html" class="btn btn-secondary">Sobre NuviaDev</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" role="contentinfo" style="margin-top:4rem;padding:2.5rem 0;background:var(--surface-2);color:var(--ink);">
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <p>© 2025 NuviaDev — Webs modernas, rápidas y accesibles.</p>
-      <nav class="footer-nav">
-        <a href="index.html">Inicio</a> |
-        <a href="servicios.html">Servicios</a> |
-        <a href="trabajos.html">Trabajos</a> |
+    <!-- Proyectos -->
+    <section id="proyectos" class="container" style="margin-top:4rem;">
+      <h2 class="hero-title" style="font-size:2.2rem;color:#181b22;margin-bottom:2rem;">Proyectos destacados</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:2.5rem;justify-content:center;">
+        <div class="card-xl" style="background:var(--surface-2);min-width:320px;max-width:400px;">
+          <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.5rem;">Landing Express</h3>
+          <p style="margin-bottom:1.2rem;">Landing page profesional, rápida y optimizada para captar clientes.</p>
+          <a href="servicios.html#landing" class="btn btn-secondary">Ver más</a>
+        </div>
+        <div class="card-xl" style="background:var(--surface-2);min-width:320px;max-width:400px;">
+          <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.5rem;">Web Corporativa</h3>
+          <p style="margin-bottom:1.2rem;">Presencia sólida y profesional para tu empresa. Optimización SEO, seguridad y autogestión.</p>
+          <a href="servicios.html#corporativa" class="btn btn-secondary">Ver más</a>
+        </div>
+        <div class="card-xl" style="background:var(--surface-2);min-width:320px;max-width:400px;">
+          <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.5rem;">Mantenimiento</h3>
+          <p style="margin-bottom:1.2rem;">Actualizaciones, copias de seguridad, monitorización y soporte técnico para tu web.</p>
+          <a href="servicios.html#mantenimiento" class="btn btn-secondary">Ver más</a>
+        </div>
+      </div>
+    </section>
+    <!-- Precios -->
+    <section id="precios" class="container" style="margin-top:4rem;">
+      <h2 class="hero-title" style="font-size:2.2rem;color:#181b22;margin-bottom:2rem;">Precios</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:2.5rem;justify-content:center;">
+        <div class="card-xl" style="background:var(--surface-2);min-width:320px;max-width:400px;">
+          <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.5rem;">Landing Express</h3>
+          <p style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">299€</p>
+          <ul style="margin-bottom:1.2rem;padding-left:1.2em;">
+            <li>1 página</li>
+            <li>Diseño personalizado</li>
+            <li>Optimización SEO básica</li>
+          </ul>
+          <a href="contacto.html" class="btn btn-secondary">Solicitar</a>
+        </div>
+        <div class="card-xl" style="background:var(--surface-2);min-width:320px;max-width:400px;">
+          <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.5rem;">Web Corporativa</h3>
+          <p style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">Desde 690€</p>
+          <ul style="margin-bottom:1.2rem;padding-left:1.2em;">
+            <li>Hasta 6 páginas</li>
+            <li>Diseño a medida</li>
+            <li>SEO avanzado</li>
+            <li>Formularios y blog</li>
+          </ul>
+          <a href="contacto.html" class="btn btn-secondary">Solicitar</a>
+        </div>
+        <div class="card-xl" style="background:var(--surface-2);min-width:320px;max-width:400px;">
+          <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.5rem;">Mantenimiento</h3>
+          <p style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;">29€/mes</p>
+          <ul style="margin-bottom:1.2rem;padding-left:1.2em;">
+            <li>Actualizaciones</li>
+            <li>Backups</li>
+            <li>Soporte técnico</li>
+          </ul>
+          <a href="contacto.html" class="btn btn-secondary">Solicitar</a>
+        </div>
+      </div>
+    </section>
+    <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:2rem;">
+      <div style="font-weight:700;font-size:1.2rem;">© 2025 NuviaDev</div>
+      <nav style="display:flex;gap:1.5rem;">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="trabajos.html">Trabajos</a>
         <a href="contacto.html">Contacto</a>
       </nav>
     </div>
   </footer>
-
+  <script type="module" src="/scripts/core.js"></script>
+  <script type="module" src="/scripts/nav.js"></script>
+  <script type="module" src="/scripts/scroll.js"></script>
+  <script type="module" src="/scripts/spline.js"></script>
+  <script type="module" src="/scripts/forms.js"></script>
   <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
-  <script src="main.js" defer></script>
+  <script>
+    // Efecto JS solo en la navegación (cápsula) y responsive
+    const navList = document.getElementById('headerNavList');
+    const burger = document.querySelector('.header-burger');
+    let ticking = false;
+    function onScroll() {
+      const curr = window.scrollY;
+      if (curr > 10) {
+        navList.style.transition = 'box-shadow 0.4s cubic-bezier(.4,0,.2,1), background 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1)';
+        navList.style.boxShadow = '0 24px 64px 0 rgba(31,38,135,0.18)';
+        navList.style.background = 'rgba(255,255,255,0.98)';
+        navList.style.transform = 'translateY(-6px) scale(1.03)';
+      } else {
+        navList.style.transition = 'box-shadow 0.4s cubic-bezier(.4,0,.2,1), background 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1)';
+        navList.style.boxShadow = '0 8px 32px 0 rgba(31,38,135,0.10),0 2px 12px rgba(31,38,135,0.06)';
+        navList.style.background = 'rgba(255,255,255,0.85)';
+        navList.style.transform = 'none';
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(onScroll);
+        ticking = true;
+      }
+    });
+    function toggleNav() {
+      navList.classList.toggle('open');
+    }
+    if (burger) {
+      burger.addEventListener('click', toggleNav);
+    }
+    function handleResize() {
+      if (window.innerWidth < 900) {
+        burger.style.display = 'block';
+        navList.style.display = navList.classList.contains('open') ? 'flex' : 'none';
+        navList.style.flexDirection = 'column';
+        navList.style.position = 'absolute';
+        navList.style.top = '70px';
+        navList.style.left = '0';
+        navList.style.right = '0';
+        navList.style.margin = '0 auto';
+        navList.style.background = 'rgba(255,255,255,0.98)';
+        navList.style.boxShadow = '0 8px 32px 0 rgba(31,38,135,0.18)';
+        navList.style.padding = '2em 0';
+        navList.style.borderRadius = '2em';
+        navList.style.zIndex = '100';
+        navList.style.gap = '1.5em';
+      } else {
+        burger.style.display = 'none';
+        navList.style.display = 'flex';
+        navList.style.flexDirection = 'row';
+        navList.style.position = '';
+        navList.style.top = '';
+        navList.style.left = '';
+        navList.style.right = '';
+        navList.style.margin = '';
+        navList.style.background = 'rgba(255,255,255,0.85)';
+        navList.style.boxShadow = '0 8px 32px 0 rgba(31,38,135,0.10),0 2px 12px rgba(31,38,135,0.06)';
+        navList.style.padding = '1.1em 3.5em';
+        navList.style.borderRadius = '2.7em';
+        navList.style.zIndex = '';
+        navList.style.gap = '3em';
+      }
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+  </script>
 </body>
 </html>

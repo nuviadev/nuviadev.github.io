@@ -1,0 +1,38 @@
+/* layout.css: header, footer, grid, contenedores */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  background: rgba(18,20,28,0.82);
+  backdrop-filter: var(--header-blur);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: box-shadow var(--transition), background var(--transition), height var(--transition);
+}
+.header.nav--compact {
+  background: rgba(18,20,28,0.96);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  height: 56px;
+}
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+.main {
+  min-height: 60vh;
+  padding: 4rem 0 2rem 0;
+}
+.footer {
+  background: var(--surface-1);
+  color: var(--ink);
+  padding: 3rem 0 2rem 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.grid {
+  display: grid;
+  gap: 2.5rem;
+}
+@media (max-width: 900px) {
+  .container { padding: 0 1rem; }
+}

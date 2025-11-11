@@ -1,0 +1,108 @@
+/* components.css: buttons, chips, cards, carrousel */
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 999px;
+  padding: 0.85em 2.2em;
+  border: none;
+  background: var(--brand-1);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: background var(--transition), box-shadow var(--transition), filter var(--transition);
+}
+.btn:hover, .btn:focus {
+  background: var(--brand-2);
+  filter: brightness(1.08);
+  box-shadow: var(--shadow-xl);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--brand-1);
+  border: 2px solid var(--brand-1);
+}
+.btn-ghost {
+  background: none;
+  color: var(--ink);
+  border: none;
+  box-shadow: none;
+}
+.chip {
+  display: inline-block;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink);
+  padding: 0.4em 1.3em;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0.3em 0.5em 0;
+  cursor: pointer;
+  border: none;
+  transition: background var(--transition), color var(--transition);
+}
+.chip[aria-pressed="true"], .chip.active {
+  background: var(--brand-1);
+  color: #fff;
+}
+.card-xl {
+  background: var(--surface-2);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  padding: 2.5rem 2rem 2rem 2rem;
+  margin-bottom: 2rem;
+  transition: box-shadow var(--transition), transform var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.card-xl:hover {
+  box-shadow: 0 12px 48px 0 rgba(250,204,21,0.22);
+  transform: translateY(-6px) scale(1.02);
+}
+.card-xl img {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  margin-bottom: 1.2rem;
+  width: 100%;
+  object-fit: cover;
+}
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+}
+.carousel-item {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+  background: var(--surface-2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 1.5rem;
+  margin-right: 1rem;
+}
+.carousel-nav {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.carousel-btn {
+  background: var(--brand-2);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.carousel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
