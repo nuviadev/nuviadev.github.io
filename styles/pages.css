@@ -1,3 +1,21 @@
+/* Animación de aparición al hacer scroll */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+[data-animate].is-inview {
+  opacity: 1;
+  transform: none;
+}
+.hero-title.animated {
+  animation: heroFadeIn 1.3s cubic-bezier(.4,0,.2,1) 0.2s both;
+}
+@keyframes heroFadeIn {
+  0% { opacity: 0; transform: translateY(48px) scale(0.98); }
+  80% { opacity: 1; transform: translateY(0) scale(1.01); }
+  100% { opacity: 1; transform: none; }
+}
 /* pages.css: estilos por página/section */
 .hero {
   position: relative;

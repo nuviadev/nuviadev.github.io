@@ -1,19 +1,26 @@
+// Animación de aparición al hacer scroll para elementos con [data-animate]
+const revealElements = document.querySelectorAll('[data-animate]');
+const revealOnScroll = new window.IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-inview');
+      revealOnScroll.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealElements.forEach(el => revealOnScroll.observe(el));
+// (Eliminado IntersectionObserver duplicado; la animación scroll está en scroll.js)
 // nav capsule and responsive menu for header
 const navList = document.getElementById('headerNavList');
 const burger = document.querySelector('.header-burger');
+const header = document.querySelector('.header');
 let ticking = false;
 function onScroll() {
   const curr = window.scrollY;
   if (curr > 10) {
-    navList.style.transition = 'box-shadow 0.4s cubic-bezier(.4,0,.2,1), background 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1)';
-    navList.style.boxShadow = '0 24px 64px 0 rgba(31,38,135,0.18)';
-    navList.style.background = 'rgba(255,255,255,0.98)';
-    navList.style.transform = 'translateY(-6px) scale(1.03)';
+    header.classList.add('scrolled');
   } else {
-    navList.style.transition = 'box-shadow 0.4s cubic-bezier(.4,0,.2,1), background 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1)';
-    navList.style.boxShadow = '0 8px 32px 0 rgba(31,38,135,0.10),0 2px 12px rgba(31,38,135,0.06)';
-    navList.style.background = 'rgba(255,255,255,0.85)';
-    navList.style.transform = 'none';
+    header.classList.remove('scrolled');
   }
   ticking = false;
 }
@@ -40,7 +47,7 @@ function handleResize() {
     navList.style.right = '0';
     navList.style.margin = '0 auto';
     navList.style.background = 'rgba(255,255,255,0.98)';
-    navList.style.boxShadow = '0 8px 32px 0 rgba(31,38,135,0.18)';
+    navList.style.boxShadow = '0 8px 32px 0 rgba(250,204,21,0.18)';
     navList.style.padding = '2em 0';
     navList.style.borderRadius = '2em';
     navList.style.zIndex = '100';
@@ -55,7 +62,7 @@ function handleResize() {
     navList.style.right = '';
     navList.style.margin = '';
     navList.style.background = 'rgba(255,255,255,0.85)';
-    navList.style.boxShadow = '0 8px 32px 0 rgba(31,38,135,0.10),0 2px 12px rgba(31,38,135,0.06)';
+    navList.style.boxShadow = '0 8px 32px 0 rgba(250,204,21,0.10),0 2px 12px rgba(250,204,21,0.06)';
     navList.style.padding = '1.1em 3.5em';
     navList.style.borderRadius = '2.7em';
     navList.style.zIndex = '';
