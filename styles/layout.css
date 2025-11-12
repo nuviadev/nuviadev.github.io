@@ -41,6 +41,13 @@
   padding: 0 2.5rem;
   width: 100%;
 }
+
+/* Optimizar Spline viewer para mejor rendimiento */
+spline-viewer {
+  contain: layout style paint;
+  will-change: transform;
+}
+
 .main {
   min-height: 60vh;
   padding: 4rem 0 2rem 0;

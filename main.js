@@ -1,21 +1,20 @@
-document.addEventListener('visibilitychange', () => {
-
 // NuviaDev Interactividad y Animaciones
 // =====================
 
-// Eliminar watermark de Spline
+// Eliminar watermark de Spline (una sola vez)
 const removeSplineWatermark = () => {
-  const observer = new MutationObserver(() => {
-    const watermark = document.querySelector('spline-viewer')?.shadowRoot?.querySelector('[data-watermark], [aria-label*="Spline"], [class*="watermark"]');
-    if (watermark) watermark.remove();
-  });
   const viewer = document.getElementById('spline-viewer');
   if (viewer) {
     viewer.addEventListener('load', () => {
-      if (viewer.shadowRoot) {
-        observer.observe(viewer.shadowRoot, { childList: true, subtree: true });
-      }
-    });
+      setTimeout(() => {
+        try {
+          const watermark = viewer.shadowRoot?.querySelector('[class*="watermark"], [aria-label*="Spline"]');
+          if (watermark) watermark.remove();
+        } catch (e) {
+          // Ignorar errores de shadow DOM
+        }
+      }, 1000);
+    }, { once: true });
   }
 };
 window.addEventListener('DOMContentLoaded', removeSplineWatermark);
@@ -43,13 +42,17 @@ const root = document.documentElement;
 const setTheme = (dark) => {
   if (dark) {
     root.classList.add('dark');
-    themeToggle?.querySelector('.icon-moon')?.style && (themeToggle.querySelector('.icon-moon').style.display = 'none');
-    themeToggle?.querySelector('.icon-sun')?.style && (themeToggle.querySelector('.icon-sun').style.display = 'inline');
+    const moon = themeToggle?.querySelector('.icon-moon');
+    const sun = themeToggle?.querySelector('.icon-sun');
+    if (moon) moon.style.display = 'none';
+    if (sun) sun.style.display = 'inline';
     localStorage.setItem('theme', 'dark');
   } else {
     root.classList.remove('dark');
-    themeToggle?.querySelector('.icon-moon')?.style && (themeToggle.querySelector('.icon-moon').style.display = 'inline');
-    themeToggle?.querySelector('.icon-sun')?.style && (themeToggle.querySelector('.icon-sun').style.display = 'none');
+    const moon = themeToggle?.querySelector('.icon-moon');
+    const sun = themeToggle?.querySelector('.icon-sun');
+    if (moon) moon.style.display = 'inline';
+    if (sun) sun.style.display = 'none';
     localStorage.setItem('theme', 'light');
   }
 };
@@ -96,21 +99,29 @@ if (window.location.pathname.endsWith('index.html') || window.location.pathname.
 
 // Header reduce altura y aplica sombra al hacer scroll
 const header = document.querySelector('.header');
+let scrollThrottle = false;
+
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 40) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-  // Footer aparece con transición suave
-  const footer = document.querySelector('.footer');
-  if (footer) {
-    if (window.scrollY + window.innerHeight > document.body.offsetHeight - 100) {
-      footer.classList.add('show-footer');
+  if (scrollThrottle) return;
+  scrollThrottle = true;
+  
+  requestAnimationFrame(() => {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
     } else {
-      footer.classList.remove('show-footer');
+      header.classList.remove('scrolled');
     }
-  }
+    // Footer aparece con transición suave
+    const footer = document.querySelector('.footer');
+    if (footer) {
+      if (window.scrollY + window.innerHeight > document.body.offsetHeight - 100) {
+        footer.classList.add('show-footer');
+      } else {
+        footer.classList.remove('show-footer');
+      }
+    }
+    scrollThrottle = false;
+  });
 });
 
 // Pausar Spline cuando la pestaña esté inactiva
@@ -161,4 +172,3 @@ if (window.location.pathname.endsWith('contacto.html')) {
     });
   }
 }
-});

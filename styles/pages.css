@@ -1,10 +1,11 @@
 .hero-title.animated {
   animation: heroFadeIn 1.3s cubic-bezier(.4,0,.2,1) 0.2s both;
+  will-change: opacity, transform;
 }
 @keyframes heroFadeIn {
-  0% { opacity: 0; transform: translateY(48px) scale(0.98); }
-  80% { opacity: 1; transform: translateY(0) scale(1.01); }
-  100% { opacity: 1; transform: none; }
+  0% { opacity: 0; transform: translate3d(0, 48px, 0) scale(0.98); }
+  80% { opacity: 1; transform: translate3d(0, 0, 0) scale(1.01); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
 }
 /* pages.css: estilos por página/section */
 /* .hero {
