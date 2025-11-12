@@ -46,33 +46,239 @@
         </div>
     </div>
   </header>
+
   <main class="main-root">
-    <section class="contacto" id="contacto">
-      <h2>Contacto empresarial</h2>
-      <p>¿Quieres impulsar tu empresa con soluciones digitales profesionales? Escríbenos y te responderemos en menos de 24h.</p>
-      <form class="contact-form" autocomplete="off">
-        <div class="form-group">
-          <input type="text" name="nombre" placeholder="Nombre completo" required>
+    <!-- HERO SECTION -->
+    <section class="contacto-hero">
+      <div class="hero-content">
+        <div class="hero-badge">Conversemos</div>
+        <h1 class="hero-title">Lleva tu proyecto <br><span class="gradient-text">al siguiente nivel</span></h1>
+        <p class="hero-subtitle">¿Tienes una idea brillante? Nos encantaría escucharla. Somos un equipo de expertos listos para transformarla en realidad.</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Proyectos completados</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Clientes satisfechos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24h</div>
+            <div class="stat-label">Respuesta garantizada</div>
+          </div>
         </div>
-        <div class="form-group">
-          <input type="email" name="email" placeholder="Correo corporativo" required>
-        </div>
-        <div class="form-group">
-          <input type="text" name="empresa" placeholder="Empresa (opcional)">
-        </div>
-        <div class="form-group">
-          <textarea name="mensaje" placeholder="¿En qué podemos ayudarte?" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-accent">Enviar consulta</button>
-        <div class="form-message"></div>
-      </form>
-      <div class="contact-info">
-        <p><strong>Email:</strong> contacto@nuviadev.com</p>
-        <p><strong>Teléfono:</strong> +34 600 123 456</p>
-        <p><strong>Horario:</strong> Lunes a Viernes, 9:00 - 18:00</p>
+      </div>
+      <div class="hero-visual">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
       </div>
     </section>
+
+    <!-- CONTACT METHODS -->
+    <section class="contact-methods">
+      <h2 class="section-title">Ponerse en contacto es fácil</h2>
+      <div class="methods-grid">
+        <div class="method-card">
+          <div class="method-icon">📧</div>
+          <h3>Email</h3>
+          <p class="method-text">Respuesta en menos de 24h</p>
+          <a href="mailto:hola@nuviadev.com" class="method-link">hola@nuviadev.com</a>
+        </div>
+        <div class="method-card">
+          <div class="method-icon">💬</div>
+          <h3>Chat en vivo</h3>
+          <p class="method-text">Disponible de 9h a 18h</p>
+          <button class="method-link">Iniciar chat</button>
+        </div>
+        <div class="method-card">
+          <div class="method-icon">📞</div>
+          <h3>Llamada directa</h3>
+          <p class="method-text">Agenda una videollamada</p>
+          <a href="tel:+34600123456" class="method-link">+34 600 123 456</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN FORM SECTION -->
+    <section class="contacto-form-section">
+      <div class="form-container">
+        <div class="form-header">
+          <h2>Cuéntanos sobre tu proyecto</h2>
+          <p>Completa el formulario y nos pondremos en contacto a la mayor brevedad</p>
+        </div>
+        
+        <form class="contact-form" autocomplete="off">
+          <!-- Row 1 -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre completo *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Juan García" required>
+              <span class="input-line"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" placeholder="juan@empresa.com" required>
+              <span class="input-line"></span>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="empresa">Empresa</label>
+              <input type="text" id="empresa" name="empresa" placeholder="Mi Empresa S.L.">
+              <span class="input-line"></span>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+34 600 123 456">
+              <span class="input-line"></span>
+            </div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="form-group full-width">
+            <label for="tipo-proyecto">Tipo de proyecto *</label>
+            <select id="tipo-proyecto" name="tipo-proyecto" required>
+              <option value="">Selecciona el tipo de proyecto...</option>
+              <option value="web">Sitio web corporativo</option>
+              <option value="landing">Landing page</option>
+              <option value="ecommerce">Tienda online</option>
+              <option value="app">Aplicación web</option>
+              <option value="mantenimiento">Mantenimiento/Actualización</option>
+              <option value="seo">SEO y marketing</option>
+              <option value="otro">Otro</option>
+            </select>
+            <span class="input-line"></span>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="form-group full-width">
+            <label for="presupuesto">Presupuesto estimado <span class="optional">(opcional)</span></label>
+            <div class="budget-slider-container">
+              <input type="range" id="presupuesto" name="presupuesto" min="100" max="15000" value="5000" class="budget-slider">
+              <div class="budget-display">
+                <span id="budget-value">5.000</span>€
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 5 -->
+          <div class="form-group full-width">
+            <label for="mensaje">Cuéntanos sobre tu idea *</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Describe brevemente qué necesitas, tus objetivos y cualquier detalle importante..." required></textarea>
+            <span class="input-line"></span>
+          </div>
+
+          <!-- Checkbox -->
+          <div class="form-checkbox">
+            <input type="checkbox" id="privacidad" name="privacidad" required>
+            <label for="privacidad">He leído y acepto la política de privacidad</label>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn btn-primary btn-large">
+            <span class="btn-text">Enviar consulta</span>
+            <span class="btn-arrow">→</span>
+          </button>
+
+          <div class="form-message"></div>
+        </form>
+      </div>
+
+      <!-- Visual side -->
+      <div class="form-visual">
+        <div class="floating-box box-1">
+          <div class="box-icon">⚡</div>
+          <div class="box-text">Respuesta rápida</div>
+        </div>
+        <div class="floating-box box-2">
+          <div class="box-icon">🎯</div>
+          <div class="box-text">Soluciones personalizadas</div>
+        </div>
+        <div class="floating-box box-3">
+          <div class="box-icon">✨</div>
+          <div class="box-text">Resultados garantizados</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="contact-faq">
+      <h2 class="section-title">Preguntas frecuentes</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Cuánto tarda un proyecto típico?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Depende de la complejidad. Un landing page típico tarda 2-3 semanas, un sitio web corporativo 4-6 semanas, y aplicaciones personalizadas pueden variar. Siempre respetamos los plazos acordados.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Ofrecen servicios de mantenimiento?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Sí, ofrecemos planes de mantenimiento flexible que incluyen actualizaciones de seguridad, backups, optimización y soporte técnico. Puedes elegir el plan que mejor se ajuste a tus necesidades.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Cuál es vuestro proceso de trabajo?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Realizamos un análisis inicial, creamos propuestas de diseño, iteramos según tu feedback, desarrollamos el proyecto, realizamos pruebas exhaustivas y finalmente hacemos el despliegue con soporte post-lanzamiento.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Incluye SEO el desarrollo web?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Todos nuestros proyectos incluyen optimización SEO básica (estructura, velocidad, mobile-first). Ofrecemos servicios adicionales de SEO avanzado como estrategia de palabras clave y link building.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Qué tecnologías utilizáis?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Utilizamos tecnologías modernas como React, Vue, Next.js, Node.js, y cloud providers como AWS y Vercel. Elegimos la mejor solución según cada proyecto específico.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Cómo es el sistema de precios?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Ofrecemos presupuestos personalizados según el alcance del proyecto. Puedes elegir entre proyecto fijo o tiempo y materiales. Siempre hay transparencia total en costos.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="contacto-cta">
+      <h2>¿Listo para transformar tu visión?</h2>
+      <p>Cada proyecto es una oportunidad para crear algo extraordinario</p>
+      <a href="#form" class="btn btn-primary btn-large">Comienza ahora</a>
+    </section>
   </main>
+
   <footer class="footer" role="contentinfo" style="margin-top:4rem;padding:0;background:var(--surface-2);color:var(--ink);border-radius:32px 32px 0 0;box-shadow:0 -4px 32px rgba(0,0,0,0.10);">
     <div class="footer-main" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2.5rem;padding:3rem 2rem 2rem 2rem;max-width:1280px;margin:0 auto;">
       <div style="flex:1 1 260px;min-width:220px;">
@@ -121,10 +327,54 @@
       <span>Política de privacidad</span> &nbsp;|&nbsp; <span>Términos de uso</span>
     </div>
   </footer>
+
   <script type="module" src="/scripts/core.js"></script>
   <script type="module" src="/scripts/nav.js"></script>
   <script type="module" src="/scripts/header-nav.js"></script>
   <script type="module" src="/scripts/scroll.js"></script>
   <script type="module" src="/scripts/forms.js"></script>
+  <script src="/scripts/contacto.js"></script>
+  <script>
+    // SLIDER DE PRESUPUESTO - DIRECTO
+    (function() {
+      function initSlider() {
+        const slider = document.getElementById('presupuesto');
+        const budgetValue = document.getElementById('budget-value');
+        
+        if (!slider || !budgetValue) {
+          console.log('Slider no encontrado');
+          return;
+        }
+
+        console.log('Slider inicializado');
+
+        function formatNumber(num) {
+          return Math.round(num).toLocaleString('es-ES');
+        }
+
+        function updateBudget() {
+          const value = parseInt(slider.value);
+          budgetValue.textContent = formatNumber(value);
+          console.log('Budget:', value);
+        }
+
+        slider.addEventListener('input', updateBudget);
+        slider.addEventListener('change', () => {
+          slider.style.boxShadow = `0 0 20px rgba(250, 204, 21, 0.5)`;
+          setTimeout(() => {
+            slider.style.boxShadow = `none`;
+          }, 400);
+        });
+
+        updateBudget();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSlider);
+      } else {
+        setTimeout(initSlider, 100);
+      }
+    })();
+  </script>
 </body>
 </html>
