@@ -1,3 +1,211 @@
+
+/* Mejoras visuales y responsivas para proyectos */
+.intro-wrapper {
+  position: relative;
+  min-height: 35vh;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 0;
+}
+
+.text-align-center {
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+  margin: 0 auto;
+  padding: 2rem 1rem 0 1rem;
+}
+
+.heading-style-h3 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+.light-green-underline {
+  color: var(--green);
+  border-bottom: 3px solid var(--green);
+  padding-bottom: 0.2em;
+}
+
+.section_tabs {
+  z-index: 99;
+  border-radius: var(--border-radius--xlarge);
+  background-color: var(--gray-800);
+  position: relative;
+  margin-top: 0;
+  min-height: 65vh;
+  width: 100vw;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.padding-section-large {
+  padding: 3rem 0;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.tabs_height {
+  min-height: 60vh;
+  height: auto;
+  width: 100%;
+}
+
+.tabs_component {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  min-height: 400px;
+}
+
+.tabs_left {
+  background-color: var(--gray-700);
+  border-radius: var(--border-radius--medium);
+  padding: 2.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+.tabs_let-content {
+  opacity: 0;
+  transition: opacity 0.5s;
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tabs_let-content.is-1 {
+  opacity: 1;
+}
+
+.tabs_line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--gray-500);
+  margin: 1.2rem 0;
+}
+
+.tabs_left-bottom {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.button.is-green.is-secondary {
+  border-color: var(--green);
+  color: var(--gray-25);
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  border-radius: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.tabs_right {
+  border-radius: var(--border-radius--medium);
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #23272f;
+}
+
+.tabs_video {
+  opacity: 0;
+  transition: opacity 0.5s;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius--medium);
+  object-fit: cover;
+}
+
+.tabs_video.is-1 {
+  opacity: 1;
+}
+
+.tabs_video-gda-badge {
+  width: 5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  margin-right: 2rem;
+}
+
+.footer-content {
+  text-align: center;
+  padding: 2rem 0;
+  background: var(--gray-900);
+  color: var(--white);
+  font-size: 1rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: 100;
+}
+
+@media (max-width: 1024px) {
+  .tabs_component {
+    grid-template-columns: 1fr;
+    min-height: 300px;
+  }
+  .tabs_right {
+    min-height: 250px;
+  }
+  .tabs_left {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .intro-wrapper {
+    min-height: 20vh;
+    padding-top: 1rem;
+  }
+  .text-align-center {
+    padding: 1rem 0.5rem 0 0.5rem;
+    font-size: 1.2rem;
+  }
+  .heading-style-h3 {
+    font-size: 2rem;
+  }
+  .section_tabs {
+    min-height: 40vh;
+    border-radius: 0;
+    padding: 0;
+  }
+  .padding-section-large {
+    padding: 1rem 0;
+  }
+  .tabs_component {
+    gap: 1rem;
+    min-height: 200px;
+  }
+  .tabs_left {
+    padding: 1rem;
+    min-height: 150px;
+  }
+  .tabs_right {
+    min-height: 150px;
+  }
+}
 /* ========================================
    PROYECTOS PAGE - TABS & MODERN DESIGN
    ======================================== */
@@ -713,12 +921,13 @@ sup {
 }
 
 .tabs_right {
-	width: 100%;
-	height: 100%;
-	border-radius: var(--border-radius--medium);
-	position: relative;
-	overflow: hidden;
-	grid-area: span 1 / span 1 / span 1 / span 1;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  border-radius: var(--border-radius--medium);
+  position: relative;
+  overflow: hidden;
+  background: var(--gray-900);
 }
 
 .w-background-video {
@@ -729,8 +938,15 @@ sup {
 }
 
 .tabs_video {
-    opacity: 0;
-    transition: opacity 0.5s;
+  opacity: 0;
+  transition: opacity 0.5s;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  max-height: 600px;
+  border-radius: var(--border-radius--medium);
+  object-fit: cover;
+  background: var(--gray-800);
 }
 
 .tabs_video.is-1 {
