@@ -34,7 +34,7 @@
             <span class="burger-line" style="display:block;width:28px;height:3px;background:#181b22;border-radius:2px;margin:6px 0;transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"></span>
           </button>
         </nav>
-        <div class="header-mobile-menu" id="headerMobileMenu" style="display:none;position:absolute;top:100%;left:0;right:0;width:100%;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.08);padding:1.5rem;box-shadow:0 12px 32px rgba(31,38,135,0.12);box-sizing:border-box;">
+        <div class="header-mobile-menu" id="headerMobileMenu">
           <ul style="list-style:none;margin:0;padding:0;">
             <li style="margin:0.75rem 0;"><a href="index.html" style="font-weight:700;font-size:1.1rem;color:#23272f;padding:0.75rem 1rem;display:block;border-radius:8px;transition:all 0.2s;">Inicio</a></li>
             <li style="margin:0.75rem 0;"><a href="servicios.html" style="font-weight:700;font-size:1.1rem;color:#23272f;padding:0.75rem 1rem;display:block;border-radius:8px;transition:all 0.2s;">Servicios</a></li>
@@ -46,34 +46,173 @@
         </div>
     </div>
   </header>
-    <section class="servicios" id="servicios">
-      <h2>Servicios profesionales</h2>
-      <div class="servicios-cards">
-        <div class="card">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="#0ea5e9" stroke-width="2"/><rect x="12" y="16" width="16" height="8" rx="4" fill="#334155"/></svg>
-          </div>
-          <h3>Landing Pages</h3>
-          <p>Desarrollamos páginas de aterrizaje optimizadas para captar clientes y validar productos o servicios.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="8" y="12" width="24" height="16" rx="8" stroke="#0ea5e9" stroke-width="2"/><circle cx="20" cy="20" r="4" fill="#334155"/></svg>
-          </div>
-          <h3>Web Corporativa</h3>
-          <p>Soluciones web robustas, rápidas y seguras para empresas que buscan presencia profesional y resultados medibles.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="10" y="10" width="20" height="20" rx="6" stroke="#0ea5e9" stroke-width="2"/><path d="M20 16v8" stroke="#334155" stroke-width="2"/><path d="M16 20h8" stroke="#334155" stroke-width="2"/></svg>
-          </div>
-          <h3>Mantenimiento y soporte</h3>
-          <p>Actualizaciones, seguridad y optimización continua para que tu web siempre esté al máximo nivel.</p>
+    <!-- Hero Section -->
+    <section class="servicios-hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Soluciones Web<br><span class="gradient-text">que impulsan tu negocio</span></h1>
+        <p class="hero-subtitle">Desde startups hasta empresas consolidadas, creamos webs que convierten visitantes en clientes. Modernas, rápidas y totalmente optimizadas.</p>
+        <div class="hero-cta">
+          <a href="contacto.html" class="btn btn-primary">Comienza tu proyecto</a>
+          <a href="#servicios-cards" class="btn btn-secondary">Explora servicios</a>
         </div>
       </div>
-      <div class="servicios-extra">
-        <h3>¿Necesitas algo a medida?</h3>
-        <p>Desarrollamos soluciones personalizadas para empresas: integración de sistemas, automatización y consultoría digital.</p>
+      <div class="hero-visual">
+        <div class="floating-card card-1">
+          <div class="card-header">Web Performance</div>
+          <div class="card-value counter" data-target="100">0</div>
+          <div class="card-unit">/100</div>
+        </div>
+        <div class="floating-card card-2">
+          <div class="card-header">SEO Optimizado</div>
+          <div class="card-icon-visual">🚀</div>
+        </div>
+        <div class="floating-card card-3">
+          <div class="card-header">Conversión</div>
+          <div class="card-value counter" data-target="250">0</div>
+          <div class="card-unit">%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios Principales -->
+    <section class="servicios-main" id="servicios-cards">
+      <div class="section-header">
+        <h2>Nuestros Servicios</h2>
+        <p>Soluciones web completas diseñadas para hacer crecer tu negocio</p>
+      </div>
+
+      <div class="servicios-grid">
+        <!-- Landing Pages Pro -->
+        <div class="service-card premium">
+          <div class="card-badge">Más popular</div>
+          <div class="card-header-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="13 2 13 9 20 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 15h6M9 11h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Landing Pages de Conversión</h3>
+          <p class="card-description">Páginas diseñadas específicamente para captar leads y vender. Con copywriting estratégico, CTAs optimizados y análisis completo de conversiones.</p>
+          <ul class="features-list">
+            <li><span class="check">✓</span> Diseño personalizado y moderno</li>
+            <li><span class="check">✓</span> Optimización SEO incluida</li>
+            <li><span class="check">✓</span> Integración con formularios avanzados</li>
+            <li><span class="check">✓</span> Análisis y reportes de conversión</li>
+            <li><span class="check">✓</span> A/B Testing incluido</li>
+            <li><span class="check">✓</span> Hosting y SSL gratis 1 año</li>
+          </ul>
+        </div>
+
+        <!-- Web Corporativa -->
+        <div class="service-card">
+          <div class="card-header-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M2 17h20M6 21h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Web Corporativa Profesional</h3>
+          <p class="card-description">Presencia online solida para empresas B2B y B2C. Sitios escalables, seguros y con todas las funcionalidades que necesitas.</p>
+          <ul class="features-list">
+            <li><span class="check">✓</span> Estructura completa y profesional</li>
+            <li><span class="check">✓</span> Sistema de gestión de contenidos</li>
+            <li><span class="check">✓</span> Integración con redes sociales</li>
+            <li><span class="check">✓</span> Blog optimizado para SEO</li>
+            <li><span class="check">✓</span> Formulario de contacto avanzado</li>
+            <li><span class="check">✓</span> Certificado SSL y backups automáticos</li>
+          </ul>
+        </div>
+
+        <!-- E-commerce -->
+        <div class="service-card">
+          <div class="card-header-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+              <circle cx="20" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Tiendas Online Completas</h3>
+          <p class="card-description">Plataformas e-commerce totalmente funcionales. Vende online con confianza, gestión de inventario y pasarelas de pago integradas.</p>
+          <ul class="features-list">
+            <li><span class="check">✓</span> Catálogo de productos ilimitado</li>
+            <li><span class="check">✓</span> Pasarelas de pago seguras</li>
+            <li><span class="check">✓</span> Gestión de inventario automática</li>
+            <li><span class="check">✓</span> Sistema de cupones y promociones</li>
+            <li><span class="check">✓</span> Envíos y trazabilidad</li>
+            <li><span class="check">✓</span> Dashboard analítico completo</li>
+          </ul>
+        </div>
+
+        <!-- Rediseño Web -->
+        <div class="service-card">
+          <div class="card-header-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Rediseño y Modernización</h3>
+          <p class="card-description">Tu web se ve antigua o no convierte. Transformamos sitios existentes en máquinas de crecimiento con diseño moderno y tecnología actual.</p>
+          <ul class="features-list">
+            <li><span class="check">✓</span> Análisis y diagnóstico completo</li>
+            <li><span class="check">✓</span> Nuevo diseño responsivo</li>
+            <li><span class="check">✓</span> Mejora de velocidad (+40%)</li>
+            <li><span class="check">✓</span> Migración segura de datos</li>
+            <li><span class="check">✓</span> Optimización SEO incluida</li>
+            <li><span class="check">✓</span> Capacitación incluida</li>
+          </ul>
+        </div>
+
+        <!-- Desarrollo Personalizado -->
+        <div class="service-card">
+          <div class="card-header-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polyline points="16 18 22 12 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="8 6 2 12 8 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Desarrollo Personalizado</h3>
+          <p class="card-description">Necesitas algo único y específico. Desarrollamos soluciones a medida: integraciones API, aplicaciones web, sistemas personalizados.</p>
+          <ul class="features-list">
+            <li><span class="check">✓</span> Arquitectura escalable</li>
+            <li><span class="check">✓</span> Integraciones API complejas</li>
+            <li><span class="check">✓</span> Automatización de procesos</li>
+            <li><span class="check">✓</span> Dashboard personalizado</li>
+            <li><span class="check">✓</span> Dashboard personalizado</li>
+            <li><span class="check">✓</span> Bases de datos avanzadas</li>
+            <li><span class="check">✓</span> Soporte técnico continuo</li>
+          </ul>
+        </div>
+        <!-- Mantenimiento y Soporte -->
+        <div class="service-card">
+          <div class="card-header-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Mantenimiento y Soporte 24/7</h3>
+          <p class="card-description">Tu web funcionando siempre al 100%. Actualizaciones, seguridad, backups automáticos y soporte técnico dedicado.</p>
+          <ul class="features-list">
+            <li><span class="check">✓</span> Backups automáticos diarios</li>
+            <li><span class="check">✓</span> Monitoreo 24/7 de seguridad</li>
+            <li><span class="check">✓</span> Actualizaciones incluidas</li>
+            <li><span class="check">✓</span> Optimización de velocidad</li>
+            <li><span class="check">✓</span> Soporte prioritario técnico</li>
+            <li><span class="check">✓</span> Reportes mensuales detallados</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="servicios-cta">
+      <div class="cta-content">
+        <h2>¿Listo para transformar tu presencia online?</h2>
+        <p>Más de 50 empresas confían en nosotros para sus soluciones web. Contáctanos hoy para una consulta gratuita.</p>
+        <a href="contacto.html" class="btn btn-large">Solicitar Presupuesto</a>
       </div>
     </section>
   </main>
@@ -131,5 +270,6 @@
   <script type="module" src="/scripts/header-nav.js"></script>
   <script type="module" src="/scripts/scroll.js"></script>
   <script type="module" src="/scripts/forms.js"></script>
+  <script src="/scripts/servicios.js"></script>
 </body>
 </html>
