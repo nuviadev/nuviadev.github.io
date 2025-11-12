@@ -271,5 +271,42 @@
   <script type="module" src="/scripts/scroll.js"></script>
   <script type="module" src="/scripts/forms.js"></script>
   <script src="/scripts/servicios.js"></script>
+  <script>
+    // CONTADOR DIRECTO - TEST
+    (function() {
+      function animateCounters() {
+        console.log('[COUNTER-TEST] Iniciando animación de contadores');
+        const counters = document.querySelectorAll('.counter');
+        console.log('[COUNTER-TEST] Elementos encontrados:', counters.length);
+        
+        counters.forEach((counter, idx) => {
+          const target = parseInt(counter.getAttribute('data-target')) || 0;
+          console.log(`[COUNTER-TEST] Counter ${idx}: target=${target}, current=${counter.textContent}`);
+          
+          if (target === 0) return;
+          
+          let current = 0;
+          const step = target / 60;
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              counter.textContent = target;
+              clearInterval(timer);
+              console.log(`[COUNTER-TEST] Counter ${idx} completado: ${target}`);
+            } else {
+              counter.textContent = Math.floor(current);
+            }
+          }, 50);
+        });
+      }
+      
+      // Esperar a que el DOM esté completamente listo
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', animateCounters);
+      } else {
+        setTimeout(animateCounters, 500);
+      }
+    })();
+  </script>
 </body>
 </html>

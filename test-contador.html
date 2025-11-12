@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Contador</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 40px;
+    }
+    .counter-test {
+      background: #2a2a2a;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-size: 32px;
+      font-weight: bold;
+      color: #facc15;
+    }
+  </style>
+</head>
+<body>
+  <h1>Test de Contador</h1>
+  <div class="counter-test">
+    <div>Web Performance</div>
+    <div class="counter" data-target="100">0</div>
+    <div>/100</div>
+  </div>
+  
+  <div class="counter-test">
+    <div>Conversión</div>
+    <div class="counter" data-target="250">0</div>
+    <div>%</div>
+  </div>
+
+  <script>
+    console.log('Test script loaded');
+    
+    function testCounter() {
+      const counters = document.querySelectorAll('.counter');
+      console.log('Counters found:', counters.length);
+      
+      counters.forEach((counter, index) => {
+        const target = counter.getAttribute('data-target');
+        const value = parseInt(target);
+        console.log(`Counter ${index}: target=${target}, value=${value}`);
+        
+        let current = 0;
+        const interval = setInterval(() => {
+          current++;
+          counter.textContent = current;
+          
+          if (current >= value) {
+            clearInterval(interval);
+            counter.textContent = value;
+          }
+        }, 20);
+      });
+    }
+    
+    window.addEventListener('load', testCounter);
+    
+    // Also try immediately
+    setTimeout(testCounter, 100);
+  </script>
+</body>
+</html>

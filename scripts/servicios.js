@@ -2,42 +2,45 @@
 // SERVICIOS PAGE - MODERN EFFECTS
 // ============================================
 
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded triggered');
-  
-  // Initialize all effects
-  initCardEffects();
-  initParallaxEffect();
-  
-  // Delay counter animation to ensure DOM is fully ready
-  setTimeout(() => {
-    console.log('Calling initCounterAnimation');
-    initCounterAnimation();
-  }, 500);
-  
-  initIntersectionObserver();
-  initMouseTrackingEffect();
-  initCardHoverGradient();
-  initScrollReveal();
-  initGlowEffect();
-  initScrollAppearEffects();
-});
+// Run immediately when script loads
+console.log('servicios.js loaded');
 
-// Also run on window load as backup
-window.addEventListener('load', () => {
-  console.log('Window load event');
-  // Give another chance to init counters if not done yet
-  setTimeout(() => {
-    const counters = document.querySelectorAll('.counter');
-    if (counters.length > 0) {
-      const firstCounter = counters[0];
-      if (firstCounter.textContent === '0') {
-        console.log('Counters not animated yet, forcing initialization');
-        initCounterAnimation();
-      }
-    }
-  }, 100);
-});
+function initializeAllEffects() {
+  try {
+    initCardEffects();
+  } catch(e) { console.error('initCardEffects error:', e); }
+  try {
+    initParallaxEffect();
+  } catch(e) { console.error('initParallaxEffect error:', e); }
+  try {
+    initCounterAnimation();
+  } catch(e) { console.error('initCounterAnimation error:', e); }
+  try {
+    initIntersectionObserver();
+  } catch(e) { console.error('initIntersectionObserver error:', e); }
+  try {
+    initMouseTrackingEffect();
+  } catch(e) { console.error('initMouseTrackingEffect error:', e); }
+  try {
+    initCardHoverGradient();
+  } catch(e) { console.error('initCardHoverGradient error:', e); }
+  try {
+    initScrollReveal();
+  } catch(e) { console.error('initScrollReveal error:', e); }
+  try {
+    initGlowEffect();
+  } catch(e) { console.error('initGlowEffect error:', e); }
+  try {
+    initScrollAppearEffects();
+  } catch(e) { console.error('initScrollAppearEffects error:', e); }
+}
+
+document.addEventListener('DOMContentLoaded', initializeAllEffects);
+
+// Backup for when script loads after DOM is ready
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+  setTimeout(initializeAllEffects, 100);
+}
 
 // ============================================
 // CARD HOVER EFFECTS
@@ -121,48 +124,48 @@ function initParallaxEffect() {
 // COUNTER ANIMATION
 // ============================================
 function initCounterAnimation() {
-  console.log('=== initCounterAnimation START ===');
+  console.log('INIT COUNTER ANIMATION CALLED');
   const counters = document.querySelectorAll('.counter');
   console.log('Found counters:', counters.length);
-
+  
   if (counters.length === 0) {
-    console.error('No counters found!');
+    console.error('NO COUNTERS FOUND!');
+    // Try alternative selector
+    const alt = document.querySelectorAll('[data-target]');
+    console.log('Alternative search with [data-target]:', alt.length);
+    alt.forEach(el => console.log('Element:', el.className, el.textContent));
     return;
   }
 
   counters.forEach((counter, index) => {
-    const dataTarget = counter.getAttribute('data-target');
-    console.log(`Counter ${index}: data-target="${dataTarget}"`);
+    const target = counter.getAttribute('data-target');
+    console.log(`Counter ${index}:`, { className: counter.className, target, text: counter.textContent });
     
-    if (!dataTarget) {
-      console.error(`Counter ${index} has no data-target`);
-      return;
-    }
+    if (!target) return;
     
-    const finalValue = parseInt(dataTarget);
-    console.log(`Counter ${index}: finalValue=${finalValue}`);
-    
-    if (isNaN(finalValue)) {
-      console.error(`Counter ${index}: NaN value`);
+    const finalValue = parseInt(target);
+    if (isNaN(finalValue) || finalValue <= 0) {
+      console.error(`Counter ${index}: invalid value ${finalValue}`);
       return;
     }
 
-    // Animate starting 500ms after page load, plus stagger
+    console.log(`Counter ${index}: Starting animation 0 → ${finalValue}`);
+    
     setTimeout(() => {
-      console.log(`Starting animation for counter ${index}: 0 → ${finalValue}`);
-      
-      let currentValue = 0;
-      const increment = finalValue / 60; // 60 steps
-      const stepTime = 2000 / 60; // 2 seconds total
+      let current = 0;
+      const increment = finalValue / 60;
+      const stepTime = 33; // ~60fps
       
       const interval = setInterval(() => {
-        currentValue += increment;
-        if (currentValue >= finalValue) {
-          currentValue = finalValue;
+        current += increment;
+        counter.textContent = Math.floor(current);
+        
+        if (current >= finalValue) {
+          counter.textContent = finalValue;
           clearInterval(interval);
-          console.log(`Counter ${index} complete!`);
+          console.log(`Counter ${index}: DONE`);
           
-          // Trigger effects
+          // Effects
           counter.style.animation = 'counterCompletePulse 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
           createCounterSpark(counter);
           
@@ -174,12 +177,9 @@ function initCounterAnimation() {
             }, 800);
           }
         }
-        counter.textContent = Math.floor(currentValue);
       }, stepTime);
-    }, 500 + index * 300);
+    }, 100 + index * 300);
   });
-  
-  console.log('=== initCounterAnimation END ===');
 }
 
 // ============================================
