@@ -1,88 +1,135 @@
-// nav.js: sticky header glass, pills, mobile menu
+// nav.js: Enhanced navigation with glassmorphism, mobile menu, and smooth scrolling
 console.log('🚀 nav.js iniciando...');
 
-// Esperar a que el DOM esté listo
 function initNav() {
-  // Obtener elementos del DOM
   const hamburger = document.getElementById('headerBurger');
   const mobileMenu = document.getElementById('headerMobileMenu');
   const header = document.querySelector('.header');
+  const navLinks = document.querySelectorAll('.nav-link, .mobile-menu-link');
 
   console.log('Elementos encontrados:', { hamburger, mobileMenu, header });
 
   let menuOpen = false;
 
+  // Enhanced mobile menu toggle
   if (hamburger && mobileMenu) {
-    console.log('✅ Inicializando menú hamburguesa');
+    console.log('✅ Inicializando menú hamburguesa mejorado');
     
-    // Click en hamburguesa
     hamburger.addEventListener('click', function(e) {
-      console.log('🍔 Hamburguesa clickeada, menuOpen es:', menuOpen);
       e.preventDefault();
       e.stopPropagation();
       
       menuOpen = !menuOpen;
       
       if (menuOpen) {
-        console.log('📂 Abriendo menú');
-        mobileMenu.classList.add('show');
+        mobileMenu.classList.add('active', 'show');
         hamburger.classList.add('active');
         hamburger.setAttribute('aria-expanded', 'true');
+        
+        // Animar líneas del hamburguesa
+        const lines = hamburger.querySelectorAll('.burger-line');
+        lines[0].style.transform = 'translateY(15px) rotate(45deg)';
+        lines[1].style.opacity = '0';
+        lines[2].style.transform = 'translateY(-15px) rotate(-45deg)';
       } else {
-        console.log('📁 Cerrando menú');
-        mobileMenu.classList.remove('show');
+        mobileMenu.classList.remove('active');
+        setTimeout(() => mobileMenu.classList.remove('show'), 300);
         hamburger.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
+        
+        // Reset líneas
+        const lines = hamburger.querySelectorAll('.burger-line');
+        lines[0].style.transform = '';
+        lines[1].style.opacity = '';
+        lines[2].style.transform = '';
       }
     });
     
-    // Click en links del menú para cerrar
-    const links = mobileMenu.querySelectorAll('a');
-    links.forEach(link => {
+    // Close menu on link click
+    navLinks.forEach(link => {
       link.addEventListener('click', function() {
-        console.log('Link clickeado');
-        menuOpen = false;
-        mobileMenu.classList.remove('show');
-        hamburger.classList.remove('active');
+        if (menuOpen) {
+          menuOpen = false;
+          mobileMenu.classList.remove('active');
+          setTimeout(() => mobileMenu.classList.remove('show'), 300);
+          hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          
+          const lines = hamburger.querySelectorAll('.burger-line');
+          lines[0].style.transform = '';
+          lines[1].style.opacity = '';
+          lines[2].style.transform = '';
+        }
       });
     });
     
-    // Click fuera del menú para cerrar
+    // Close menu on outside click
     document.addEventListener('click', function(e) {
       if (menuOpen && !hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-        console.log('Click fuera, cerrando');
         menuOpen = false;
-        mobileMenu.classList.remove('show');
+        mobileMenu.classList.remove('active');
+        setTimeout(() => mobileMenu.classList.remove('show'), 300);
         hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        
+        const lines = hamburger.querySelectorAll('.burger-line');
+        lines[0].style.transform = '';
+        lines[1].style.opacity = '';
+        lines[2].style.transform = '';
       }
     });
     
-    // ESC para cerrar
+    // Close menu on ESC
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && menuOpen) {
-        console.log('ESC presionado');
         menuOpen = false;
-        mobileMenu.classList.remove('show');
+        mobileMenu.classList.remove('active');
+        setTimeout(() => mobileMenu.classList.remove('show'), 300);
         hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        
+        const lines = hamburger.querySelectorAll('.burger-line');
+        lines[0].style.transform = '';
+        lines[1].style.opacity = '';
+        lines[2].style.transform = '';
       }
     });
-    
-  } else {
-    console.error('❌ No se encontraron elementos del menú');
   }
 
-  // Scroll effect
+  // Enhanced scroll effect
   let lastScroll = 0;
+  const scrollThreshold = 50;
+  
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
+    
     if (header) {
-      if (y > 48) header.classList.add('nav--compact');
-      else header.classList.remove('nav--compact');
+      if (y > scrollThreshold) {
+        header.classList.add('nav--compact');
+      } else {
+        header.classList.remove('nav--compact');
+      }
     }
+    
     lastScroll = y;
+  }, { passive: true });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href !== '#' && document.querySelector(href)) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
   });
 
-  // Pills active
+  // Enhanced pill/chip functionality
   const chips = document.querySelectorAll('.chip');
   if (chips.length > 0) {
     chips.forEach(chip => {
@@ -92,6 +139,13 @@ function initNav() {
       });
     });
   }
+
+  // Add active state to current navigation item
+  navLinks.forEach(link => {
+    if (link.getAttribute('aria-current') === 'page') {
+      link.classList.add('active');
+    }
+  });
 
   console.log('✅ nav.js completamente cargado');
 }

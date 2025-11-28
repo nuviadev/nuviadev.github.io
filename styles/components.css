@@ -1,95 +1,197 @@
-/* components.css: buttons, chips, cards, carrousel */
+/* components.css: Buttons, Chips, Cards, Carousel - Enhanced */
+
+/* ===== BUTTON STYLES ===== */
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1rem;
   border-radius: 999px;
   padding: 0.85em 2.2em;
   border: none;
-  background: var(--brand-1);
+  background: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-2) 100%);
   color: #fff;
   box-shadow: var(--shadow-md);
   cursor: pointer;
-  transition: background var(--transition), box-shadow var(--transition), filter var(--transition);
+  transition: all var(--transition-slow);
+  position: relative;
+  overflow: hidden;
+  font-family: inherit;
 }
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--brand-2) 0%, var(--brand-1) 100%);
+  opacity: 0;
+  transition: opacity var(--transition);
+  z-index: -1;
+}
+
 .btn:hover, .btn:focus {
-  background: var(--brand-2);
-  filter: brightness(1.08);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-xl);
 }
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-2) 100%);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 12px 40px rgba(14, 165, 233, 0.4);
+}
+
 .btn-secondary {
   background: transparent;
   color: var(--brand-1);
   border: 2px solid var(--brand-1);
 }
+
+.btn-secondary:hover {
+  background: rgba(14, 165, 233, 0.1);
+  border-color: var(--brand-2);
+  color: var(--brand-2);
+}
+
 .btn-ghost {
   background: none;
   color: var(--ink);
   border: none;
   box-shadow: none;
 }
+
+.btn-ghost:hover {
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: none;
+}
+
+.btn-sm {
+  padding: 0.6em 1.6em;
+  font-size: 0.95rem;
+}
+
+.btn-lg {
+  padding: 1em 2.5em;
+  font-size: 1.1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+/* ===== CHIP/PILL STYLES ===== */
 .chip {
   display: inline-block;
   border-radius: 999px;
   background: var(--surface-2);
   color: var(--ink);
-  padding: 0.4em 1.3em;
-  font-size: 1rem;
+  padding: 0.5em 1.3em;
+  font-size: 0.95rem;
   font-weight: 600;
-  margin: 0 0.3em 0.5em 0;
+  margin: 0 0.4em 0.6em 0;
   cursor: pointer;
-  border: none;
-  transition: background var(--transition), color var(--transition);
+  border: 1px solid transparent;
+  transition: all var(--transition);
 }
-.chip[aria-pressed="true"], .chip.active {
-  background: var(--brand-1);
+
+.chip:hover {
+  background: rgba(14, 165, 233, 0.1);
+  border-color: var(--brand-1);
+  color: var(--brand-1);
+}
+
+.chip[aria-pressed="true"], 
+.chip.active {
+  background: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-2) 100%);
   color: #fff;
+  border-color: var(--brand-1);
 }
+
+/* ===== CARD STYLES ===== */
 .card-xl {
-  background: var(--surface-2);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-xl);
-  padding: 2.5rem 2rem 2rem 2rem;
-  margin-bottom: 2rem;
-  transition: box-shadow var(--transition), transform var(--transition);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(14, 165, 233, 0.1);
+  transition: all var(--transition-slow);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
 .card-xl:hover {
-  box-shadow: 0 12px 48px 0 rgba(250,204,21,0.22);
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(14, 165, 233, 0.3);
 }
+
 .card-xl img {
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  margin-bottom: 1.2rem;
-  width: 100%;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  margin: -2.5rem -2rem 1.5rem -2rem;
+  width: calc(100% + 4rem);
   object-fit: cover;
 }
+
+.card-xl:nth-child(even) {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+}
+
+/* ===== CAROUSEL STYLES ===== */
 .carousel {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 1.5rem;
-  padding-bottom: 1rem;
+  padding: 1rem 0 1.5rem 0;
+  scroll-behavior: smooth;
 }
+
+.carousel::-webkit-scrollbar {
+  height: 4px;
+}
+
+.carousel::-webkit-scrollbar-track {
+  background: var(--surface-1);
+  border-radius: 2px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background: var(--brand-1);
+  border-radius: 2px;
+}
+
 .carousel-item {
   flex: 0 0 320px;
   scroll-snap-align: start;
-  background: var(--surface-2);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
   padding: 1.5rem;
-  margin-right: 1rem;
+  border: 1px solid rgba(14, 165, 233, 0.1);
+  transition: all var(--transition);
 }
+
+.carousel-item:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(14, 165, 233, 0.3);
+  transform: translateY(-4px);
+}
+
 .carousel-nav {
   display: flex;
   gap: 0.5rem;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
+
 .carousel-btn {
-  background: var(--brand-2);
+  background: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-2) 100%);
   color: #fff;
   border: none;
   border-radius: 999px;
@@ -98,83 +200,101 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background var(--transition);
+  transition: all var(--transition);
+  box-shadow: var(--shadow-sm);
 }
+
+.carousel-btn:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
 .carousel-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  transform: scale(1);
 }
 
-/* Media Queries para Responsive */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .btn {
-    font-size: 1rem;
-    padding: 0.7em 1.8em;
+    font-size: 0.95rem;
+    padding: 0.75em 1.8em;
   }
+
+  .btn-lg {
+    padding: 0.8em 2em;
+  }
+
   .card-xl {
-    padding: 1.5rem 1.2rem 1rem 1.2rem;
-    margin-bottom: 1rem;
+    padding: 2rem 1.5rem;
   }
+
   .carousel-item {
     flex: 0 0 280px;
     padding: 1.2rem;
-  }
-  .carousel-btn {
-    width: 2rem;
-    height: 2rem;
-    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 640px) {
   .btn {
-    font-size: 0.95rem;
-    padding: 0.6em 1.6em;
-    display: block;
+    font-size: 0.9rem;
+    padding: 0.65em 1.6em;
     width: 100%;
-    text-align: center;
+    justify-content: center;
   }
+
   .btn-secondary {
     border-width: 1.5px;
   }
-  .card-xl {
-    padding: 1.2rem 1rem 0.8rem 1rem;
-    margin-bottom: 0.8rem;
+
+  .btn-lg {
+    padding: 0.75em 1.5em;
+    font-size: 1rem;
   }
+
+  .card-xl {
+    padding: 1.5rem 1.2rem;
+  }
+
   .carousel-item {
     flex: 0 0 240px;
     padding: 1rem;
-    margin-right: 0.5rem;
   }
+
   .carousel-btn {
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 2rem;
+    height: 2rem;
     font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .btn {
-    font-size: 0.9rem;
-    padding: 0.5em 1.4em;
+    font-size: 0.85rem;
+    padding: 0.6em 1.4em;
   }
+
   .chip {
-    font-size: 0.9rem;
-    padding: 0.3em 1em;
+    font-size: 0.85rem;
+    padding: 0.4em 1em;
+    margin: 0 0.2em 0.4em 0;
   }
+
   .card-xl {
-    padding: 1rem 0.8rem 0.7rem 0.8rem;
-    margin-bottom: 0.6rem;
+    padding: 1.2rem 1rem;
   }
+
   .carousel-item {
     flex: 0 0 200px;
     padding: 0.8rem;
   }
+
   .carousel-btn {
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 1.8rem;
+    height: 1.8rem;
     font-size: 0.9rem;
   }
 }
