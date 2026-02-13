@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serveis | NuviaDev</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noise-overlay"></div>
+    <div class="grain"></div>
+    
+    <div id="cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-circle"></div>
+    </div>
+
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="counter">0%</div>
+            <div class="loader-line">
+                <div class="loader-progress"></div>
+            </div>
+            <p class="loader-text">Loading Services...</p>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-main">Nuvia</span>
+                <span class="logo-accent">Dev</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links desktop-only">
+                    <a href="services.html" class="active">Serveis</a>
+                    <a href="projects.html">Projectes</a>
+                    <a href="index.html#about">Agència</a>
+                    <a href="contact.html">Contacte</a>
+                </div>
+                <button class="menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="fullscreen-menu">
+        <div class="menu-content">
+            <div class="menu-links">
+                <a href="index.html" class="fs-link" data-num="01">
+                    <span>Inici</span>
+                </a>
+                <a href="services.html" class="fs-link active" data-num="02">
+                    <span>Serveis</span>
+                </a>
+                <a href="projects.html" class="fs-link" data-num="03">
+                    <span>Projectes</span>
+                </a>
+                <a href="index.html#about" class="fs-link" data-num="04">
+                    <span>Agència</span>
+                </a>
+                <a href="contact.html" class="fs-link" data-num="05">
+                    <span>Contacte</span>
+                </a>
+            </div>
+            
+            <div class="menu-footer">
+                <div class="menu-info">
+                    <div class="info-block">
+                        <span class="label">Location</span>
+                        <p>Barcelona, Spain</p>
+                    </div>
+                    <div class="info-block">
+                        <span class="label">Contact</span>
+                        <p>hello@nuvia.dev</p>
+                    </div>
+                </div>
+                <div class="menu-lang">
+                    <button class="lang-btn active" data-lang="cat">CAT</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu-bg"></div>
+    </div>
+
+    <div class="smooth-wrapper">
+        
+        <!-- Services Hero -->
+        <section class="services-hero">
+            <div class="container">
+                <div class="services-hero-content">
+                    <div class="hero-label fade-up">
+                        <span class="label-dot"></span>
+                        <span>Els nostres serveis</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="line"><span class="word">Solucions</span></span>
+                        <span class="line"><span class="word">Digitals</span></span>
+                        <span class="line"><span class="word">Premium</span></span>
+                    </h1>
+                    
+                    <p class="hero-description fade-up">
+                        Oferim una gamma completa de serveis digitals d'alt rendiment. 
+                        Des de desenvolupament web fins a estratègia digital, el nostre equip té l'experiència 
+                        per portar el teu projecte al següent nivell.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="services-detail-section">
+            <div class="container">
+                
+                <!-- Service 1: Web Development -->
+                <article class="service-detail fade-up">
+                    <div class="service-detail-number">01</div>
+                    <div class="service-detail-content">
+                        <div class="service-detail-header">
+                            <div class="service-detail-icon">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <rect x="8" y="8" width="48" height="48" stroke="currentColor" stroke-width="3"/>
+                                    <path d="M20 20L44 44M44 20L20 44" stroke="currentColor" stroke-width="3"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>Desenvolupament Web</h2>
+                                <p class="service-detail-tagline">Aplicacions web d'alt rendiment</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-detail-body">
+                            <p class="service-detail-description">
+                                Creem aplicacions web modernes, ràpides i escalables utilitzant les tecnologies més avançades. 
+                                Des de landing pages fins a plataformes enterprise complexes, el nostre equip domina l'stack 
+                                complet per oferir solucions robustes i eficients.
+                            </p>
+                            
+                            <div class="service-features-grid">
+                                <div class="feature-item">
+                                    <h4>Frontend Development</h4>
+                                    <ul>
+                                        <li>React / Next.js / Vue.js</li>
+                                        <li>TypeScript</li>
+                                        <li>Tailwind CSS / Styled Components</li>
+                                        <li>Progressive Web Apps (PWA)</li>
+                                        <li>Responsive & Mobile-First</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Backend Development</h4>
+                                    <ul>
+                                        <li>Node.js / Express</li>
+                                        <li>Python / Django / FastAPI</li>
+                                        <li>RESTful APIs / GraphQL</li>
+                                        <li>Database Design (SQL/NoSQL)</li>
+                                        <li>Microservices Architecture</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>CMS Integration</h4>
+                                    <ul>
+                                        <li>Headless CMS (Contentful, Sanity)</li>
+                                        <li>WordPress Custom Development</li>
+                                        <li>Strapi / Directus</li>
+                                        <li>Custom Admin Panels</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Performance & SEO</h4>
+                                    <ul>
+                                        <li>Core Web Vitals Optimization</li>
+                                        <li>Server-Side Rendering (SSR)</li>
+                                        <li>Static Site Generation (SSG)</li>
+                                        <li>Technical SEO Implementation</li>
+                                        <li>Analytics Integration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="service-cta">
+                                <a href="contact.html" class="btn-primary magnetic">
+                                    <span>Començar Projecte</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20">
+                                        <path d="M10 0L8.59 1.41L16.17 9H0V11H16.17L8.59 18.59L10 20L20 10L10 0Z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 2: 3D Experiences -->
+                <article class="service-detail fade-up">
+                    <div class="service-detail-number">02</div>
+                    <div class="service-detail-content">
+                        <div class="service-detail-header">
+                            <div class="service-detail-icon">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <circle cx="32" cy="32" r="24" stroke="currentColor" stroke-width="3"/>
+                                    <path d="M32 8V32L44 44" stroke="currentColor" stroke-width="3"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>Experiències 3D Immersives</h2>
+                                <p class="service-detail-tagline">WebGL, Three.js i renders en temps real</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-detail-body">
+                            <p class="service-detail-description">
+                                Portem l'experiència web al següent nivell amb gràfics 3D interactius i experiències immersives. 
+                                Utilitzem WebGL, Three.js i shaders customitzats per crear visualitzacions impressionants que 
+                                funcionen perfectament en qualsevol dispositiu.
+                            </p>
+                            
+                            <div class="service-features-grid">
+                                <div class="feature-item">
+                                    <h4>3D Web Graphics</h4>
+                                    <ul>
+                                        <li>Three.js / React Three Fiber</li>
+                                        <li>WebGL / WebGPU</li>
+                                        <li>Custom GLSL Shaders</li>
+                                        <li>Post-processing Effects</li>
+                                        <li>Particle Systems</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Interactive 3D Models</h4>
+                                    <ul>
+                                        <li>Product Configurators</li>
+                                        <li>Virtual Showrooms</li>
+                                        <li>3D Model Viewers</li>
+                                        <li>Animations & Physics</li>
+                                        <li>Real-time Lighting</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>AR/VR Experiences</h4>
+                                    <ul>
+                                        <li>WebAR (8th Wall, AR.js)</li>
+                                        <li>Virtual Tours 360°</li>
+                                        <li>Interactive Environments</li>
+                                        <li>Mobile AR Integration</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Performance Optimization</h4>
+                                    <ul>
+                                        <li>LOD (Level of Detail)</li>
+                                        <li>Texture Optimization</li>
+                                        <li>Geometry Instancing</li>
+                                        <li>Mobile Performance Tuning</li>
+                                        <li>Progressive Loading</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="service-cta">
+                                <a href="contact.html" class="btn-primary magnetic">
+                                    <span>Discutir Projecte 3D</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20">
+                                        <path d="M10 0L8.59 1.41L16.17 9H0V11H16.17L8.59 18.59L10 20L20 10L10 0Z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 3: Design Systems -->
+                <article class="service-detail fade-up">
+                    <div class="service-detail-number">03</div>
+                    <div class="service-detail-content">
+                        <div class="service-detail-header">
+                            <div class="service-detail-icon">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <path d="M12 24L32 12L52 24L32 36L12 24Z" stroke="currentColor" stroke-width="3"/>
+                                    <path d="M12 36L32 48L52 36M12 48L32 60L52 48" stroke="currentColor" stroke-width="3"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>Design Systems</h2>
+                                <p class="service-detail-tagline">Sistemes de disseny escalables i consistents</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-detail-body">
+                            <p class="service-detail-description">
+                                Construïm sistemes de disseny robustos que garanteixen consistència visual i funcional 
+                                a través de tots els productes digitals. Des de components atòmics fins a documentació 
+                                completa, creem les bases per a l'escalabilitat del teu producte.
+                            </p>
+                            
+                            <div class="service-features-grid">
+                                <div class="feature-item">
+                                    <h4>Component Libraries</h4>
+                                    <ul>
+                                        <li>Atomic Design Methodology</li>
+                                        <li>Reusable React Components</li>
+                                        <li>Component Documentation</li>
+                                        <li>Storybook Integration</li>
+                                        <li>NPM Package Publishing</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Design Tokens</h4>
+                                    <ul>
+                                        <li>Color Systems</li>
+                                        <li>Typography Scales</li>
+                                        <li>Spacing & Layout</li>
+                                        <li>CSS Variables / SCSS</li>
+                                        <li>Dark Mode Support</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Accessibility (A11y)</h4>
+                                    <ul>
+                                        <li>WCAG 2.1 AA/AAA Compliance</li>
+                                        <li>Keyboard Navigation</li>
+                                        <li>Screen Reader Support</li>
+                                        <li>Color Contrast Testing</li>
+                                        <li>ARIA Implementation</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Documentation</h4>
+                                    <ul>
+                                        <li>Component Guidelines</li>
+                                        <li>Usage Examples</li>
+                                        <li>Brand Guidelines</li>
+                                        <li>Developer Handoff</li>
+                                        <li>Interactive Playground</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="service-cta">
+                                <a href="contact.html" class="btn-primary magnetic">
+                                    <span>Crear Design System</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20">
+                                        <path d="M10 0L8.59 1.41L16.17 9H0V11H16.17L8.59 18.59L10 20L20 10L10 0Z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 4: E-Commerce -->
+                <article class="service-detail fade-up">
+                    <div class="service-detail-number">04</div>
+                    <div class="service-detail-content">
+                        <div class="service-detail-header">
+                            <div class="service-detail-icon">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <rect x="12" y="12" width="40" height="40" rx="4" stroke="currentColor" stroke-width="3"/>
+                                    <path d="M24 28H40M24 36H32" stroke="currentColor" stroke-width="3"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>E-Commerce Premium</h2>
+                                <p class="service-detail-tagline">Botigues online optimitzades per a conversió</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-detail-body">
+                            <p class="service-detail-description">
+                                Desenvolupem botigues online d'alt rendiment que converteixen visitants en clients. 
+                                Amb experiència en Shopify Plus, WooCommerce i solucions custom, creem experiències 
+                                de compra fluides i optimitzades per a màximes conversions.
+                            </p>
+                            
+                            <div class="service-features-grid">
+                                <div class="feature-item">
+                                    <h4>Platform Development</h4>
+                                    <ul>
+                                        <li>Shopify / Shopify Plus</li>
+                                        <li>WooCommerce Custom</li>
+                                        <li>Headless Commerce</li>
+                                        <li>Custom E-Commerce Solutions</li>
+                                        <li>Multi-store Setup</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Conversion Optimization</h4>
+                                    <ul>
+                                        <li>Checkout Optimization</li>
+                                        <li>A/B Testing Setup</li>
+                                        <li>Cart Abandonment Recovery</li>
+                                        <li>Product Page Design</li>
+                                        <li>User Flow Analysis</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Integrations</h4>
+                                    <ul>
+                                        <li>Payment Gateways</li>
+                                        <li>Shipping & Logistics</li>
+                                        <li>Email Marketing (Klaviyo)</li>
+                                        <li>ERP Integration</li>
+                                        <li>Inventory Management</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Features</h4>
+                                    <ul>
+                                        <li>Product Recommendations</li>
+                                        <li>Wishlist & Save for Later</li>
+                                        <li>Reviews & Ratings</li>
+                                        <li>Multi-currency Support</li>
+                                        <li>Advanced Search & Filters</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="service-cta">
+                                <a href="contact.html" class="btn-primary magnetic">
+                                    <span>Llançar E-Commerce</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20">
+                                        <path d="M10 0L8.59 1.41L16.17 9H0V11H16.17L8.59 18.59L10 20L20 10L10 0Z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 5: Digital Strategy -->
+                <article class="service-detail fade-up">
+                    <div class="service-detail-number">05</div>
+                    <div class="service-detail-content">
+                        <div class="service-detail-header">
+                            <div class="service-detail-icon">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <path d="M32 12L12 32L32 52L52 32L32 12Z" stroke="currentColor" stroke-width="3"/>
+                                    <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="3"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>Estratègia Digital</h2>
+                                <p class="service-detail-tagline">Growth hacking i transformació digital</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-detail-body">
+                            <p class="service-detail-description">
+                                T'ajudem a definir i executar una estratègia digital que impulsi el creixement del teu negoci. 
+                                Des de SEO i performance marketing fins a analytics avançats, proporcionem les eines i 
+                                l'expertise per assolir els teus objectius.
+                            </p>
+                            
+                            <div class="service-features-grid">
+                                <div class="feature-item">
+                                    <h4>SEO & Content</h4>
+                                    <ul>
+                                        <li>Technical SEO Audit</li>
+                                        <li>Keyword Research & Strategy</li>
+                                        <li>On-page Optimization</li>
+                                        <li>Content Strategy</li>
+                                        <li>Link Building</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Performance Marketing</h4>
+                                    <ul>
+                                        <li>Google Ads / SEM</li>
+                                        <li>Social Media Advertising</li>
+                                        <li>Retargeting Campaigns</li>
+                                        <li>Email Marketing Automation</li>
+                                        <li>Affiliate Marketing</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Analytics & Data</h4>
+                                    <ul>
+                                        <li>Google Analytics 4 Setup</li>
+                                        <li>Tag Manager Configuration</li>
+                                        <li>Custom Dashboards</li>
+                                        <li>Conversion Tracking</li>
+                                        <li>Data-driven Insights</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Growth Strategy</h4>
+                                    <ul>
+                                        <li>Digital Transformation</li>
+                                        <li>User Acquisition Strategy</li>
+                                        <li>Retention Optimization</li>
+                                        <li>Marketing Automation</li>
+                                        <li>KPI Definition & Tracking</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="service-cta">
+                                <a href="contact.html" class="btn-primary magnetic">
+                                    <span>Consulta Estratègica</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20">
+                                        <path d="M10 0L8.59 1.41L16.17 9H0V11H16.17L8.59 18.59L10 20L20 10L10 0Z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 6: Branding -->
+                <article class="service-detail fade-up">
+                    <div class="service-detail-number">06</div>
+                    <div class="service-detail-content">
+                        <div class="service-detail-header">
+                            <div class="service-detail-icon">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <rect x="12" y="18" width="40" height="28" rx="2" stroke="currentColor" stroke-width="3"/>
+                                    <circle cx="32" cy="32" r="6" stroke="currentColor" stroke-width="3"/>
+                                    <path d="M24 32H18M46 32H40" stroke="currentColor" stroke-width="3"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>Brand Identity</h2>
+                                <p class="service-detail-tagline">Construcció de marca i identitat visual</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-detail-body">
+                            <p class="service-detail-description">
+                                Creem identitats de marca úniques i memorables que connecten amb la teva audiència. 
+                                Des del logo fins als brand guidelines complets, desenvolupem tots els assets visuals 
+                                necessaris per a una presència de marca coherent i impactant.
+                            </p>
+                            
+                            <div class="service-features-grid">
+                                <div class="feature-item">
+                                    <h4>Logo & Identity</h4>
+                                    <ul>
+                                        <li>Logo Design & Variations</li>
+                                        <li>Brand Mark Development</li>
+                                        <li>Typography Selection</li>
+                                        <li>Color Palette Creation</li>
+                                        <li>Iconography System</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Brand Guidelines</h4>
+                                    <ul>
+                                        <li>Visual Identity Manual</li>
+                                        <li>Logo Usage Rules</li>
+                                        <li>Typography Guidelines</li>
+                                        <li>Color System</li>
+                                        <li>Photography Style</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Marketing Collateral</h4>
+                                    <ul>
+                                        <li>Business Cards</li>
+                                        <li>Letterhead & Stationery</li>
+                                        <li>Presentation Templates</li>
+                                        <li>Social Media Assets</li>
+                                        <li>Email Signatures</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Digital Assets</h4>
+                                    <ul>
+                                        <li>Website Design Language</li>
+                                        <li>UI/UX Style Guide</li>
+                                        <li>App Icon Design</li>
+                                        <li>Motion Graphics</li>
+                                        <li>Brand Animations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="service-cta">
+                                <a href="contact.html" class="btn-primary magnetic">
+                                    <span>Crear Identitat de Marca</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20">
+                                        <path d="M10 0L8.59 1.41L16.17 9H0V11H16.17L8.59 18.59L10 20L20 10L10 0Z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-card fade-up">
+                    <div class="cta-content">
+                        <h2 class="cta-title">
+                            Preparat per començar<br>
+                            el teu projecte?
+                        </h2>
+                        <p class="cta-text">
+                            Contacta'ns avui per discutir com podem ajudar-te a assolir els teus objectius digitals.
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="contact.html" class="btn-primary magnetic">
+                                <span>Contacta'ns Ara</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20">
+                                    <path d="M10 0L8.59 1.41L16.17 9H0V11H16.17L8.59 18.59L10 20L20 10L10 0Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                            <a href="projects.html" class="btn-secondary magnetic">
+                                <span>Veure Projectes</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cta-visual">
+                        <div class="cta-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="footer-col">
+                        <a href="index.html" class="footer-logo">
+                            <span class="logo-main">Nuvia</span>
+                            <span class="logo-accent">Dev</span>
+                        </a>
+                        <p class="footer-tagline">
+                            Premium Digital Engineering<br>
+                            Barcelona, Spain
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Dribbble">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.497-1.125-.767-1.68 2.31-1 4.165-2.358 5.548-4.082 1.35 1.594 2.197 3.619 2.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68-1.016-1.861-2.178-3.676-3.488-5.438.779-.197 1.591-.314 2.431-.314 2.275 0 4.368.779 6.043 2.072zm-10.516-.993c1.331 1.742 2.511 3.538 3.537 5.381-2.43.715-5.331 1.082-8.684 1.105.692-2.835 2.601-5.193 5.147-6.486zm-5.44 8.834l.013-.256c3.849-.005 7.169-.448 9.95-1.322.233.475.456.952.67 1.432-3.38 1.057-6.165 3.222-8.337 6.48-1.432-1.719-2.296-3.927-2.296-6.334zm3.829 7.81c1.969-3.088 4.482-5.098 7.598-6.027.928 2.42 1.609 4.91 2.043 7.46-3.349 1.291-7.213.211-9.641-1.433zm11.586.43c-.438-2.353-1.08-4.653-1.92-6.897 1.876-.265 3.94-.196 6.199.196-.437 2.786-2.028 5.192-4.279 6.701z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-title">Navigation</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html">Serveis</a></li>
+                            <li><a href="projects.html">Projectes</a></li>
+                            <li><a href="index.html#about">Agència</a></li>
+                            <li><a href="contact.html">Contacte</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-title">Serveis</h4>
+                        <ul class="footer-links">
+                            <li><a href="#web">Desenvolupament Web</a></li>
+                            <li><a href="#3d">Experiències 3D</a></li>
+                            <li><a href="#design">Design Systems</a></li>
+                            <li><a href="#ecommerce">E-Commerce</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-title">Contacte</h4>
+                        <ul class="footer-links">
+                            <li><a href="mailto:hello@nuvia.dev">hello@nuvia.dev</a></li>
+                            <li><a href="tel:+34932000000">+34 932 00 00 00</a></li>
+                            <li>
+                                Av. Diagonal 123<br>
+                                08019 Barcelona, Spain
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="footer-copy">© 2026 NuviaDev. All rights reserved.</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

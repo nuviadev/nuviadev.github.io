@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacte | NuviaDev</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('fkFEL39DB-nDsjFVO');
+    </script>
+</head>
+<body>
+
+    <div class="noise-overlay"></div>
+    <div class="grain"></div>
+    
+    <div id="cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-circle"></div>
+    </div>
+
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="counter">0%</div>
+            <div class="loader-line">
+                <div class="loader-progress"></div>
+            </div>
+            <p class="loader-text">Loading...</p>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-main">Nuvia</span>
+                <span class="logo-accent">Dev</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links desktop-only">
+                    <a href="index.html#services">Serveis</a>
+                    <a href="index.html#work">Projectes</a>
+                    <a href="index.html#about">Agència</a>
+                    <a href="contact.html" class="active">Contacte</a>
+                </div>
+                <button class="menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="fullscreen-menu">
+        <div class="menu-content">
+            <div class="menu-links">
+                <a href="index.html" class="fs-link" data-num="01">
+                    <span>Inici</span>
+                </a>
+                <a href="index.html#services" class="fs-link" data-num="02">
+                    <span>Serveis</span>
+                </a>
+                <a href="index.html#work" class="fs-link" data-num="03">
+                    <span>Projectes</span>
+                </a>
+                <a href="index.html#about" class="fs-link" data-num="04">
+                    <span>Agència</span>
+                </a>
+                <a href="contact.html" class="fs-link active" data-num="05">
+                    <span>Contacte</span>
+                </a>
+            </div>
+            
+            <div class="menu-footer">
+                <div class="menu-info">
+                    <div class="info-block">
+                        <span class="label">Location</span>
+                        <p>Barcelona, Spain</p>
+                    </div>
+                    <div class="info-block">
+                        <span class="label">Contact</span>
+                        <p>hello@nuvia.dev</p>
+                    </div>
+                </div>
+                <div class="menu-lang">
+                    <button class="lang-btn active" data-lang="cat">CAT</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu-bg"></div>
+    </div>
+
+    <div class="smooth-wrapper">
+        
+        <!-- Contact Hero -->
+        <section class="contact-hero">
+            <div class="container">
+                <div class="contact-hero-content">
+                    <div class="hero-label fade-up">
+                        <span class="label-dot"></span>
+                        <span>Parlem del teu projecte</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="line"><span class="word">Comencem</span></span>
+                        <span class="line"><span class="word">Junts.</span></span>
+                    </h1>
+                    
+                    <p class="hero-description fade-up">
+                        Tens una idea brillant? Estem aquí per ajudar-te a fer-la realitat. 
+                        Omple el formulari o contacta'ns directament.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    
+                    <!-- Contact Info -->
+                    <div class="contact-info fade-up">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Oficina</h3>
+                            <p>
+                                Av. Diagonal 123<br>
+                                08019 Barcelona<br>
+                                Spain
+                            </p>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Email</h3>
+                            <p>
+                                <a href="mailto:hello@nuvia.dev">hello@nuvia.dev</a><br>
+                                <a href="mailto:info@nuvia.dev">info@nuvia.dev</a>
+                            </p>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M22 16.92V19.92C22 20.4723 21.5523 20.92 21 20.92H18C8.05887 20.92 0 12.8611 0 2.92C0 2.36771 0.447715 1.92 1 1.92H4C4.55228 1.92 5 2.36771 5 2.92V5.92C5 6.47228 4.55228 6.92 4 6.92H3.5C3.77614 12.4726 8.44744 16.92 14 16.92V16.42C14 15.8677 14.4477 15.42 15 15.42H18C18.5523 15.42 19 15.8677 19 16.42V19.42" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Telèfon</h3>
+                            <p>
+                                <a href="tel:+34932000000">+34 932 00 00 00</a><br>
+                                Dilluns - Divendres<br>
+                                9:00 - 18:00
+                            </p>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M9 9H15M9 13H15M9 17H12" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Xarxes Socials</h3>
+                            <div class="social-links-vertical">
+                                <a href="#">Instagram</a>
+                                <a href="#">LinkedIn</a>
+                                <a href="#">Twitter</a>
+                                <a href="#">Dribbble</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-wrapper fade-up">
+                        <div class="form-header">
+                            <h2>Envia'ns un missatge</h2>
+                            <p>Respon en menys de 24 hores</p>
+                        </div>
+
+                        <form id="contactForm" class="contact-form" autocomplete="off">
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <input type="text" class="input-field" required name="name">
+                                    <label class="input-label">Nom complet *</label>
+                                </div>
+
+                                <div class="input-group">
+                                    <input type="email" class="input-field" required name="email">
+                                    <label class="input-label">Email *</label>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <input type="text" class="input-field" name="company">
+                                    <label class="input-label">Empresa</label>
+                                </div>
+
+                                <div class="input-group">
+                                    <input type="tel" class="input-field" name="phone">
+                                    <label class="input-label">Telèfon</label>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <select class="input-field" required name="service">
+                                    <option value="" disabled selected></option>
+                                    <option value="web">Desenvolupament Web</option>
+                                    <option value="3d">Experiències 3D</option>
+                                    <option value="design">Design Systems</option>
+                                    <option value="ecommerce">E-Commerce</option>
+                                    <option value="strategy">Estratègia Digital</option>
+                                    <option value="branding">Brand Identity</option>
+                                    <option value="other">Altres</option>
+                                </select>
+                                <label class="input-label">Servei d'interès *</label>
+                            </div>
+
+                            <div class="input-group">
+                                <select class="input-field" name="budget">
+                                    <option value="" disabled selected></option>
+                                    <option value="small">< 10.000€</option>
+                                    <option value="medium">10.000€ - 50.000€</option>
+                                    <option value="large">50.000€ - 100.000€</option>
+                                    <option value="enterprise">> 100.000€</option>
+                                </select>
+                                <label class="input-label">Pressupost aproximat</label>
+                            </div>
+
+                            <div class="input-group">
+                                <textarea 
+                                    class="input-field textarea-field" 
+                                    rows="1" 
+                                    required 
+                                    name="message"
+                                    oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"
+                                ></textarea>
+                                <label class="input-label">Explica'ns el teu projecte *</label>
+                            </div>
+
+                            <div class="form-footer">
+                                <p class="form-privacy">
+                                    En enviar aquest formulari, acceptes la nostra 
+                                    <a href="#">política de privacitat</a>.
+                                </p>
+                                
+                                <button type="submit" class="btn-primary magnetic">
+                                    <span>Enviar Missatge</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20">
+                                        <path d="M10 0L8.59 1.41L16.17 9H0V11H16.17L8.59 18.59L10 20L20 10L10 0Z" fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+
+                        <div class="form-success" style="display: none;">
+                            <div class="success-icon">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="4"/>
+                                    <path d="M20 32L28 40L44 24" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Missatge enviat!</h3>
+                            <p>Gràcies pel teu interès. Ens posarem en contacte aviat.</p>
+                            <button class="btn-secondary" onclick="location.reload()">
+                                Enviar un altre missatge
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header-center fade-up">
+                    <span class="section-label">FAQ</span>
+                    <h2 class="section-title">
+                        Preguntes<br>
+                        <span class="accent">Freqüents</span>
+                    </h2>
+                </div>
+
+                <div class="faq-list">
+                    <div class="faq-item fade-up">
+                        <button class="faq-question">
+                            <span>Quin és el temps mitjà d'un projecte?</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                El temps depèn de la complexitat del projecte. Una web corporativa estàndard 
+                                pren entre 4-6 setmanes. Aplicacions web custom i e-commerce poden prendre 
+                                entre 3-6 mesos. Sempre proporcionem un timeline detallat després de la 
+                                reunió inicial.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-up">
+                        <button class="faq-question">
+                            <span>Com funciona el procés de treball?</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                El nostre procés té 4 fases: 1) Discovery & Strategy - analitzem el teu negoci 
+                                i objectius, 2) Design & Prototype - creem dissenys i prototips interactius, 
+                                3) Development & QA - desenvolupem amb testing exhaustiu, 4) Launch & Growth - 
+                                llancem i t'acompanyem amb suport continu.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-up">
+                        <button class="faq-question">
+                            <span>Oferiu serveis de manteniment?</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Sí, oferim paquets de manteniment i suport post-llançament. Això inclou 
+                                actualitzacions de seguretat, optimitzacions de rendiment, nous features, 
+                                i suport tècnic prioritari. Els paquets són flexibles segons les teves 
+                                necessitats.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-up">
+                        <button class="faq-question">
+                            <span>Quines tecnologies utilitzeu?</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Treballem amb les tecnologies més modernes i provades: React, Next.js, Vue.js 
+                                per frontend; Node.js, Python per backend; Three.js i WebGL per experiències 3D; 
+                                Shopify, WooCommerce per e-commerce; i AWS, Vercel per hosting i infraestructura.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-up">
+                        <button class="faq-question">
+                            <span>Treballeu amb clients internacionals?</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Sí, treballem amb clients de tot el món. Tenim experiència gestionant projectes 
+                                remotament amb comunicació fluida en català, castellà i anglès. Utilitzem eines 
+                                de col·laboració modernes per assegurar una coordinació perfecta independentment 
+                                de la zona horària.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="footer-col">
+                        <a href="index.html" class="footer-logo">
+                            <span class="logo-main">Nuvia</span>
+                            <span class="logo-accent">Dev</span>
+                        </a>
+                        <p class="footer-tagline">
+                            Premium Digital Engineering<br>
+                            Barcelona, Spain
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Dribbble">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.497-1.125-.767-1.68 2.31-1 4.165-2.358 5.548-4.082 1.35 1.594 2.197 3.619 2.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68-1.016-1.861-2.178-3.676-3.488-5.438.779-.197 1.591-.314 2.431-.314 2.275 0 4.368.779 6.043 2.072zm-10.516-.993c1.331 1.742 2.511 3.538 3.537 5.381-2.43.715-5.331 1.082-8.684 1.105.692-2.835 2.601-5.193 5.147-6.486zm-5.44 8.834l.013-.256c3.849-.005 7.169-.448 9.95-1.322.233.475.456.952.67 1.432-3.38 1.057-6.165 3.222-8.337 6.48-1.432-1.719-2.296-3.927-2.296-6.334zm3.829 7.81c1.969-3.088 4.482-5.098 7.598-6.027.928 2.42 1.609 4.91 2.043 7.46-3.349 1.291-7.213.211-9.641-1.433zm11.586.43c-.438-2.353-1.08-4.653-1.92-6.897 1.876-.265 3.94-.196 6.199.196-.437 2.786-2.028 5.192-4.279 6.701z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-title">Navigation</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html#services">Serveis</a></li>
+                            <li><a href="index.html#work">Projectes</a></li>
+                            <li><a href="index.html#about">Agència</a></li>
+                            <li><a href="contact.html">Contacte</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-title">Serveis</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html#services">Desenvolupament Web</a></li>
+                            <li><a href="index.html#services">Experiències 3D</a></li>
+                            <li><a href="index.html#services">Design Systems</a></li>
+                            <li><a href="index.html#services">E-Commerce</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-title">Contacte</h4>
+                        <ul class="footer-links">
+                            <li><a href="mailto:hello@nuvia.dev">hello@nuvia.dev</a></li>
+                            <li><a href="tel:+34932000000">+34 932 00 00 00</a></li>
+                            <li>
+                                Av. Diagonal 123<br>
+                                08019 Barcelona, Spain
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="footer-copy">© 2026 NuviaDev. All rights reserved.</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isOpen = faqItem.classList.contains('active');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked if was closed
+                if (!isOpen) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

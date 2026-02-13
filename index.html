@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NuviaDev | Premium Digital Engineering</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noise-overlay"></div>
+    <div class="grain"></div>
+    
+    <!-- Custom Cursor -->
+    <div id="cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-circle"></div>
+    </div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="counter">0%</div>
+            <div class="loader-line">
+                <div class="loader-progress"></div>
+            </div>
+            <p class="loader-text">Loading Excellence...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-main">Nuvia</span>
+                <span class="logo-accent">Dev</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links desktop-only">
+                    <a href="services.html" data-key="nav_services">Serveis</a>
+                    <a href="#work" data-key="nav_work">Projectes</a>
+                    <a href="#about" data-key="nav_about">Agència</a>
+                    <a href="contact.html" data-key="nav_contact">Contacte</a>
+                </div>
+                <button class="menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Menu -->
+    <div class="fullscreen-menu">
+        <div class="menu-content">
+            <div class="menu-links">
+                <a href="index.html" class="fs-link" data-num="01">
+                    <span data-key="home">Inici</span>
+                </a>
+                <a href="#services" class="fs-link" data-num="02">
+                    <span data-key="services">Serveis</span>
+                </a>
+                <a href="#work" class="fs-link" data-num="03">
+                    <span data-key="work">Projectes</span>
+                </a>
+                <a href="#about" class="fs-link" data-num="04">
+                    <span data-key="about">Agència</span>
+                </a>
+                <a href="contact.html" class="fs-link" data-num="05">
+                    <span data-key="contact">Contacte</span>
+                </a>
+            </div>
+            
+            <div class="menu-footer">
+                <div class="menu-info">
+                    <div class="info-block">
+                        <span class="label">Location</span>
+                        <p>Barcelona, Spain</p>
+                    </div>
+                    <div class="info-block">
+                        <span class="label">Contact</span>
+                        <p>hello@nuvia.dev</p>
+                    </div>
+                </div>
+                <div class="menu-lang">
+                    <button class="lang-btn active" data-lang="cat">CAT</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu-bg"></div>
+    </div>
+
+    <div class="smooth-wrapper">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-label fade-up">
+                        <span class="label-dot"></span>
+                        <span data-key="hero_label">Digital Agency Barcelona</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="line"><span class="word" data-key="hero_1">Premium</span></span>
+                        <span class="line"><span class="word" data-key="hero_2">Digital</span></span>
+                        <span class="line"><span class="word" data-key="hero_3">Engineering</span></span>
+                    </h1>
+                    
+                    <div class="hero-bottom">
+                        <p class="hero-description fade-up" data-key="hero_desc">
+                            Creem experiències digitals que redefineixen el límit entre l'art i la tecnologia. 
+                            Especialistes en desenvolupament web premium i estratègia digital.
+                        </p>
+                        
+                        <div class="hero-cta fade-up">
+                            <a href="contact.html" class="btn-primary magnetic">
+                                <span data-key="cta_start">Començar Projecte</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20">
+                                    <path d="M10 0L8.59 1.41L16.17 9H0V11H16.17L8.59 18.59L10 20L20 10L10 0Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                            <a href="#work" class="btn-secondary magnetic">
+                                <span data-key="cta_work">Veure Treballs</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual -->
+                <div class="hero-visual">
+                    <div class="visual-grid">
+                        <div class="grid-item" style="--delay: 0.1s">
+                            <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?w=800&q=90" alt="Digital Design">
+                        </div>
+                        <div class="grid-item" style="--delay: 0.2s">
+                            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=90" alt="Code">
+                        </div>
+                        <div class="grid-item" style="--delay: 0.3s">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=90" alt="Innovation">
+                        </div>
+                        <div class="grid-item" style="--delay: 0.4s">
+                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&q=90" alt="Technology">
+                        </div>
+                    </div>
+                    <div class="visual-overlay"></div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <span data-key="scroll">Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Stats Marquee -->
+        <div class="marquee-section">
+            <div class="marquee">
+                <div class="track">
+                    <span>150+ Projectes Exitosos</span>
+                    <span class="separator">•</span>
+                    <span>50+ Clients Globals</span>
+                    <span class="separator">•</span>
+                    <span>15 Anys d'Experiència</span>
+                    <span class="separator">•</span>
+                    <span>150+ Projectes Exitosos</span>
+                    <span class="separator">•</span>
+                    <span>50+ Clients Globals</span>
+                    <span class="separator">•</span>
+                    <span>15 Anys d'Experiència</span>
+                    <span class="separator">•</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="header-left fade-up">
+                        <span class="section-label">02 / SERVEIS</span>
+                        <h2 class="section-title" data-key="services_title">
+                            La nostra<br>
+                            <span class="accent">Especialitat</span>
+                        </h2>
+                    </div>
+                    <div class="header-right fade-up">
+                        <p data-key="services_desc">
+                            Oferim solucions digitals d'alt rendiment que combinen disseny excepcional 
+                            amb enginyeria de primer nivell.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="services-grid">
+                    <article class="service-card fade-up" data-service="1">
+                        <div class="service-number">01</div>
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="4" y="4" width="40" height="40" stroke="currentColor" stroke-width="2"/>
+                                <path d="M14 14L34 34M34 14L14 34" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 data-key="service_1_title">Desenvolupament Web</h3>
+                        <p data-key="service_1_desc">
+                            Aplicacions web d'alt rendiment amb React, Next.js i tecnologies cutting-edge. 
+                            Escalables, ràpides i optimitzades per a SEO.
+                        </p>
+                        <ul class="service-features">
+                            <li>React / Next.js / Vue</li>
+                            <li>Progressive Web Apps</li>
+                            <li>Headless CMS Integration</li>
+                            <li>Performance Optimization</li>
+                        </ul>
+                        <div class="service-hover-bg"></div>
+                    </article>
+
+                    <article class="service-card fade-up" data-service="2">
+                        <div class="service-number">02</div>
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                                <path d="M24 4V24L34 34" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 data-key="service_2_title">Experiències 3D</h3>
+                        <p data-key="service_2_desc">
+                            Creació d'experiències immersives amb WebGL, Three.js i Shaders customitzats. 
+                            Renders en temps real optimitzats per a web.
+                        </p>
+                        <ul class="service-features">
+                            <li>Three.js / R3F</li>
+                            <li>Custom GLSL Shaders</li>
+                            <li>Interactive 3D Models</li>
+                            <li>WebGPU Integration</li>
+                        </ul>
+                        <div class="service-hover-bg"></div>
+                    </article>
+
+                    <article class="service-card fade-up" data-service="3">
+                        <div class="service-number">03</div>
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M8 16L24 8L40 16L24 24L8 16Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 24L24 32L40 24M8 32L24 40L40 32" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 data-key="service_3_title">Design Systems</h3>
+                        <p data-key="service_3_desc">
+                            Sistemes de disseny atòmics que escalen des d'MVP fins a aplicacions Enterprise. 
+                            Documentació completa i components reutilitzables.
+                        </p>
+                        <ul class="service-features">
+                            <li>Atomic Design Methodology</li>
+                            <li>Storybook Documentation</li>
+                            <li>Accessibility (WCAG 2.1)</li>
+                            <li>Design Tokens</li>
+                        </ul>
+                        <div class="service-hover-bg"></div>
+                    </article>
+
+                    <article class="service-card fade-up" data-service="4">
+                        <div class="service-number">04</div>
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 20H32M16 28H24" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 data-key="service_4_title">E-Commerce Premium</h3>
+                        <p data-key="service_4_desc">
+                            Botigues online d'alt rendiment amb Shopify Plus, WooCommerce o solucions custom. 
+                            Optimitzades per a conversió i experiència d'usuari.
+                        </p>
+                        <ul class="service-features">
+                            <li>Shopify / Shopify Plus</li>
+                            <li>Headless Commerce</li>
+                            <li>Payment Integration</li>
+                            <li>Conversion Optimization</li>
+                        </ul>
+                        <div class="service-hover-bg"></div>
+                    </article>
+
+                    <article class="service-card fade-up" data-service="5">
+                        <div class="service-number">05</div>
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M24 8L8 24L24 40L40 24L24 8Z" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 data-key="service_5_title">Estratègia Digital</h3>
+                        <p data-key="service_5_desc">
+                            Consultoria estratègica per a la transformació digital del teu negoci. 
+                            SEO, Analytics, Performance Marketing i Growth Hacking.
+                        </p>
+                        <ul class="service-features">
+                            <li>SEO / SEM Strategy</li>
+                            <li>Google Analytics 4</li>
+                            <li>Conversion Rate Optimization</li>
+                            <li>Digital Transformation</li>
+                        </ul>
+                        <div class="service-hover-bg"></div>
+                    </article>
+
+                    <article class="service-card fade-up" data-service="6">
+                        <div class="service-number">06</div>
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="8" y="12" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 24H12M36 24H32" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 data-key="service_6_title">Brand Identity</h3>
+                        <p data-key="service_6_desc">
+                            Construcció de marca des de zero o rebranding. Logo, identitat visual, 
+                            brand guidelines i assets digitals.
+                        </p>
+                        <ul class="service-features">
+                            <li>Logo Design</li>
+                            <li>Visual Identity</li>
+                            <li>Brand Guidelines</li>
+                            <li>Marketing Collateral</li>
+                        </ul>
+                        <div class="service-hover-bg"></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio/Work Section -->
+        <section id="work" class="work-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="header-left fade-up">
+                        <span class="section-label">03 / PORTFOLIO</span>
+                        <h2 class="section-title" data-key="work_title">
+                            Projectes<br>
+                            <span class="accent">Destacats</span>
+                        </h2>
+                    </div>
+                    <div class="header-right fade-up">
+                        <a href="projects.html" class="link-arrow">
+                            <span data-key="view_all">Veure Tots els Projectes</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M10 0L8.59 1.41L16.17 9H0V11H16.17L8.59 18.59L10 20L20 10L10 0Z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-grid">
+                    <!-- Project 1 -->
+                    <article class="work-item fade-up large">
+                        <a href="projects.html" class="work-link">
+                            <div class="work-image">
+                                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?w=1600&q=90" alt="Luxe Estate">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="work-info">
+                                <div class="work-meta">
+                                    <span class="work-category">Web Platform</span>
+                                    <span class="work-year">2025</span>
+                                </div>
+                                <h3 class="work-title">Luxe Estate</h3>
+                                <p class="work-desc">Plataforma immobiliària de luxe amb tours virtuals 3D i sistema de gestió de propietats.</p>
+                                <div class="work-tags">
+                                    <span>React</span>
+                                    <span>Three.js</span>
+                                    <span>Node.js</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="work-item fade-up">
+                        <a href="projects.html" class="work-link">
+                            <div class="work-image">
+                                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&q=90" alt="Neon Future">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="work-info">
+                                <div class="work-meta">
+                                    <span class="work-category">AI Interface</span>
+                                    <span class="work-year">2024</span>
+                                </div>
+                                <h3 class="work-title">Neon Future</h3>
+                                <p class="work-desc">Dashboard d'IA amb visualitzacions de dades en temps real i prediccions intel·ligents.</p>
+                                <div class="work-tags">
+                                    <span>Vue.js</span>
+                                    <span>D3.js</span>
+                                    <span>Python</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="work-item fade-up">
+                        <a href="projects.html" class="work-link">
+                            <div class="work-image">
+                                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1200&q=90" alt="Neon Commerce">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="work-info">
+                                <div class="work-meta">
+                                    <span class="work-category">E-Commerce</span>
+                                    <span class="work-year">2024</span>
+                                </div>
+                                <h3 class="work-title">Neon Commerce</h3>
+                                <p class="work-desc">Botiga online premium amb experiència de compra gamificada i AR try-on.</p>
+                                <div class="work-tags">
+                                    <span>Shopify</span>
+                                    <span>WebAR</span>
+                                    <span>Custom</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Project 4 -->
+                    <article class="work-item fade-up large">
+                        <a href="projects.html" class="work-link">
+                            <div class="work-image">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=90" alt="FinTech Dashboard">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="work-info">
+                                <div class="work-meta">
+                                    <span class="work-category">FinTech</span>
+                                    <span class="work-year">2024</span>
+                                </div>
+                                <h3 class="work-title">FinTech Pro</h3>
+                                <p class="work-desc">Plataforma financera amb analytics avançats, integració bancària i trading en temps real.</p>
+                                <div class="work-tags">
+                                    <span>Next.js</span>
+                                    <span>WebSocket</span>
+                                    <span>AWS</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header-center fade-up">
+                    <span class="section-label">04 / TESTIMONIS</span>
+                    <h2 class="section-title" data-key="testimonials_title">
+                        Què diuen els<br>
+                        <span class="accent">nostres clients</span>
+                    </h2>
+                </div>
+
+                <div class="testimonials-grid">
+                    <article class="testimonial-card fade-up">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            "NuviaDev va transformar completament la nostra presència digital. El seu equip va crear una plataforma web que no només és visualment impressionant, sinó també increïblement funcional i ràpida."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=90" alt="Marc">
+                            </div>
+                            <div class="author-info">
+                                <h4>Marc Soler</h4>
+                                <p>CEO, TechStartup BCN</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card fade-up">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            "Professionals de primer nivell. Van entendre perfectament la nostra visió i la van portar a un nivell que no havíem imaginat. El projecte es va entregar abans del deadline i el suport post-llançament ha estat excel·lent."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=90" alt="Laura">
+                            </div>
+                            <div class="author-info">
+                                <h4>Laura Martínez</h4>
+                                <p>Marketing Director, Luxe Brands</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card fade-up">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">
+                            "La millor agència digital amb la que hem treballat. El seu enfocament en els detalls i la qualitat del codi és extraordinari. Han augmentat les nostres conversions un 240% en només 3 mesos."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=90" alt="David">
+                            </div>
+                            <div class="author-info">
+                                <h4>David García</h4>
+                                <p>Founder, E-Commerce Plus</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About/Process Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-left fade-up">
+                        <span class="section-label">05 / AGÈNCIA</span>
+                        <h2 class="section-title" data-key="about_title">
+                            Enginyeria digital<br>
+                            <span class="accent">amb propòsit</span>
+                        </h2>
+                        <p class="about-text" data-key="about_text">
+                            Som un estudi digital de Barcelona especialitzat en crear experiències digitals excepcionals. 
+                            Des del 2010, hem ajudat a més de 50 empreses globals a transformar les seves idees en productes digitals d'èxit.
+                        </p>
+                        <p class="about-text">
+                            El nostre equip combina dissenyadors visionaris, enginyers de primer nivell i estrategues digitals 
+                            per oferir solucions que no només compleixen expectatives, sinó que les superen.
+                        </p>
+                        
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <h3 class="stat-number">150+</h3>
+                                <p class="stat-label">Projectes Completats</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="stat-number">50+</h3>
+                                <p class="stat-label">Clients Globals</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="stat-number">15</h3>
+                                <p class="stat-label">Anys Experiència</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-right fade-up">
+                        <div class="process-steps">
+                            <div class="step-item">
+                                <div class="step-number">01</div>
+                                <h3 data-key="process_1">Discovery & Strategy</h3>
+                                <p>Analitzem el teu negoci, objectius i audiència per crear una estratègia digital sòlida.</p>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">02</div>
+                                <h3 data-key="process_2">Design & Prototype</h3>
+                                <p>Creem dissenys visuals impactants i prototips interactius per validar la solució.</p>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">03</div>
+                                <h3 data-key="process_3">Development & QA</h3>
+                                <p>Desenvolupem amb les millors pràctiques, testing exhaustiu i optimització de rendiment.</p>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">04</div>
+                                <h3 data-key="process_4">Launch & Growth</h3>
+                                <p>Llancem el producte i t'acompanyem amb suport, manteniment i estratègies de creixement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-card fade-up">
+                    <div class="cta-content">
+                        <h2 class="cta-title" data-key="cta_title">
+                            Tens un projecte<br>
+                            en ment?
+                        </h2>
+                        <p class="cta-text" data-key="cta_text">
+                            Parlem de com podem fer realitat la teva visió digital. 
+                            Contacta'ns per una consulta gratuïta.
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="contact.html" class="btn-primary magnetic">
+                                <span data-key="cta_contact">Contacta'ns Ara</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20">
+                                    <path d="M10 0L8.59 1.41L16.17 9H0V11H16.17L8.59 18.59L10 20L20 10L10 0Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                            <a href="mailto:hello@nuvia.dev" class="btn-link">
+                                <span>hello@nuvia.dev</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cta-visual">
+                        <div class="cta-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="footer-col">
+                        <a href="index.html" class="footer-logo">
+                            <span class="logo-main">Nuvia</span>
+                            <span class="logo-accent">Dev</span>
+                        </a>
+                        <p class="footer-tagline">
+                            Premium Digital Engineering<br>
+                            Barcelona, Spain
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Dribbble">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.497-1.125-.767-1.68 2.31-1 4.165-2.358 5.548-4.082 1.35 1.594 2.197 3.619 2.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68-1.016-1.861-2.178-3.676-3.488-5.438.779-.197 1.591-.314 2.431-.314 2.275 0 4.368.779 6.043 2.072zm-10.516-.993c1.331 1.742 2.511 3.538 3.537 5.381-2.43.715-5.331 1.082-8.684 1.105.692-2.835 2.601-5.193 5.147-6.486zm-5.44 8.834l.013-.256c3.849-.005 7.169-.448 9.95-1.322.233.475.456.952.67 1.432-3.38 1.057-6.165 3.222-8.337 6.48-1.432-1.719-2.296-3.927-2.296-6.334zm3.829 7.81c1.969-3.088 4.482-5.098 7.598-6.027.928 2.42 1.609 4.91 2.043 7.46-3.349 1.291-7.213.211-9.641-1.433zm11.586.43c-.438-2.353-1.08-4.653-1.92-6.897 1.876-.265 3.94-.196 6.199.196-.437 2.786-2.028 5.192-4.279 6.701z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-title">Navigation</h4>
+                        <ul class="footer-links">
+                            <li><a href="#services">Serveis</a></li>
+                            <li><a href="#work">Projectes</a></li>
+                            <li><a href="#about">Agència</a></li>
+                            <li><a href="contact.html">Contacte</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-title">Serveis</h4>
+                        <ul class="footer-links">
+                            <li><a href="#services">Desenvolupament Web</a></li>
+                            <li><a href="#services">Experiències 3D</a></li>
+                            <li><a href="#services">Design Systems</a></li>
+                            <li><a href="#services">E-Commerce</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-title">Contacte</h4>
+                        <ul class="footer-links">
+                            <li>
+                                <a href="mailto:hello@nuvia.dev">hello@nuvia.dev</a>
+                            </li>
+                            <li>
+                                <a href="tel:+34932000000">+34 932 00 00 00</a>
+                            </li>
+                            <li>
+                                Av. Diagonal 123<br>
+                                08019 Barcelona, Spain
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="footer-copy">© 2026 NuviaDev. All rights reserved.</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
